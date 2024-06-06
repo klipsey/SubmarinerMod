@@ -1,7 +1,0 @@
-ManifestFileVersion: 0
-CRC: 2834413098
-AssetBundleManifest:
-  AssetBundleInfos:
-    Info_0:
-      Name: interrogator
-      Dependencies: {}
