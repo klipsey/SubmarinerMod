@@ -688,7 +688,7 @@ ModelImporter:
       takeName: Armature|RunB
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -731,7 +731,7 @@ ModelImporter:
       takeName: Armature|RunF
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -774,7 +774,7 @@ ModelImporter:
       takeName: Armature|RunL
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -817,7 +817,7 @@ ModelImporter:
       takeName: Armature|RunR
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -860,7 +860,7 @@ ModelImporter:
       takeName: Armature|Sprint
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

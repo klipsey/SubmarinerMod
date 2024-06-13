@@ -10,7 +10,6 @@ namespace SubmarinerMod.Interrogator.SkillStates
 {
     public class Swing : BaseMeleeAttack
     {
-        public bool hitSelf = true;
         public override void OnEnter()
         {
             RefreshState();
@@ -21,12 +20,12 @@ namespace SubmarinerMod.Interrogator.SkillStates
             procCoefficient = 1f;
             pushForce = 300f;
             bonusForce = Vector3.zero;
-            baseDuration = 0.625f;
+            baseDuration = 1.2f;
 
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
-            attackStartPercentTime = 0.4f;
-            attackEndPercentTime = 0.6f;
+            attackStartPercentTime = 0.5f;
+            attackEndPercentTime = 0.75f;
 
             //this is the point at which the attack can be interrupted by itself, continuing a combo
             earlyExitPercentTime = 1f;
@@ -54,7 +53,6 @@ namespace SubmarinerMod.Interrogator.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
-            hitSelf = false;
         }
 
         protected override void FireAttack()
@@ -84,31 +82,11 @@ namespace SubmarinerMod.Interrogator.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 2.2f, 0.05f);
+            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.5f, duration * 0.3f);
         }
 
         public override void OnExit()
         {
-            if(hitSelf && !isConvicting)
-            {
-                DamageInfo selfDamage = new DamageInfo();
-                selfDamage.attacker = base.gameObject;
-                selfDamage.inflictor = base.gameObject;
-                selfDamage.damage = this.damageCoefficient * this.damageStat;
-                selfDamage.procCoefficient = 0.5f;
-                selfDamage.crit = RollCrit();
-                selfDamage.damageType = DamageType.NonLethal;
-                selfDamage.AddModdedDamageType(DamageTypes.InterrogatorGuilty);
-                selfDamage.canRejectForce = true;
-                selfDamage.damageColorIndex = DamageColorIndex.SuperBleed;
-                selfDamage.force = Vector3.zero;
-                selfDamage.dotIndex = DotController.DotIndex.None;
-                selfDamage.position = base.transform.position;
-
-                this.healthComponent.TakeDamage(selfDamage);
-
-                Util.PlaySound("sfx_scout_baseball_impact", base.gameObject);
-            }
             base.OnExit();
         }
     }
