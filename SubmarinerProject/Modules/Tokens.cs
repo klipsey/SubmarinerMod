@@ -1,6 +1,6 @@
-﻿using InterrogatorMod.Interrogator.Content;
+﻿using SubmarinerMod.Interrogator.Content;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class Tokens
     {

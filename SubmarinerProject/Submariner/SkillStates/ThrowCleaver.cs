@@ -3,11 +3,11 @@ using RoR2;
 using EntityStates;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
-using InterrogatorMod.Interrogator.Content;
-using InterrogatorMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Components;
 using R2API;
 
-namespace InterrogatorMod.Interrogator.SkillStates
+namespace SubmarinerMod.Interrogator.SkillStates
 {
     public class ThrowCleaver : GenericProjectileBaseState
     {
@@ -67,7 +67,7 @@ namespace InterrogatorMod.Interrogator.SkillStates
         {
             if (base.GetModelAnimator())
             {
-                base.PlayAnimation("Gesture, Override", "SwingCleaver", "Swing.playbackRate", this.duration * 5.5f);
+                base.PlayAnimation("Gesture, Override", "FireHarpoon", "Swing.playbackRate", this.duration * 1.5f);
             }
         }
     }

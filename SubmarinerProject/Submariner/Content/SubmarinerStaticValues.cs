@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using TMPro;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerStaticValues
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerBuffs
     {

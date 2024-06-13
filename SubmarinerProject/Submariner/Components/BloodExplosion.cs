@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using RoR2;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class BloodExplosion : MonoBehaviour
     {

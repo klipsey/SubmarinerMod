@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class Materials
     {

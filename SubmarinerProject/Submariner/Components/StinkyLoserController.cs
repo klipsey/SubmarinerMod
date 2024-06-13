@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using RoR2;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 using UnityEngine.Networking;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class StinkyLoserController : MonoBehaviour
     {

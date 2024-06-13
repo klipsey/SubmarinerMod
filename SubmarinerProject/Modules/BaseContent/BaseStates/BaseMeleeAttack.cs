@@ -3,14 +3,14 @@ using R2API;
 using RoR2;
 using RoR2.Audio;
 using RoR2.Skills;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using static R2API.DamageAPI;
 
-namespace InterrogatorMod.Modules.BaseStates
+namespace SubmarinerMod.Modules.BaseStates
 {
     public abstract class BaseMeleeAttack : BaseInterrogatorSkillState, SteppedSkillDef.IStepSetter
     {

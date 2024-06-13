@@ -1,7 +1,7 @@
 ﻿using RoR2;
 using RoR2.Achievements;
 
-namespace InterrogatorMod.Modules.Achievements
+namespace SubmarinerMod.Modules.Achievements
 {
     public abstract class BaseMasteryAchievement : BaseAchievement
     {

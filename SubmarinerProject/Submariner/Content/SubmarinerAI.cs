@@ -2,7 +2,7 @@
 using RoR2.CharacterAI;
 using UnityEngine;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerAI
     {

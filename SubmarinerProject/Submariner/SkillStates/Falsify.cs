@@ -1,15 +1,15 @@
-﻿using InterrogatorMod.Modules.BaseStates;
+﻿using SubmarinerMod.Modules.BaseStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
 using UnityEngine;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 using R2API;
 using EntityStates;
 
-namespace InterrogatorMod.Interrogator.SkillStates
+namespace SubmarinerMod.Interrogator.SkillStates
 {
     public class Falsify : BaseInterrogatorSkillState
     {
@@ -81,7 +81,7 @@ namespace InterrogatorMod.Interrogator.SkillStates
                 hurtboxGroup = modelTransform.GetComponent<HurtBoxGroup>();
             }
             SmallHop(base.characterMotor, smallHopVelocity);
-            PlayAnimation("FullBody, Override", "Dash", "Dash.playbackRate", (dashDuration + dashDelay) * 1.5f);
+            PlayCrossfade("FullBody, Override", "HarpoonPullStart", "Dash.playbackRate", (dashDelay) * 1.5f, 0.05f);
             dashVector = base.inputBank.aimDirection;
             overlapAttack = InitMeleeOverlap(damageCoefficient, hitEffectPrefab, modelTransform, "MeleeHitbox");
             overlapAttack.damageType = DamageType.Stun1s;
@@ -137,6 +137,7 @@ namespace InterrogatorMod.Interrogator.SkillStates
                         if (!hasHit)
                         {
                             hasHit = true;
+                            PlayCrossfade("FullBody, Override", "BackFlip", "Dash.playbackRate", (dashDuration + dashDelay) * 1.5f, 0.05f);
                         }
                         inHitPause = true;
                         hitPauseTimer = hitPauseDuration / attackSpeedStat;

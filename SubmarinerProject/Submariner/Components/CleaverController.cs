@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
 using R2API;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     [RequireComponent(typeof(ProjectileDamage))]
     [RequireComponent(typeof(ProjectileController))]

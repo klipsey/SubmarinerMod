@@ -1,7 +1,7 @@
-﻿using InterrogatorMod.Modules.BaseStates;
-using InterrogatorMod.Interrogator.SkillStates;
+﻿using SubmarinerMod.Modules.BaseStates;
+using SubmarinerMod.Interrogator.SkillStates;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerStates
     {

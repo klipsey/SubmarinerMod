@@ -1,9 +1,9 @@
 ﻿using RoR2;
 using UnityEngine;
-using InterrogatorMod.Interrogator;
-using InterrogatorMod.Interrogator.Achievements;
+using SubmarinerMod.Interrogator;
+using SubmarinerMod.Interrogator.Achievements;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerUnlockables
     {

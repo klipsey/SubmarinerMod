@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using EntityStates;
-using InterrogatorMod.Modules.BaseStates;
+using SubmarinerMod.Modules.BaseStates;
 using RoR2;
 using UnityEngine.AddressableAssets;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 using UnityEngine.Networking;
-using InterrogatorMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Components;
 using static RoR2.OverlapAttack;
 
-namespace InterrogatorMod.Interrogator.SkillStates
+namespace SubmarinerMod.Interrogator.SkillStates
 {
     public class Convict : BaseInterrogatorSkillState
     {
@@ -43,7 +43,7 @@ namespace InterrogatorMod.Interrogator.SkillStates
                             aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
                         }
                         StartAimMode(duration);
-                        PlayAnimation("Gesture, Override", "Point", "Swing.playbackRate", duration * 1.5f);
+                        PlayAnimation("Gesture, Override", "ThrowAnchor", "Swing.playbackRate", duration * 1.5f);
                         EffectManager.SpawnEffect(markedPrefab, new EffectData
                         {
                             origin = victimBody.corePosition,

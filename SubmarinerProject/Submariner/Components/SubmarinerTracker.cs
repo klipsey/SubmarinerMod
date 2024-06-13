@@ -2,10 +2,10 @@
 using UnityEngine;
 using RoR2;
 using UnityEngine.Networking;
-using InterrogatorMod.Interrogator;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator;
+using SubmarinerMod.Interrogator.Content;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 
 {
     [RequireComponent(typeof(TeamComponent))]

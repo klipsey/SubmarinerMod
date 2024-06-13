@@ -1,6 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
-using InterrogatorMod.Modules;
+using SubmarinerMod.Modules;
 using RoR2.Projectile;
 using RoR2.UI;
 using UnityEngine.UI;
@@ -9,9 +9,9 @@ using UnityEngine.Networking;
 using R2API;
 using UnityEngine.Rendering.PostProcessing;
 using ThreeEyedGames;
-using InterrogatorMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Components;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerAssets
     {
@@ -20,8 +20,7 @@ namespace InterrogatorMod.Interrogator.Content
 
         //Materials
         internal static Material commandoMat;
-        internal static Material swordMat;
-        internal static Material batMat;
+        internal static Material anchorMat;
 
         //Shader
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
@@ -44,8 +43,6 @@ namespace InterrogatorMod.Interrogator.Content
         internal static GameObject interrogatorConvictedConsume;
 
         //Models
-        internal static Mesh swordMesh;
-        internal static Mesh batMesh;
         //Projectiles
         internal static GameObject cleaverPrefab;
         //Sounds
@@ -90,14 +87,11 @@ namespace InterrogatorMod.Interrogator.Content
 
         private static void CreateMaterials()
         {
-            swordMat = mainAssetBundle.LoadAsset<Material>("matSword");
-            batMat = mainAssetBundle.LoadAsset<Material>("matInterrogator");
+            anchorMat = mainAssetBundle.LoadAsset<Material>("matSubmariner");
         }
 
         private static void CreateModels()
         {
-            swordMesh = mainAssetBundle.LoadAsset<Mesh>("meshSword");
-            batMesh = mainAssetBundle.LoadAsset<Mesh>("meshBat");
         }
         #region effects
         private static void CreateEffects()
@@ -176,7 +170,7 @@ namespace InterrogatorMod.Interrogator.Content
             bloodSplatterEffect.transform.GetChild(14).gameObject.SetActive(false);
             bloodSplatterEffect.transform.GetChild(15).gameObject.SetActive(false);
             bloodSplatterEffect.transform.localScale = Vector3.one;
-            InterrogatorMod.Modules.Content.CreateAndAddEffectDef(bloodSplatterEffect);
+            SubmarinerMod.Modules.Content.CreateAndAddEffectDef(bloodSplatterEffect);
 
             interrogatorConvicted = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/SlowOnHit/SlowDownTime.prefab").WaitForCompletion().InstantiateClone("Convicted", true);
             interrogatorConvicted.AddComponent<NetworkIdentity>();
@@ -231,11 +225,6 @@ namespace InterrogatorMod.Interrogator.Content
             trail.startColor = Color.white;
             trail.endColor = Color.gray;
             trail.alignment = LineAlignment.TransformZ;
-
-            cleaverPrefab.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshFilter>().mesh = mainAssetBundle.LoadAsset<GameObject>("interrogatorCleaver").GetComponent<MeshFilter>().mesh;
-            cleaverPrefab.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).localRotation = new Quaternion(90f, 0f, 90f, Quaternion.identity.w);
-            cleaverPrefab.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).localScale = Vector3.one * 0.015f;
-            cleaverPrefab.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = batMat;
 
             cleaverPrefab.AddComponent<CleaverController>();
 
@@ -302,7 +291,7 @@ namespace InterrogatorMod.Interrogator.Content
             };
             PSCFED.effectComponent = newEffect.GetComponent<EffectComponent>();
 
-            InterrogatorMod.Modules.Content.CreateAndAddEffectDef(newEffect);
+            SubmarinerMod.Modules.Content.CreateAndAddEffectDef(newEffect);
 
             return newEffect;
         }

@@ -9,7 +9,7 @@ using RoR2.UI;
 using RoR2.Projectile;
 using Path = System.IO.Path;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class Assets
     {

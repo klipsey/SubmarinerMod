@@ -3,7 +3,7 @@ using UnityEngine;
 using RoR2.Skills;
 using RoR2;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class SubmarinerSkillDef : SkillDef
     {

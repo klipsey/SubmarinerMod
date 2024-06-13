@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace InterrogatorMod.Modules {
+namespace SubmarinerMod.Modules {
     internal static class Language
     {
         public static string TokensOutput = "";

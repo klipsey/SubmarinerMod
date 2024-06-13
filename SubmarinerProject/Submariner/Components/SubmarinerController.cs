@@ -6,10 +6,10 @@ using RoR2.HudOverlay;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 using System;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class SubmarinerController : MonoBehaviour
     {
@@ -66,11 +66,6 @@ namespace InterrogatorMod.Interrogator.Components
         {
             if (this.skinController)
             {
-                this.swordEffect = this.childLocator.FindChild("SpecialEffectHand").gameObject.GetComponent<ParticleSystem>();
-                this.swordMat = new Material[1];
-                this.batMat = new Material[1];
-                this.swordMat[0] = SubmarinerAssets.swordMat;
-                this.batMat[0] = SubmarinerAssets.batMat;
             }
         }
         private bool FriendlyFireManager_ShouldSeekingProceed(On.RoR2.FriendlyFireManager.orig_ShouldSeekingProceed orig, HealthComponent victim, TeamIndex attackerTeamIndex)
@@ -115,15 +110,6 @@ namespace InterrogatorMod.Interrogator.Components
                 hasPlayed = true;
                 DisableSword();
             }
-
-            if(skillLocator.secondary.CanExecute() && !childLocator.FindChild("CleaverModel").gameObject.activeSelf)
-            {
-                childLocator.FindChild("CleaverModel").gameObject.SetActive(true);
-            }
-            else if(!skillLocator.secondary.CanExecute() && childLocator.FindChild("CleaverModel").gameObject.activeSelf)
-            {
-                childLocator.FindChild("CleaverModel").gameObject.SetActive(false);
-            }
         }
 
         public void AddToCounter()
@@ -132,12 +118,12 @@ namespace InterrogatorMod.Interrogator.Components
         }
         public void EnableSword()
         {
-            this.childLocator.FindChild("MeleeModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.swordMesh;
+            //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.swordMesh;
             hasPlayed = false;
         }
         public void DisableSword() 
         {
-            this.childLocator.FindChild("MeleeModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.batMesh;
+            //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.batMesh;
 
             if (NetworkServer.active)
             {

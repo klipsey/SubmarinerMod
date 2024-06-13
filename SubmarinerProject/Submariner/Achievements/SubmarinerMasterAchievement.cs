@@ -1,8 +1,8 @@
 ﻿using RoR2;
-using InterrogatorMod.Modules.Achievements;
-using InterrogatorMod.Interrogator;
+using SubmarinerMod.Modules.Achievements;
+using SubmarinerMod.Interrogator;
 
-namespace InterrogatorMod.Interrogator.Achievements
+namespace SubmarinerMod.Interrogator.Achievements
 {
     //automatically creates language tokens "ACHIEVMENT_{identifier.ToUpper()}_NAME" and "ACHIEVMENT_{identifier.ToUpper()}_DESCRIPTION" 
     [RegisterAchievement(identifier, unlockableIdentifier, null, null)]

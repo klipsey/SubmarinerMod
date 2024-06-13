@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class SoundBanks
     {

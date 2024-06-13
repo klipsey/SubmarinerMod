@@ -2,7 +2,7 @@
 using RoR2.Skills;
 using UnityEngine;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class SubmarinerPassive : MonoBehaviour
     {

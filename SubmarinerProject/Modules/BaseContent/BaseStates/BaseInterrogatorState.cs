@@ -1,13 +1,13 @@
 ﻿using EntityStates;
 using RoR2;
-using InterrogatorMod.Interrogator.Components;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
 
-namespace InterrogatorMod.Modules.BaseStates
+namespace SubmarinerMod.Modules.BaseStates
 {
     public abstract class BaseInterrogatorState : BaseState
     {

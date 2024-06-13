@@ -1,5 +1,5 @@
-﻿using InterrogatorMod.Modules;
-using InterrogatorMod.Modules.Characters;
+﻿using SubmarinerMod.Modules;
+using SubmarinerMod.Modules.Characters;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine;
                     {localScale})
 */
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public class SubmarinerItemDisplays : ItemDisplaysBase
     {

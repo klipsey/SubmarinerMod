@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
-using InterrogatorMod.Modules;
-using InterrogatorMod.Modules.Characters;
+using SubmarinerMod.Modules;
+using SubmarinerMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
 using System;
@@ -13,24 +13,24 @@ using R2API.Networking;
 using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
-using InterrogatorMod.Interrogator.Components;
-using InterrogatorMod.Interrogator.Content;
-using InterrogatorMod.Interrogator.SkillStates;
+using SubmarinerMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.SkillStates;
 using HG;
 using EntityStates;
 using R2API.Networking.Interfaces;
 using EmotesAPI;
 using System.Runtime.CompilerServices;
 
-namespace InterrogatorMod.Interrogator
+namespace SubmarinerMod.Interrogator
 {
     public class SubmarinerSurvivor : SurvivorBase<SubmarinerSurvivor>
     {
-        public override string assetBundleName => "interrogator";
-        public override string bodyName => "InterrogatorBody";
-        public override string masterName => "InterrogatorMonsterMaster";
-        public override string modelPrefabName => "mdlInterrogator";
-        public override string displayPrefabName => "InterrogatorDisplay";
+        public override string assetBundleName => "submariner";
+        public override string bodyName => "SubmarinerBody";
+        public override string masterName => "SubmarinerMonsterMaster";
+        public override string modelPrefabName => "mdlSubmariner";
+        public override string displayPrefabName => "SubmarinerDisplay";
 
         public const string INTERROGATOR_PREFIX = SubmarinerPlugin.DEVELOPER_PREFIX + "_INTERROGATOR_";
         public override string survivorTokenPrefix => INTERROGATOR_PREFIX;
@@ -74,22 +74,37 @@ namespace InterrogatorMod.Interrogator
                 },
                 new CustomRendererInfo
                 {
-                    childName = "MeleeModel",
+                    childName = "AnchorModel",
                     dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
-                    childName = "CleaverModel",
+                    childName = "GearModel",
                     dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
-                    childName = "JacketModel",
+                    childName = "BeastModel",
                     dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "VisorModel",
+                    dontHotpoo = true,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "HarpoonModel",
+                    dontHotpoo = true,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "HeadModel",
+                    dontHotpoo = true,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RopeModel",
                     dontHotpoo = true,
                 },
         };
@@ -417,11 +432,14 @@ namespace InterrogatorMod.Interrogator
             //currently not needed as with only 1 skin they will simply take the default meshes
             //uncomment this when you have another skin
             defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
-                "meshInterrogator",
-                "meshBat",
-                "meshCleaver",
-                "meshJacket",
-                "meshVisor");
+                "meshSubmariner",
+                "meshAnchor",
+                "meshGear",
+                "meshBeast",
+                "meshVisor",
+                "meshHarpoon",
+                "meshHead",
+                "meshRope");
 
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             /*
@@ -516,7 +534,7 @@ namespace InterrogatorMod.Interrogator
             On.RoR2.SurvivorCatalog.Init += (orig) =>
             {
                 orig();
-                var skele = SubmarinerAssets.mainAssetBundle.LoadAsset<GameObject>("interrogator_emoteskeleton");
+                var skele = SubmarinerAssets.mainAssetBundle.LoadAsset<GameObject>("submariner_emoteskeleton");
                 CustomEmotesAPI.ImportArmature(SubmarinerSurvivor.characterPrefab, skele);
             };
         }
@@ -526,7 +544,7 @@ namespace InterrogatorMod.Interrogator
         {
             orig(self);
 
-            if (self.currentDisplayData.bodyIndex == BodyCatalog.FindBodyIndex("InterrogatorBody"))
+            if (self.currentDisplayData.bodyIndex == BodyCatalog.FindBodyIndex("SubmarinerBody"))
             {
                 foreach (LanguageTextMeshController i in self.gameObject.GetComponentsInChildren<LanguageTextMeshController>())
                 {

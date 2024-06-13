@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using EntityStates;
 using RoR2.WwiseUtils;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Interrogator.Content;
 
-namespace InterrogatorMod.Modules.Characters
+namespace SubmarinerMod.Modules.Characters
 {
     public abstract class CharacterBase<T> where T : CharacterBase<T>, new()
     {

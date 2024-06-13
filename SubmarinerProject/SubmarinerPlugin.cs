@@ -1,7 +1,7 @@
 ﻿using BepInEx;
 using R2API.Utils;
-using InterrogatorMod.Modules;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Modules;
+using SubmarinerMod.Interrogator.Content;
 using RoR2;
 using System.Collections.Generic;
 using System.Security;
@@ -13,7 +13,7 @@ using ShaderSwapper;
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
 //rename this namespace
-namespace InterrogatorMod
+namespace SubmarinerMod
 {
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
@@ -25,8 +25,8 @@ namespace InterrogatorMod
         // if you do not change this, you are giving permission to deprecate the mod-
         //  please change the names to your own stuff, thanks
         //   this shouldn't even have to be said
-        public const string MODUID = "com.kenko.Interrogator";
-        public const string MODNAME = "Interrogator";
+        public const string MODUID = "com.kenko.Submariner";
+        public const string MODNAME = "Submariner";
         public const string MODVERSION = "1.0.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
@@ -50,10 +50,10 @@ namespace InterrogatorMod
             Modules.Language.Init();
 
             // character initialization
-            SubmarinerAssets.Init(Assets.LoadAssetBundle("interrogator"));
+            SubmarinerAssets.Init(Assets.LoadAssetBundle("submariner"));
             StartCoroutine(SubmarinerAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
-            new InterrogatorMod.Interrogator.SubmarinerSurvivor().Initialize();
+            new SubmarinerMod.Interrogator.SubmarinerSurvivor().Initialize();
 
             // make a content pack and add it. this has to be last
             new Modules.ContentPacks().Initialize();

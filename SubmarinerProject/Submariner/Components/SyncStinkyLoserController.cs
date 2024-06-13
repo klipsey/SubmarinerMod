@@ -4,7 +4,7 @@ using R2API.Networking.Interfaces;
 using UnityEngine;
 using RoR2;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Interrogator.Components
 {
     public class SyncStinkyLoserController : INetMessage
     {

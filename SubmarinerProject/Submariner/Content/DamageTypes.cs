@@ -3,8 +3,8 @@ using Newtonsoft.Json.Linq;
 using R2API;
 using RoR2;
 using RoR2.Projectile;
-using InterrogatorMod.Modules;
-using InterrogatorMod.Interrogator.Components;
+using SubmarinerMod.Modules;
+using SubmarinerMod.Interrogator.Components;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -13,7 +13,7 @@ using UnityEngine.Networking;
 using UnityEngine.UIElements;
 using static RoR2.DotController;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class DamageTypes
     {

@@ -2,7 +2,7 @@
 using System.Security;
 using System.Security.Permissions;
 
-namespace InterrogatorMod
+namespace SubmarinerMod
 {
     internal static class Log
     {

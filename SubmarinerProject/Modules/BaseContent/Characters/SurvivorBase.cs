@@ -3,10 +3,10 @@ using RoR2;
 using UnityEngine;
 using System.Collections.Generic;
 using RoR2.Skills;
-using InterrogatorMod.Modules.Characters;
-using InterrogatorMod.Modules;
+using SubmarinerMod.Modules.Characters;
+using SubmarinerMod.Modules;
 
-namespace InterrogatorMod.Modules.Characters
+namespace SubmarinerMod.Modules.Characters
 {
     public abstract class SurvivorBase<T> : CharacterBase<T> where T : SurvivorBase<T>, new()
     {

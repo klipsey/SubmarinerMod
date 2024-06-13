@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using BepInEx.Configuration;
 using UnityEngine;
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     public static class Config
     {

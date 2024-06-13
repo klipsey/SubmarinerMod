@@ -2,9 +2,9 @@
 using RoR2;
 using EntityStates;
 using BepInEx.Configuration;
-using InterrogatorMod.Modules;
+using SubmarinerMod.Modules;
 
-namespace InterrogatorMod.Interrogator.SkillStates
+namespace SubmarinerMod.Interrogator.SkillStates
 {
     public class MainState : GenericCharacterMain
     {

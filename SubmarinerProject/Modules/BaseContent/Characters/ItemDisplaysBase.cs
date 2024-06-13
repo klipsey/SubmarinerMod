@@ -1,8 +1,8 @@
 ﻿using RoR2;
-using InterrogatorMod.Modules;
+using SubmarinerMod.Modules;
 using System.Collections.Generic;
 
-namespace InterrogatorMod.Modules.Characters
+namespace SubmarinerMod.Modules.Characters
 {
     public abstract class ItemDisplaysBase
     {

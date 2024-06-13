@@ -9,7 +9,7 @@ internal enum InterrogatorCameraParams
     EMOTE
 }
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class CameraParams
     {

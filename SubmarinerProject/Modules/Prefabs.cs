@@ -2,16 +2,16 @@
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
-using InterrogatorMod.Modules.Characters;
+using SubmarinerMod.Modules.Characters;
 using RoR2.CharacterAI;
 using static RoR2.CharacterAI.AISkillDriver;
 using RoR2.Skills;
 using System;
 using System.Linq;
-using InterrogatorMod.Modules;
-using InterrogatorMod.Modules;
+using SubmarinerMod.Modules;
+using SubmarinerMod.Modules;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     // module for creating body prefabs and whatnot
     // recommended to simply avoid touching this unless you REALLY need to

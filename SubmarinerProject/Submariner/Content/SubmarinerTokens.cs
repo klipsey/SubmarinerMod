@@ -1,10 +1,10 @@
 ﻿using System;
-using InterrogatorMod.Modules;
-using InterrogatorMod.Interrogator;
-using InterrogatorMod.Interrogator.Achievements;
+using SubmarinerMod.Modules;
+using SubmarinerMod.Interrogator;
+using SubmarinerMod.Interrogator.Achievements;
 using UnityEngine.UIElements;
 
-namespace InterrogatorMod.Interrogator.Content
+namespace SubmarinerMod.Interrogator.Content
 {
     public static class SubmarinerTokens
     {

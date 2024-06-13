@@ -5,9 +5,9 @@ using System;
 using R2API;
 using System.Collections.Generic;
 using UnityEngine;
-using InterrogatorMod.Interrogator.Components;
+using SubmarinerMod.Interrogator.Components;
 
-namespace InterrogatorMod.Modules
+namespace SubmarinerMod.Modules
 {
     internal static class Skills
     {
@@ -74,7 +74,7 @@ namespace InterrogatorMod.Modules
 
             skill._skillFamily = newFamily;
 
-            InterrogatorMod.Modules.Content.AddSkillFamily(newFamily);
+            SubmarinerMod.Modules.Content.AddSkillFamily(newFamily);
             return skill;
         }
         #endregion
@@ -184,7 +184,7 @@ namespace InterrogatorMod.Modules
 
             skillDef.keywordTokens = skillDefInfo.keywordTokens;
 
-            InterrogatorMod.Modules.Content.AddSkillDef(skillDef);
+            SubmarinerMod.Modules.Content.AddSkillDef(skillDef);
 
 
             return skillDef;
@@ -227,7 +227,7 @@ namespace InterrogatorMod.Modules
 
             reloadSkillDef.keywordTokens = skillDefInfo.keywordTokens;
 
-            InterrogatorMod.Modules.Content.AddSkillDef(reloadSkillDef);
+            SubmarinerMod.Modules.Content.AddSkillDef(reloadSkillDef);
 
 
             return reloadSkillDef;
