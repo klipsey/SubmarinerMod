@@ -49,13 +49,11 @@ namespace SubmarinerMod.Submariner.SkillStates
 
                 if(this.animator.GetCurrentStateName(this.animator.GetLayerIndex("Body")) == "RestIdle")
                 {
-                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimPitch"), 0f);
-                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimYaw"), 0f);
+                    aimAnimator.enabled = false;
                 }
                 else
                 {
-                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimPitch"), 1f);
-                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimYaw"), 1f);
+                    aimAnimator.enabled = true;
                 }
             }
         }

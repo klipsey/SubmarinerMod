@@ -51,17 +51,7 @@ namespace SubmarinerMod.Submariner.Content
                     {
                         if(victimBody && attackerBody)
                         {
-                            float regen = Mathf.Clamp(victimBody.healthComponent.health * 0.025f, 0.01f, attackerBody.healthComponent.health * 0.5f);
-                            if(attackerBody.TryGetComponent<SubmarinerController>(out var s))
-                            {
-                                s.SetCurrentMaxRegen(regen);
-                                attackerBody.AddTimedBuff(SubmarinerBuffs.SubmarinerRegenBuff, 2.5f);
-                                if (attackerBody.GetBuffCount(SubmarinerBuffs.SubmarinerRegenBuff) > 1)
-                                {
-                                    attackerBody.RemoveOldestTimedBuff(SubmarinerBuffs.SubmarinerRegenBuff);
-                                }
-                                Log.Debug("ok");
-                            }
+                            attackerBody.AddTimedBuff(SubmarinerBuffs.SubmarinerRegenBuff, 2.5f);
                         }
                     }
                 }

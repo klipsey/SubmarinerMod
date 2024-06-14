@@ -211,7 +211,7 @@ namespace SubmarinerMod.Submariner.Content
             harpoon.moveAcceleration = 0f;
             harpoon.muzzleStringOnBody = "HandL";
             harpoon.minHookDistancePitchModifier = 0f;
-            harpoon.maxHookDistancePitchModifier = 120f;
+            harpoon.maxHookDistancePitchModifier = 60f;
             harpoon.nearBreakDistance = 0f;
 
             hookPrefab.transform.Find("FistMesh").gameObject.GetComponent<MeshRenderer>().materials = new Material[1];

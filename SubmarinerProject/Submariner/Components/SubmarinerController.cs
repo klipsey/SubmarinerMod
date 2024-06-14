@@ -26,8 +26,6 @@ namespace SubmarinerMod.Submariner.Components
 
         public CharacterBody convictedVictimBody;
 
-        public float maxRegen = 0f;
-
         public bool pauseTimer = false;
 
         private ParticleSystem swordEffect;
@@ -59,20 +57,10 @@ namespace SubmarinerMod.Submariner.Components
             }
         }
 
-        public void SetCurrentMaxRegen(float regen)
-        {
-            if(regen > maxRegen)
-            {
-                maxRegen = regen;
-            }
-        }
         #endregion
         private void FixedUpdate()
         {
-            if(!characterBody.HasBuff(SubmarinerBuffs.SubmarinerRegenBuff))
-            {
-                maxRegen = 0f;
-            }    
+
         }
 
         public void EnableSword()

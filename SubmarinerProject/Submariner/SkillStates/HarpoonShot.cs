@@ -11,6 +11,7 @@ using EntityStates;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
 using SubmarinerMod.Submariner.Components;
+using MonoMod.RuntimeDetour;
 
 namespace SubmarinerMod.Submariner.SkillStates
 {
@@ -27,7 +28,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public static float dashDuration = 0.5f;
 
-        public static float pushAwayForce = 20f;
+        public static float pushAwayForce = 10f;
         public static float pushAwayYFactor = 1.5f;
 
         public static float speedCoefficient = 5f;
@@ -67,6 +68,7 @@ namespace SubmarinerMod.Submariner.SkillStates
         {
             RefreshState();
             base.OnEnter();
+            StartAimMode(0.5f + baseDuration, false);
 
             dashVector = base.GetAimRay().direction;
 
@@ -82,6 +84,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             attack.damage = damageCoefficient * damageStat;
             attack.hitBoxGroup = FindHitBoxGroup("HarpoonKickHitbox");
             attack.hitEffectPrefab = SubmarinerAssets.batHitEffect;
+            attack.AddModdedDamageType(DamageTypes.SubmarinerRegeneration);
 
             FireProjectile();
             Util.PlaySound("Play_loader_m2_launch", base.gameObject);
@@ -106,39 +109,48 @@ namespace SubmarinerMod.Submariner.SkillStates
         {
             base.FixedUpdate();
 
+            StartAimMode(2f, false);
+
             if (base.isAuthority)
             {
                 if (this.hookStickOnImpact)
                 {
-                    if (this.hookStickOnImpact.stuck && !this.isStuck)
+                    if (this.hookStickOnImpact.stuckBody)
                     {
-                        if (NetworkServer.active)
+                        Rigidbody component = hookStickOnImpact.stuckBody.GetComponent<Rigidbody>();
+                        if ((bool)component && component.mass >= hookInstance.GetComponent<ProjectileGrappleController>().yankMassLimit)
                         {
-                            characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+                            if (this.hookStickOnImpact.stuck && !this.isStuck)
+                            {
+                                if (NetworkServer.active)
+                                {
+                                    characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+                                }
+                                PlayAnimation("FullBody, Override", "HarpoonPullStart", "Dash.playbackRate", dashDuration);
+                                base.characterMotor.velocity.y = 0f;
+                                base.characterMotor.velocity += dashVector * (5f * 10.5f);
+                            }
+                            this.isStuck = this.hookStickOnImpact.stuck;
+                            if (attack.Fire(victimsStruck))
+                            {
+                                PlayAnimation("FullBody, Override", "HarpoonEndToKick", "Dash.playbackRate", dashDuration);
+                                base.characterDirection.forward = dashVector;
+                                base.characterBody.isSprinting = true;
+
+                                hasHit = true;
+                                base.characterMotor.Motor.ForceUnground();
+                                Vector3 knockback = -base.characterDirection.forward;
+                                knockback.y = pushAwayYFactor;
+                                base.characterMotor.velocity = knockback * pushAwayForce;
+
+                                Bounce nextState = new Bounce()
+                                {
+                                    faceDirection = -knockback
+                                };
+                                EntityState.Destroy(hookInstance);
+                                EntityStateMachine.FindByCustomName(gameObject, "Hook").SetInterruptState(nextState, InterruptPriority.Skill);
+                            }
                         }
-                        PlayAnimation("FullBody, Override", "HarpoonPullStart", "Dash.playbackRate", baseDuration);
-                        base.characterMotor.velocity.y = 0f;
-                        base.characterMotor.velocity += dashVector * (11f * moveSpeedStat);
-                    }
-                    this.isStuck = this.hookStickOnImpact.stuck;
-
-                    if(attack.Fire(victimsStruck))
-                    {
-                        PlayAnimation("FullBody, Override", "HarpoonEndToKick", "Dash.playbackRate", dashDuration);
-                        base.characterDirection.forward = dashVector;
-                        base.characterBody.isSprinting = true;
-
-                        hasHit = true;
-                        base.characterMotor.Motor.ForceUnground();
-                        Vector3 knockback = -base.characterDirection.forward;
-                        knockback.y = pushAwayYFactor;
-                        base.characterMotor.velocity = knockback * pushAwayForce;
-
-                        CometBounce nextState = new CometBounce()
-                        {
-                            faceDirection = -knockback
-                        };
-                        EntityStateMachine.FindByCustomName(gameObject, "Hook").SetInterruptState(nextState, InterruptPriority.Skill);
                     }
                 }
 

@@ -168,6 +168,7 @@ namespace SubmarinerMod.Submariner
         private void AdditionalBodySetup()
         {
             AddHitboxes();
+            bodyPrefab.AddComponent<SubmarinerController>();
         }
         public void AddHitboxes()
         {
@@ -560,7 +561,7 @@ namespace SubmarinerMod.Submariner
                     {
                         if (self.HasBuff(SubmarinerBuffs.SubmarinerRegenBuff))
                         {
-                            self.regen += sController.maxRegen;
+                            self.regen *= 1.1f * self.GetBuffCount(SubmarinerBuffs.SubmarinerRegenBuff);
                         }
                     }
                 }

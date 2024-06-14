@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using RoR2;
 using EntityStates;
-using EntityStates.Loader;
-using UnityEngine.Networking;
+using SubmarinerMod.Submariner.Content;
 using SubmarinerMod.Modules.BaseStates;
 
 namespace SubmarinerMod.Submariner.SkillStates
 {
-    internal class CometBounce : BaseSubmarinerSkillState
+    internal class Bounce : BaseSubmarinerSkillState
     {
         public static float baseDuration = 1f;
 
@@ -37,6 +36,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public override void OnExit()
         {
+            base.characterBody.isSprinting = false;
             base.OnExit();
         }
 
