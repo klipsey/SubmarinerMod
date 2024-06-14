@@ -314,7 +314,7 @@ namespace SubmarinerMod.Submariner.Content
             meshR2.materials[0] = anchorMat;
             meshR2.material = anchorMat;
 
-            Component.DestroyImmediate(ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.GetComponent<SkinnedMeshRenderer>());
+            Component.DestroyImmediate(ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.GetComponent<SkinnedMeshRenderer>());
             ghost.transform.Find("mdlEngiMine").Find("EngiMineArmature").gameObject.SetActive(false);
 
             UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(0).gameObject);

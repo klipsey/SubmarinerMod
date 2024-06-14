@@ -44,7 +44,7 @@ namespace SubmarinerMod.Submariner.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if(Vector3.Distance(owner.transform.position, base.transform.position) > 50f)
+            if(Vector3.Distance(owner.transform.position, base.transform.position) > 200f)
             {
                 ownerIsInRange = false;
             }
