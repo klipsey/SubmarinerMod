@@ -30,7 +30,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             //this is the point at which the attack can be interrupted by itself, continuing a combo
             earlyExitPercentTime = 1f;
 
-            hitStopDuration = 0.2f;
+            hitStopDuration = 0.15f;
             attackRecoil = 0.75f;
             hitHopVelocity = 6f;
 

@@ -203,7 +203,6 @@ namespace SubmarinerMod.Submariner
             AddSecondarySkills();
             AddUtilitySkills();
             AddSpecialSkills();
-            if (SubmarinerPlugin.scepterInstalled) InitializeScepter();
         }
 
         private void AddPassiveSkills()
@@ -244,20 +243,20 @@ namespace SubmarinerMod.Submariner
 
         private void AddPrimarySkills()
         {
-            SteppedSkillDef batSkillDef = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
+            SteppedSkillDef anchorSkillDef = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
                 (
                     "Anchor",
                     SUBMARINER_PREFIX + "PRIMARY_SWING_NAME",
                     SUBMARINER_PREFIX + "PRIMARY_SWING_DESCRIPTION",
-                    assetBundle.LoadAsset<Sprite>("texSwingIcon"),
+                    assetBundle.LoadAsset<Sprite>("texAnchorIcon"),
                     new SerializableEntityStateType(typeof(SkillStates.Swing)),
                     "Weapon"
                 ));
-            batSkillDef.stepCount = 2;
-            batSkillDef.stepGraceDuration = 1f;
-            batSkillDef.keywordTokens = new string[]{ };
+            anchorSkillDef.stepCount = 2;
+            anchorSkillDef.stepGraceDuration = 1f;
+            anchorSkillDef.keywordTokens = new string[]{ };
 
-            Skills.AddPrimarySkills(bodyPrefab, batSkillDef);
+            Skills.AddPrimarySkills(bodyPrefab, anchorSkillDef);
         }
 
         private void AddSecondarySkills()
@@ -268,15 +267,15 @@ namespace SubmarinerMod.Submariner
                 skillNameToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texSubmarinerCleaverIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texHarpoonIcon"),
 
                 activationState = new SerializableEntityStateType(typeof(HarpoonShot)),
 
                 activationStateMachineName = "Hook",
                 interruptPriority = InterruptPriority.Any,
 
-                baseMaxStock = 1,
-                baseRechargeInterval = 7f,
+                baseMaxStock = 2,
+                baseRechargeInterval = 5f,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 0,
@@ -298,19 +297,19 @@ namespace SubmarinerMod.Submariner
 
         private void AddUtilitySkills()
         {
-            SkillDef dash = Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef mine = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "Falsify",
-                skillNameToken = SUBMARINER_PREFIX + "UTILITY_FALSIFY_NAME",
-                skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_FALSIFY_DESCRIPTION",
+                skillName = "Mine",
+                skillNameToken = SUBMARINER_PREFIX + "UTILITY_MINE_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_MINE_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texFalsifyIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texBackflipIcon"),
 
-                activationState = new SerializableEntityStateType(typeof(HarpoonShot)),
-                activationStateMachineName = "Weapon2",
+                activationState = new SerializableEntityStateType(typeof(BackFlip)),
+                activationStateMachineName = "Dash",
                 interruptPriority = InterruptPriority.Skill,
 
-                baseRechargeInterval = 6f,
+                baseRechargeInterval = 7f,
                 baseMaxStock = 1,
 
                 rechargeStock = 1,
@@ -330,7 +329,7 @@ namespace SubmarinerMod.Submariner
 
             });
 
-            Skills.AddUtilitySkills(bodyPrefab, dash);
+            Skills.AddUtilitySkills(bodyPrefab, mine);
         }
 
         private void AddSpecialSkills()
@@ -338,14 +337,14 @@ namespace SubmarinerMod.Submariner
             SkillDef convict = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "Convict",
-                skillNameToken = SUBMARINER_PREFIX + "SPECIAL_CONVICT_NAME",
-                skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_CONVICT_DESCRIPTION",
+                skillNameToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texAnchorThrowIcon"),
 
-                activationState = new EntityStates.SerializableEntityStateType(typeof(Convict)),
-                activationStateMachineName = "Dash",
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                activationState = new EntityStates.SerializableEntityStateType(typeof(AimAnchor)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.Skill,
 
                 baseRechargeInterval = 16f,
                 baseMaxStock = 1,
@@ -358,11 +357,11 @@ namespace SubmarinerMod.Submariner
                 fullRestockOnAssign = true,
                 dontAllowPastMaxStocks = false,
                 mustKeyPress = true,
-                beginSkillCooldownOnSkillEnd = false,
+                beginSkillCooldownOnSkillEnd = true,
 
                 isCombatSkill = true,
-                canceledFromSprinting = false,
-                cancelSprintingOnActivation = false,
+                canceledFromSprinting = true,
+                cancelSprintingOnActivation = true,
                 forceSprintDuringState = false,
             });
 
@@ -371,38 +370,6 @@ namespace SubmarinerMod.Submariner
 
         private void InitializeScepter()
         {
-            convictScepterSkillDef = Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = "Convict Scepter",
-                skillNameToken = SUBMARINER_PREFIX + "SPECIAL_SCEPTER_CONVICT_NAME",
-                skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_SCEPTER_CONVICT_DESCRIPTION",
-                keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
-
-                activationState = new EntityStates.SerializableEntityStateType(typeof(ConvictScepter)),
-                activationStateMachineName = "Dash",
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
-
-                baseRechargeInterval = 16f,
-                baseMaxStock = 1,
-
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
-
-                resetCooldownTimerOnUse = false,
-                fullRestockOnAssign = true,
-                dontAllowPastMaxStocks = false,
-                mustKeyPress = true,
-                beginSkillCooldownOnSkillEnd = false,
-
-                isCombatSkill = true,
-                canceledFromSprinting = false,
-                cancelSprintingOnActivation = false,
-                forceSprintDuringState = false,
-            });
-
-            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(convictScepterSkillDef, bodyName, SkillSlot.Special, 0);
         }
         #endregion skills
 

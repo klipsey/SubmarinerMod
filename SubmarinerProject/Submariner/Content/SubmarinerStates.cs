@@ -12,8 +12,12 @@ namespace SubmarinerMod.Submariner.Content
             Modules.Content.AddEntityState(typeof(BaseSubmarinerState));
             Modules.Content.AddEntityState(typeof(Swing));
             Modules.Content.AddEntityState(typeof(HarpoonShot));
-            Modules.Content.AddEntityState(typeof(Convict));
-            Modules.Content.AddEntityState(typeof(ConvictScepter));
+            Modules.Content.AddEntityState(typeof(BackFlip));
+            Modules.Content.AddEntityState(typeof(AnchorBaseState));
+            Modules.Content.AddEntityState(typeof(AnchorWaitForStick));
+            Modules.Content.AddEntityState(typeof(AnchorTetherBehaviour));
+            Modules.Content.AddEntityState(typeof(RecoverAnchor));
+            Modules.Content.AddEntityState(typeof(AimAnchor));
         }
     }
 }

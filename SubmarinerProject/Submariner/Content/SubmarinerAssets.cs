@@ -11,6 +11,8 @@ using UnityEngine.Rendering.PostProcessing;
 using ThreeEyedGames;
 using SubmarinerMod.Submariner.Components;
 using SubmarinerMod.Submariner.SkillStates;
+using System;
+using System.Linq;
 
 namespace SubmarinerMod.Submariner.Content
 {
@@ -22,6 +24,7 @@ namespace SubmarinerMod.Submariner.Content
         //Materials
         internal static Material commandoMat;
         internal static Material anchorMat;
+        internal static Material ghostMat;
 
         //Shader
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
@@ -43,9 +46,15 @@ namespace SubmarinerMod.Submariner.Content
         internal static GameObject SubmarinerConvicted;
         internal static GameObject SubmarinerConvictedConsume;
 
+        internal static GameObject throwable;
+        internal static GameObject throwableEnd;
+
+        internal static GameObject anchorTether;
         //Models
         //Projectiles
         internal static GameObject hookPrefab;
+        internal static GameObject minePrefab;
+        internal static GameObject anchorPrefab;
         //Sounds
         internal static NetworkSoundEventDef batImpactSoundEvent;
         internal static NetworkSoundEventDef swordImpactSoundEvent;
@@ -82,13 +91,14 @@ namespace SubmarinerMod.Submariner.Content
                 {
                     CleanChildren(startingTrans.GetChild(num));
                 }
-                Object.DestroyImmediate(startingTrans.GetChild(num).gameObject);
+                UnityEngine.Object.DestroyImmediate(startingTrans.GetChild(num).gameObject);
             }
         }
 
         private static void CreateMaterials()
         {
             anchorMat = mainAssetBundle.LoadAsset<Material>("matSubmariner");
+            ghostMat = UnityEngine.Object.Instantiate(LegacyResourcesAPI.Load<Material>("Materials/matGhostEffect"));
         }
 
         private static void CreateModels()
@@ -97,6 +107,8 @@ namespace SubmarinerMod.Submariner.Content
         #region effects
         private static void CreateEffects()
         {
+            throwable = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/BasicThrowableVisualizer.prefab").WaitForCompletion();
+            throwableEnd = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Huntress/HuntressArrowRainIndicator.prefab").WaitForCompletion();
             bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
 
             Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
@@ -118,11 +130,27 @@ namespace SubmarinerMod.Submariner.Content
             bloodSpurtEffect.transform.Find("Blood").GetComponent<ParticleSystemRenderer>().material = bloodMat2;
             bloodSpurtEffect.transform.Find("Trails").GetComponent<ParticleSystemRenderer>().trailMaterial = bloodMat2;
 
+            anchorTether = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Treebot/EntangleOrbEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerChains");
+            anchorTether.AddComponent<NetworkIdentity>();
+            Material mat = anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0];
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials = new Material[1];
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0] = mat;
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0].SetColor("_TintColor", SubmarinerColor);
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().startColor = SubmarinerColor;
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().startColor = SubmarinerColor;
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().shadowBias = 0.5f;
+            anchorTether.transform.localScale *= 0.5f;
+            anchorTether.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().mesh = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ElementalRings/PickupFireRing.prefab").WaitForCompletion().transform.GetChild(0).gameObject.GetComponent<MeshFilter>().mesh;
+            anchorTether.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", SubmarinerColor);
+            anchorTether.gameObject.GetComponent<AkEvent>().enabled = false;
+            anchorTether.gameObject.GetComponent<AkGameObj>().enabled = false;
+            Modules.Content.CreateAndAddEffectDef(anchorTether);
+
             dashEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Brother/BrotherDashEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerDashEffect");
             dashEffect.AddComponent<NetworkIdentity>();
-            Object.Destroy(dashEffect.transform.Find("Point light").gameObject);
-            Object.Destroy(dashEffect.transform.Find("Flash, White").gameObject);
-            Object.Destroy(dashEffect.transform.Find("NoiseTrails").gameObject);
+            UnityEngine.Object.Destroy(dashEffect.transform.Find("Point light").gameObject);
+            UnityEngine.Object.Destroy(dashEffect.transform.Find("Flash, White").gameObject);
+            UnityEngine.Object.Destroy(dashEffect.transform.Find("NoiseTrails").gameObject);
             dashEffect.transform.Find("Donut").localScale *= 0.5f;
             dashEffect.transform.Find("Donut, Distortion").localScale *= 0.5f;
             dashEffect.transform.Find("Dash").GetComponent<ParticleSystemRenderer>().material.SetTexture("_RemapTex", Addressables.LoadAssetAsync<Texture>("RoR2/Base/Common/ColorRamps/texRampDefault.png").WaitForCompletion());
@@ -178,21 +206,21 @@ namespace SubmarinerMod.Submariner.Content
             SubmarinerConvicted.transform.Find("Visual").GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", new Color(166f / 255f, 159f / 255f, 20f / 255f));
             SubmarinerConvicted.transform.Find("Visual").GetChild(1).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", new Color(166f / 255f, 159f / 255f, 20f / 255f));
 
-            Material fakeMerc = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
+            Material fakeMerc = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
             fakeMerc.SetTexture("_MainTex", mainAssetBundle.LoadAsset<Texture>("texGuilty"));
             fakeMerc.SetColor("_TintColor", SubmarinerColor);
             SubmarinerGuilty = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercExposeEffect.prefab").WaitForCompletion().InstantiateClone("Guilty", true);
             SubmarinerGuilty.AddComponent<NetworkIdentity>();
             SubmarinerGuilty.transform.Find("Visual, On").Find("PulseEffect, Ring").gameObject.GetComponent<ParticleSystemRenderer>().material = fakeMerc;
 
-            fakeMerc = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
+            fakeMerc = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
             fakeMerc.SetTexture("_MainTex", mainAssetBundle.LoadAsset<Texture>("texGuilty"));
             fakeMerc.SetColor("_TintColor", Color.red);
             SubmarinerConvictedConsume = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercExposeConsumeEffect.prefab").WaitForCompletion().InstantiateClone("ConvictMarked", true);
             SubmarinerConvictedConsume.AddComponent<NetworkIdentity>();
             SubmarinerConvictedConsume.transform.Find("Visual, Consumed").Find("PulseEffect, Ring (1)").gameObject.GetComponent<ParticleSystemRenderer>().material = fakeMerc;
             SubmarinerConvictedConsume.gameObject.GetComponent<EffectComponent>().soundName = "sfx_SUBMARINER_point";
-            Object.Destroy(SubmarinerConvictedConsume.transform.Find("Visual, Consumed").Find("PulseEffect, Slash").gameObject);
+            UnityEngine.Object.Destroy(SubmarinerConvictedConsume.transform.Find("Visual, Consumed").Find("PulseEffect, Slash").gameObject);
 
             Modules.Content.CreateAndAddEffectDef(SubmarinerConvictedConsume);
         }
@@ -217,18 +245,84 @@ namespace SubmarinerMod.Submariner.Content
             hookPrefab.transform.Find("FistMesh").gameObject.GetComponent<MeshRenderer>().materials = new Material[1];
             hookPrefab.transform.Find("FistMesh").gameObject.GetComponent<MeshRenderer>().materials[0] = anchorMat;
             hookPrefab.transform.Find("FistMesh").gameObject.GetComponent<MeshFilter>().mesh = mainAssetBundle.LoadAsset<Mesh>("meshHarpoonProjectile");
-            hookPrefab.transform.Find("FistMesh").rotation = new Quaternion(Quaternion.identity.x, -90f, Quaternion.identity.z, Quaternion.identity.w);
+            hookPrefab.transform.Find("FistMesh").rotation = new Quaternion(90f, Quaternion.identity.x, Quaternion.identity.z, Quaternion.identity.w);
             hookPrefab.transform.Find("FistMesh").Find("RopeFront").gameObject.GetComponent<LineRenderer>().material.SetColor("_TintColor", new Color(61f / 255f, 229f / 255f, 84f / 255f));
-            Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Dust").gameObject);
-            Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Sparks, Fast").gameObject);
-            Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Point Light").gameObject);
-            Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Dust").gameObject);
-            Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Sparks, Fast").gameObject);
-            Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Point Light").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Dust").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Sparks, Fast").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("FistMesh").Find("RopeFront").Find("Point Light").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Dust").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Sparks, Fast").gameObject);
+            UnityEngine.Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Point Light").gameObject);
 
             hookPrefab.GetComponent<ProjectileStickOnImpact>().ignoreWorld = true;
 
             Modules.Content.AddProjectilePrefab(hookPrefab);
+
+            minePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMine.prefab").WaitForCompletion().InstantiateClone("SubmarinerMine");
+            minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = PrefabAPI.InstantiateClone(minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab, "SubmarinerMineGhost");
+            GameObject ghost = minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab;
+            ghost.GetComponent<EngiMineAnimator>().enabled = false;
+            MeshFilter meshF = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshFilter>();
+            meshF.mesh = mainAssetBundle.LoadAsset<Mesh>("meshMine");
+            MeshRenderer meshR = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshRenderer>();
+            meshR.materials = new Material[1];
+            meshR.materials[0] = anchorMat;
+            meshR.material = anchorMat;
+
+            Component.DestroyImmediate(ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.GetComponent<SkinnedMeshRenderer>());
+            ghost.transform.Find("mdlEngiMine").Find("EngiMineArmature").gameObject.SetActive(false);
+
+            Modules.Content.AddProjectilePrefab(minePrefab);
+
+            anchorPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMine.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchor");
+            if (!anchorPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
+            anchorPrefab.GetComponent<ProjectileStickOnImpact>().stickSoundString = "Play_parent_attack1_slam";
+            ProjectileImpactExplosion anchorEx = anchorPrefab.AddComponent<ProjectileImpactExplosion>();
+            anchorEx.blastRadius = 12f;
+            anchorEx.blastDamageCoefficient = 1f;
+            anchorEx.blastProcCoefficient = 1f;
+            anchorEx.canRejectForce  = true;
+            anchorEx.impactEffect = bloodExplosionEffect;
+            anchorEx.destroyOnEnemy = false;
+            anchorEx.destroyOnWorld = false;
+            anchorEx.impactOnWorld = true;
+            anchorEx.lifetime = 99999f;
+            anchorEx.lifetimeAfterImpact = 99999f;
+
+            anchorPrefab.GetComponent<ProjectileDamage>().damageType = DamageType.Stun1s;
+
+            anchorPrefab.GetComponent<ProjectileSimple>().desiredForwardSpeed = 50f;
+
+            anchorPrefab.GetComponent<ProjectileStickOnImpact>().stickParticleSystem = new ParticleSystem[0];
+            Component.DestroyImmediate(anchorPrefab.GetComponent<ProjectileSphereTargetFinder>());
+            Component.DestroyImmediate(anchorPrefab.GetComponent<ProjectileTargetComponent>());
+            EntityStateMachine[] anchorStates = anchorPrefab.GetComponents<EntityStateMachine>();
+            anchorStates[1].initialStateType = new EntityStates.SerializableEntityStateType(typeof(AnchorWaitForStick));
+            anchorStates[1].mainStateType = new EntityStates.SerializableEntityStateType(typeof(AnchorBaseState));
+            anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines = new EntityStateMachine[0];
+            anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines = anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines.Append(anchorStates[1]).ToArray();
+            Component.DestroyImmediate(anchorStates[0]);
+
+            anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMineGhost.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchorGhost");
+            if (!anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
+            GameObject ghost2 = anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab;
+            ghost2.GetComponent<EngiMineAnimator>().enabled = false;
+            MeshFilter meshF2 = ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshFilter>();
+            meshF2.mesh = mainAssetBundle.LoadAsset<Mesh>("meshAnchorProjectile");
+            MeshRenderer meshR2 = ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshRenderer>();
+            meshR2.materials = new Material[1];
+            meshR2.materials[0] = anchorMat;
+            meshR2.material = anchorMat;
+
+            Component.DestroyImmediate(ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.GetComponent<SkinnedMeshRenderer>());
+            ghost.transform.Find("mdlEngiMine").Find("EngiMineArmature").gameObject.SetActive(false);
+
+            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(0).gameObject);
+            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(1).gameObject);
+            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(2).gameObject);
+            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(3).gameObject);
+
+            Modules.Content.AddProjectilePrefab(anchorPrefab);
         }
         #endregion
 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 78226058
+CRC: 563869639
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 60a29c360f88bfd1e0426be5ebfa7532
+    Hash: 9f73dd59fc1222a7f72f59d2237bb137
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -122,12 +122,14 @@ Assets:
 - Assets/Submariner/Textures/texCloudPixel2.png
 - Assets/Submariner/VFX/texShockwave.png
 - Assets/Submariner/Projectiles/CoinOrbEffect.prefab
+- Assets/Submariner/mdlMine.prefab
 - Assets/Submariner/Projectiles/texAlphaGradient6Mask.png
 - Assets/Submariner/Textures/texInterrogatorNormal.png
 - Assets/Submariner/Animations/Armature_Jump.anim
 - Assets/Submariner/Icons/Skill/texSwingIcon.png
 - Assets/Submariner/SubmarinerDisplay.prefab
 - Assets/Submariner/Animations/Armature_BeastEnd.anim
+- Assets/Submariner/mdlAnchor.prefab
 - Assets/Submariner/Materials/matVisor.mat
 - Assets/Submariner/HUD/WeaponChargeBar.prefab
 - Assets/Submariner/VFX/texSpyStreak.png

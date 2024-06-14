@@ -29,7 +29,7 @@ namespace SubmarinerMod.Submariner.SkillStates
         public static float dashDuration = 0.5f;
 
         public static float pushAwayForce = 10f;
-        public static float pushAwayYFactor = 1.5f;
+        public static float pushAwayYFactor = 2.5f;
 
         public static float speedCoefficient = 5f;
 
@@ -176,7 +176,7 @@ namespace SubmarinerMod.Submariner.SkillStates
                 fireProjectileInfo.position = aimRay.origin;
                 fireProjectileInfo.rotation = Quaternion.LookRotation(aimRay.direction);
                 fireProjectileInfo.crit = base.characterBody.RollCrit();
-                fireProjectileInfo.damage = damageStat * damageCoefficient;
+                fireProjectileInfo.damage = damageStat * (damageCoefficient / 2f);
                 fireProjectileInfo.force = 0f;
                 fireProjectileInfo.damageColorIndex = DamageColorIndex.Default;
                 fireProjectileInfo.procChainMask = default(ProcChainMask);

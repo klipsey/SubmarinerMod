@@ -63,15 +63,19 @@ namespace SubmarinerMod.Submariner.Components
 
         }
 
-        public void EnableSword()
+        public void EnableAnchor()
         {
-            //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.swordMesh;
+            childLocator.FindChild("AnchorModel").gameObject.SetActive(true);
+            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.ghostMat;
         }
-        public void DisableSword() 
+        public void DisableAnchor() 
         {
-            //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.batMesh;
+            childLocator.FindChild("AnchorModel").gameObject.SetActive(false);
+        }
 
-            convictedVictimBody = null;
+        public void ResetAnchorMaterial()
+        {
+            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.anchorMat;
         }
         private void OnDestroy()
         {
