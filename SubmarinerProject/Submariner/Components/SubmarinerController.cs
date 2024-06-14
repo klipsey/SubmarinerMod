@@ -6,10 +6,12 @@ using RoR2.HudOverlay;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Content;
 using System;
+using SubmarinerMod.Submariner.SkillStates;
+using static UnityEngine.UI.GridLayoutGroup;
 
-namespace SubmarinerMod.Interrogator.Components
+namespace SubmarinerMod.Submariner.Components
 {
     public class SubmarinerController : MonoBehaviour
     {
@@ -23,19 +25,10 @@ namespace SubmarinerMod.Interrogator.Components
         private Material[] batMat;
 
         public CharacterBody convictedVictimBody;
-        public string currentSkinNameToken => this.skinController.skins[this.skinController.currentSkinIndex].nameToken;
-        public string altSkinNameToken => SubmarinerSurvivor.INTERROGATOR_PREFIX + "MASTERY_SKIN_NAME";
 
-        private bool hasPlayed = false;
-        public bool isConvicted => this.characterBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff);
-        private bool stopwatchOut = false;
+        public float maxRegen = 0f;
+
         public bool pauseTimer = false;
-
-        public float convictDurationMax = SubmarinerStaticValues.baseConvictTimerMax;
-
-        private int guiltyCounter = 0;
-
-        private uint playID1;
 
         private ParticleSystem swordEffect;
         private void Awake()
@@ -58,9 +51,6 @@ namespace SubmarinerMod.Interrogator.Components
         #region tooMuchCrap
         private void Hook()
         {
-            On.RoR2.FriendlyFireManager.ShouldSplashHitProceed += FriendlyFireManager_ShouldSplashHitProceed;
-            On.RoR2.FriendlyFireManager.ShouldDirectHitProceed += FriendlyFireManager_ShouldDirectHitProceed;
-            On.RoR2.FriendlyFireManager.ShouldSeekingProceed += FriendlyFireManager_ShouldSeekingProceed;
         }
         public void ApplySkin()
         {
@@ -68,87 +58,35 @@ namespace SubmarinerMod.Interrogator.Components
             {
             }
         }
-        private bool FriendlyFireManager_ShouldSeekingProceed(On.RoR2.FriendlyFireManager.orig_ShouldSeekingProceed orig, HealthComponent victim, TeamIndex attackerTeamIndex)
-        {
-            if (victim.body.baseNameToken == "KENKO_INTERROGATOR_NAME" && attackerTeamIndex == victim.body.teamComponent.teamIndex)
-            {
-                return true;
-            }
-            else return orig.Invoke(victim, attackerTeamIndex);
-        }
 
-        private bool FriendlyFireManager_ShouldDirectHitProceed(On.RoR2.FriendlyFireManager.orig_ShouldDirectHitProceed orig, HealthComponent victim, TeamIndex attackerTeamIndex)
+        public void SetCurrentMaxRegen(float regen)
         {
-            if (victim.body.baseNameToken == "KENKO_INTERROGATOR_NAME" && attackerTeamIndex == victim.body.teamComponent.teamIndex)
+            if(regen > maxRegen)
             {
-                return true;
-            }
-            else return orig.Invoke(victim, attackerTeamIndex);
-        }
-
-        private bool FriendlyFireManager_ShouldSplashHitProceed(On.RoR2.FriendlyFireManager.orig_ShouldSplashHitProceed orig, HealthComponent victim, TeamIndex attackerTeamIndex)
-        {
-            if (victim.body.baseNameToken == "KENKO_INTERROGATOR_NAME" && attackerTeamIndex == victim.body.teamComponent.teamIndex)
-            {
-                return true;
-            }
-            else return orig.Invoke(victim, attackerTeamIndex);
-        }
-        private void Inventory_onItemAddedClient(ItemIndex itemIndex)
-        {
-            if (itemIndex == DLC1Content.Items.EquipmentMagazineVoid.itemIndex)
-            {
-                this.convictDurationMax = SubmarinerStaticValues.baseConvictTimerMax + this.characterBody.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid);
+                maxRegen = regen;
             }
         }
-
         #endregion
         private void FixedUpdate()
         {
-            if ((!characterBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff) || !convictedVictimBody.healthComponent.alive) && guiltyCounter > 0 && !hasPlayed)
+            if(!characterBody.HasBuff(SubmarinerBuffs.SubmarinerRegenBuff))
             {
-                hasPlayed = true;
-                DisableSword();
-            }
+                maxRegen = 0f;
+            }    
         }
 
-        public void AddToCounter()
-        {
-            guiltyCounter++;
-        }
         public void EnableSword()
         {
             //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.swordMesh;
-            hasPlayed = false;
         }
         public void DisableSword() 
         {
             //this.childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = SubmarinerAssets.batMesh;
 
-            if (NetworkServer.active)
-            {
-                if (characterBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff)) characterBody.RemoveOldestTimedBuff(SubmarinerBuffs.interrogatorConvictBuff);
-                for (int i = this.guiltyCounter; i > 0; i--)
-                {
-                    this.characterBody.RemoveBuff(SubmarinerBuffs.interrogatorGuiltyBuff);
-                }
-            }
-
-            guiltyCounter = 0;
             convictedVictimBody = null;
         }
         private void OnDestroy()
         {
-            AkSoundEngine.StopPlayingID(this.playID1);
-
-            if (this.characterBody && this.characterBody.master && this.characterBody.master.inventory)
-            {
-                this.characterBody.master.inventory.onItemAddedClient -= this.Inventory_onItemAddedClient;
-            }
-
-            On.RoR2.FriendlyFireManager.ShouldSplashHitProceed -= FriendlyFireManager_ShouldSplashHitProceed;
-            On.RoR2.FriendlyFireManager.ShouldDirectHitProceed -= FriendlyFireManager_ShouldDirectHitProceed;
-            On.RoR2.FriendlyFireManager.ShouldSeekingProceed -= FriendlyFireManager_ShouldSeekingProceed;
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using RoR2;
 using UnityEngine;
-using SubmarinerMod.Interrogator;
-using SubmarinerMod.Interrogator.Achievements;
+using SubmarinerMod.Submariner;
+using SubmarinerMod.Submariner.Achievements;
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerUnlockables
     {
@@ -15,7 +15,7 @@ namespace SubmarinerMod.Interrogator.Content
             /*
             masterySkinUnlockableDef = Modules.Content.CreateAndAddUnlockableDef(SpyMasteryAchievement.unlockableIdentifier,
                 Modules.Tokens.GetAchievementNameToken(SpyMasteryAchievement.unlockableIdentifier),
-                InterrogatorSurvivor.instance.assetBundle.LoadAsset<Sprite>("texMonsoonSkin"));
+                SubmarinerSurvivor.instance.assetBundle.LoadAsset<Sprite>("texMonsoonSkin"));
             */
             /*
             if (true == false)

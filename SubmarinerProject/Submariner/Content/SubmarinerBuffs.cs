@@ -2,27 +2,15 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerBuffs
     {
-        public static BuffDef interrogatorGuiltyDebuff;
-        public static BuffDef interrogatorGuiltyBuff;
-        public static BuffDef interrogatorPressuredBuff;
-        public static BuffDef interrogatorConvictBuff;
+        public static BuffDef SubmarinerRegenBuff;
         public static void Init(AssetBundle assetBundle)
         {
-            interrogatorGuiltyBuff = Modules.Content.CreateAndAddBuff("InterrogatorGuiltyBuff", assetBundle.LoadAsset<Sprite>("texGuiltyBuff"),
-                SubmarinerAssets.interrogatorColor, true, false, false);
-
-            interrogatorGuiltyDebuff = Modules.Content.CreateAndAddBuff("InterrogatorGuiltyDebuff", assetBundle.LoadAsset<Sprite>("texGuiltyDebuff"),
-                SubmarinerAssets.interrogatorColor, false, true, false);
-
-            interrogatorPressuredBuff = Modules.Content.CreateAndAddBuff("InterrogatorPressuredDebuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/CritOnUse/texBuffFullCritIcon.tif").WaitForCompletion(),
-                SubmarinerAssets.interrogatorColor, false, false, false);
-            
-            interrogatorConvictBuff = Modules.Content.CreateAndAddBuff("InterrogatorConvictBuff", assetBundle.LoadAsset<Sprite>("texConvictBuff"), 
-                SubmarinerAssets.interrogatorColor, false, false, false);
+            SubmarinerRegenBuff = Modules.Content.CreateAndAddBuff("SubmarinerRegenBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Croco/texBuffRegenBoostIcon.tif").WaitForCompletion(),
+                SubmarinerAssets.SubmarinerColor, true, false, false);
         }
     }
 }

@@ -13,16 +13,16 @@ using R2API.Networking;
 using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
-using SubmarinerMod.Interrogator.Components;
-using SubmarinerMod.Interrogator.Content;
-using SubmarinerMod.Interrogator.SkillStates;
+using SubmarinerMod.Submariner.Components;
+using SubmarinerMod.Submariner.Content;
+using SubmarinerMod.Submariner.SkillStates;
 using HG;
 using EntityStates;
 using R2API.Networking.Interfaces;
 using EmotesAPI;
 using System.Runtime.CompilerServices;
 
-namespace SubmarinerMod.Interrogator
+namespace SubmarinerMod.Submariner
 {
     public class SubmarinerSurvivor : SurvivorBase<SubmarinerSurvivor>
     {
@@ -32,8 +32,8 @@ namespace SubmarinerMod.Interrogator
         public override string modelPrefabName => "mdlSubmariner";
         public override string displayPrefabName => "SubmarinerDisplay";
 
-        public const string INTERROGATOR_PREFIX = SubmarinerPlugin.DEVELOPER_PREFIX + "_INTERROGATOR_";
-        public override string survivorTokenPrefix => INTERROGATOR_PREFIX;
+        public const string SUBMARINER_PREFIX = SubmarinerPlugin.DEVELOPER_PREFIX + "_SUBMARINER_";
+        public override string survivorTokenPrefix => SUBMARINER_PREFIX;
 
         internal static GameObject characterPrefab;
 
@@ -42,11 +42,11 @@ namespace SubmarinerMod.Interrogator
         public override BodyInfo bodyInfo => new BodyInfo
         {
             bodyName = bodyName,
-            bodyNameToken = INTERROGATOR_PREFIX + "NAME",
-            subtitleNameToken = INTERROGATOR_PREFIX + "SUBTITLE",
+            bodyNameToken = SUBMARINER_PREFIX + "NAME",
+            subtitleNameToken = SUBMARINER_PREFIX + "SUBTITLE",
 
-            characterPortrait = assetBundle.LoadAsset<Texture>("texInterrogatorIcon"),
-            bodyColor = SubmarinerAssets.interrogatorColor,
+            characterPortrait = assetBundle.LoadAsset<Texture>("texSubmarinerIcon"),
+            bodyColor = SubmarinerAssets.SubmarinerColor,
             sortPosition = 5.99f,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
@@ -168,17 +168,11 @@ namespace SubmarinerMod.Interrogator
         private void AdditionalBodySetup()
         {
             AddHitboxes();
-            bool tempAdd(CharacterBody body) => body.HasBuff(SubmarinerBuffs.interrogatorConvictBuff);
-            bool tempAdd2(CharacterBody body) => body.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff);
-            float pee(CharacterBody body) => 2f * body.radius;
-            bodyPrefab.AddComponent<SubmarinerController>();
-            bodyPrefab.AddComponent<SubmarinerTracker>();
-            TempVisualEffectAPI.AddTemporaryVisualEffect(SubmarinerAssets.interrogatorConvicted, pee, tempAdd);
-            TempVisualEffectAPI.AddTemporaryVisualEffect(SubmarinerAssets.interrogatorGuilty, pee, tempAdd2);
         }
         public void AddHitboxes()
         {
             Prefabs.SetupHitBoxGroup(characterModelObject, "MeleeHitbox", "MeleeHitbox");
+            Prefabs.SetupHitBoxGroup(characterModelObject, "HarpoonKickHitbox", "HarpoonKickHitbox");
         }
 
         public override void InitializeEntityStateMachines()
@@ -194,7 +188,8 @@ namespace SubmarinerMod.Interrogator
 
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon2");
-            Prefabs.AddEntityStateMachine(bodyPrefab, "Interrogate");
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Dash");
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Hook");
         }
 
         #region skills
@@ -218,13 +213,13 @@ namespace SubmarinerMod.Interrogator
 
             skillLocator.passiveSkill.enabled = false;
 
-            passive.interrogatorPassive = Skills.CreateSkillDef(new SkillDefInfo
+            passive.SubmarinerPassiveSkillDef = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = INTERROGATOR_PREFIX + "PASSIVE_NAME",
-                skillNameToken = INTERROGATOR_PREFIX + "PASSIVE_NAME",
-                skillDescriptionToken = INTERROGATOR_PREFIX + "PASSIVE_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texInterrogatorPassive"),
-                keywordTokens = new string[] { Tokens.interrogatorGuiltyKeyword },
+                skillName = SUBMARINER_PREFIX + "PASSIVE_NAME",
+                skillNameToken = SUBMARINER_PREFIX + "PASSIVE_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "PASSIVE_DESCRIPTION",
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSubmarinerPassive"),
+                keywordTokens = new string[] { Tokens.submarinerRegenBuff },
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Idle)),
                 activationStateMachineName = "",
                 baseMaxStock = 1,
@@ -243,16 +238,16 @@ namespace SubmarinerMod.Interrogator
                 stockToConsume = 1
             });
 
-            Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, passive.interrogatorPassive);
+            Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, passive.SubmarinerPassiveSkillDef);
         }
 
         private void AddPrimarySkills()
         {
             SteppedSkillDef batSkillDef = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
                 (
-                    "Brutal Bash",
-                    INTERROGATOR_PREFIX + "PRIMARY_SWING_NAME",
-                    INTERROGATOR_PREFIX + "PRIMARY_SWING_DESCRIPTION",
+                    "Anchor",
+                    SUBMARINER_PREFIX + "PRIMARY_SWING_NAME",
+                    SUBMARINER_PREFIX + "PRIMARY_SWING_DESCRIPTION",
                     assetBundle.LoadAsset<Sprite>("texSwingIcon"),
                     new SerializableEntityStateType(typeof(SkillStates.Swing)),
                     "Weapon"
@@ -266,30 +261,30 @@ namespace SubmarinerMod.Interrogator
 
         private void AddSecondarySkills()
         {
-            SkillDef Cleaver = Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef Harpoon = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "Affray",
-                skillNameToken = INTERROGATOR_PREFIX + "SECONDARY_AFFRAY_NAME",
-                skillDescriptionToken = INTERROGATOR_PREFIX + "SECONDARY_AFFRAY_DESCRIPTION",
-                keywordTokens = new string[] { Tokens.interrogatorPressuredKeyword, Tokens.slayerKeyword },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texInterrogatorCleaverIcon"),
+                skillName = "Harpoon",
+                skillNameToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSubmarinerCleaverIcon"),
 
-                activationState = new SerializableEntityStateType(typeof(ThrowCleaver)),
+                activationState = new SerializableEntityStateType(typeof(HarpoonShot)),
 
-                activationStateMachineName = "Weapon2",
-                interruptPriority = InterruptPriority.Skill,
+                activationStateMachineName = "Hook",
+                interruptPriority = InterruptPriority.Any,
 
                 baseMaxStock = 1,
-                baseRechargeInterval = 5f,
+                baseRechargeInterval = 7f,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1,
+                stockToConsume = 0,
 
                 resetCooldownTimerOnUse = false,
                 fullRestockOnAssign = true,
                 dontAllowPastMaxStocks = false,
                 beginSkillCooldownOnSkillEnd = true,
-                mustKeyPress = false,
+                mustKeyPress = true,
 
                 isCombatSkill = true,
                 canceledFromSprinting = false,
@@ -297,7 +292,7 @@ namespace SubmarinerMod.Interrogator
                 forceSprintDuringState = false,
             });
 
-            Skills.AddSecondarySkills(bodyPrefab, Cleaver);
+            Skills.AddSecondarySkills(bodyPrefab, Harpoon);
         }
 
         private void AddUtilitySkills()
@@ -305,12 +300,12 @@ namespace SubmarinerMod.Interrogator
             SkillDef dash = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "Falsify",
-                skillNameToken = INTERROGATOR_PREFIX + "UTILITY_FALSIFY_NAME",
-                skillDescriptionToken = INTERROGATOR_PREFIX + "UTILITY_FALSIFY_DESCRIPTION",
+                skillNameToken = SUBMARINER_PREFIX + "UTILITY_FALSIFY_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_FALSIFY_DESCRIPTION",
                 keywordTokens = new string[] { },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texFalsifyIcon"),
 
-                activationState = new SerializableEntityStateType(typeof(Falsify)),
+                activationState = new SerializableEntityStateType(typeof(HarpoonShot)),
                 activationStateMachineName = "Weapon2",
                 interruptPriority = InterruptPriority.Skill,
 
@@ -339,16 +334,16 @@ namespace SubmarinerMod.Interrogator
 
         private void AddSpecialSkills()
         {
-            SkillDef convict = Skills.CreateSkillDef<SubmarinerSkillDef>(new SkillDefInfo
+            SkillDef convict = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "Convict",
-                skillNameToken = INTERROGATOR_PREFIX + "SPECIAL_CONVICT_NAME",
-                skillDescriptionToken = INTERROGATOR_PREFIX + "SPECIAL_CONVICT_DESCRIPTION",
+                skillNameToken = SUBMARINER_PREFIX + "SPECIAL_CONVICT_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_CONVICT_DESCRIPTION",
                 keywordTokens = new string[] { },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texConvictIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Convict)),
-                activationStateMachineName = "Interrogate",
+                activationStateMachineName = "Dash",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 16f,
@@ -375,16 +370,16 @@ namespace SubmarinerMod.Interrogator
 
         private void InitializeScepter()
         {
-            convictScepterSkillDef = Skills.CreateSkillDef<SubmarinerSkillDef>(new SkillDefInfo
+            convictScepterSkillDef = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "Convict Scepter",
-                skillNameToken = INTERROGATOR_PREFIX + "SPECIAL_SCEPTER_CONVICT_NAME",
-                skillDescriptionToken = INTERROGATOR_PREFIX + "SPECIAL_SCEPTER_CONVICT_DESCRIPTION",
+                skillNameToken = SUBMARINER_PREFIX + "SPECIAL_SCEPTER_CONVICT_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_SCEPTER_CONVICT_DESCRIPTION",
                 keywordTokens = new string[] { },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ConvictScepter)),
-                activationStateMachineName = "Interrogate",
+                activationStateMachineName = "Dash",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 16f,
@@ -460,11 +455,11 @@ namespace SubmarinerMod.Interrogator
             #region MasterySkin
 
             ////creating a new skindef as we did before
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(INTERROGATOR_PREFIX + "MASTERY_SKIN_NAME",
+            SkinDef masterySkin = Modules.Skins.CreateSkinDef(SUBMARINER_PREFIX + "MASTERY_SKIN_NAME",
                 assetBundle.LoadAsset<Sprite>("texMonsoonSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
-                InterrogatorUnlockables.masterySkinUnlockableDef);
+                SubmarinerUnlockables.masterySkinUnlockableDef);
 
             ////adding the mesh replacements as above. 
             ////if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
@@ -478,11 +473,11 @@ namespace SubmarinerMod.Interrogator
 
             ////masterySkin has a new set of RendererInfos (based on default rendererinfos)
             ////you can simply access the RendererInfos' materials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = InterrogatorAssets.spyMonsoonMat;
-            masterySkin.rendererInfos[1].defaultMaterial = InterrogatorAssets.spyMonsoonMat;
-            masterySkin.rendererInfos[2].defaultMaterial = InterrogatorAssets.spyMonsoonMat;
-            masterySkin.rendererInfos[3].defaultMaterial = InterrogatorAssets.spyMonsoonMat;
-            masterySkin.rendererInfos[5].defaultMaterial = InterrogatorAssets.spyVisorMonsoonMat;
+            masterySkin.rendererInfos[0].defaultMaterial = SubmarinerAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[1].defaultMaterial = SubmarinerAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[2].defaultMaterial = SubmarinerAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[3].defaultMaterial = SubmarinerAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[5].defaultMaterial = SubmarinerAssets.spyVisorMonsoonMat;
 
             ////here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
             masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
@@ -525,7 +520,7 @@ namespace SubmarinerMod.Interrogator
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
 
-            if(SubmarinerPlugin.emotesInstalled) Emotes();
+            if (SubmarinerPlugin.emotesInstalled) Emotes();
         }
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
@@ -558,27 +553,16 @@ namespace SubmarinerMod.Interrogator
 
             if (self)
             {
-                if(self.baseNameToken == "KENKO_INTERROGATOR_NAME")
+                if(self.baseNameToken == "KENKO_SUBMARINER_NAME")
                 {
-                    SubmarinerController iController = self.gameObject.GetComponent<SubmarinerController>();
-                    if(iController)
+                    SubmarinerController sController = self.gameObject.GetComponent<SubmarinerController>();
+                    if(sController)
                     {
-                        if (self.HasBuff(SubmarinerBuffs.interrogatorGuiltyBuff))
+                        if (self.HasBuff(SubmarinerBuffs.SubmarinerRegenBuff))
                         {
-                            for(int i = 0; i < self.GetBuffCount(SubmarinerBuffs.interrogatorGuiltyBuff); i++)
-                            {
-                                self.attackSpeed += 0.15f;
-                                self.damage += 0.5f;
-                            }
+                            self.regen += sController.maxRegen;
                         }
                     }
-                }
-                if(self.HasBuff(SubmarinerBuffs.interrogatorPressuredBuff))
-                {
-                    self.attackSpeed *= 1.15f;
-                    self.moveSpeed *= 1.15f;
-                    self.armor *= 0.9f;
-                    self.damage *= 0.9f;
                 }
             }
         }
@@ -594,50 +578,11 @@ namespace SubmarinerMod.Interrogator
                     attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
                 }
 
-                if (damageInfo.damage > 0 && !damageInfo.rejected && victimBody && attackerBody)
+                if (attackerBody && attackerBody.baseNameToken == "KENKO_SUBMARINER_NAME")
                 {
-                    if(victimBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff) && !attackerBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff)
-                        || !victimBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff) && attackerBody.HasBuff(SubmarinerBuffs.interrogatorConvictBuff))
+                    SubmarinerController sController = attackerBody.GetComponent<SubmarinerController>();
+                    if (sController)
                     {
-                        if (attackerBody.baseNameToken == "KENKO_INTERROGATOR_NAME" &&
-                            attackerBody.skillLocator.special.skillNameToken == INTERROGATOR_PREFIX + "SPECIAL_SCEPTER_CONVICT_NAME")
-                        {
-                            damageInfo.damage *= 0.25f;
-                        }
-                        else damageInfo.rejected = true;
-                    }
-
-                    if (victimBody.baseNameToken == "KENKO_INTERROGATOR_NAME")
-                    {
-                        SubmarinerController iController = victimBody.GetComponent<SubmarinerController>();
-                        if (iController)
-                        {
-                            if (attackerBody)
-                            {
-                                if (attackerBody.teamComponent.teamIndex == victimBody.teamComponent.teamIndex)
-                                {
-                                    damageInfo.damage *= 0.25f;
-                                    if (attackerBody.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff)) attackerBody.RemoveOldestTimedBuff(SubmarinerBuffs.interrogatorGuiltyDebuff);
-                                    attackerBody.AddTimedBuff(SubmarinerBuffs.interrogatorGuiltyDebuff, SubmarinerStaticValues.baseConvictTimerMax);
-                                }
-                                else
-                                {
-                                    if (attackerBody.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff)) attackerBody.RemoveBuff(SubmarinerBuffs.interrogatorGuiltyDebuff);
-                                    attackerBody.AddBuff(SubmarinerBuffs.interrogatorGuiltyDebuff);
-                                }
-                            }
-                        }
-                    }
-                    else if (attackerBody.baseNameToken == "KENKO_INTERROGATOR_NAME")
-                    {
-                        SubmarinerController iController = attackerBody.GetComponent<SubmarinerController>();
-                        if (iController)
-                        {
-                            if (attackerBody.teamComponent.teamIndex == victimBody.teamComponent.teamIndex)
-                            {
-                                damageInfo.damage *= 0.25f;
-                            }
-                        }
                     }
                 }
             }
@@ -649,33 +594,12 @@ namespace SubmarinerMod.Interrogator
             CharacterBody attackerBody = damageReport.attackerBody;
             if (attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
-                if(attackerBody.baseNameToken == "KENKO_INTERROGATOR_NAME" && damageReport.damageInfo.HasModdedDamageType(DamageTypes.InterrogatorPressure))
-                {
-                    BlastAttack blastAttack = new BlastAttack();
-                    blastAttack.attacker = damageReport.attacker;
-                    blastAttack.inflictor = damageReport.attacker;
-                    blastAttack.teamIndex = damageReport.attackerTeamIndex;
-                    blastAttack.baseDamage = 0.1f;
-                    blastAttack.baseForce = 0f;
-                    blastAttack.position = damageReport.victim.body.corePosition;
-                    blastAttack.radius = 12f;
-                    blastAttack.falloffModel = BlastAttack.FalloffModel.None;
-                    blastAttack.bonusForce = Vector3.zero;
-                    blastAttack.damageType = DamageType.AOE;
-                    blastAttack.AddModdedDamageType(DamageTypes.InterrogatorPressureBleed);
-                    blastAttack.Fire();
-
-                    if (damageReport.victim.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
-                    {
-                        new SyncBloodExplosion(identity.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);
-                    }
-                }
             }
         }
         internal static void HUDSetup(HUD hud)
         {
             /*
-            if (hud.targetBodyObject && hud.targetMaster && hud.targetMaster.bodyPrefab == InterrogatorSurvivor.characterPrefab)
+            if (hud.targetBodyObject && hud.targetMaster && hud.targetMaster.bodyPrefab == SubmarinerSurvivor.characterPrefab)
             {
                 if (!hud.targetMaster.hasAuthority) return;
                 Transform skillsContainer = hud.equipmentIcons[0].gameObject.transform.parent;
@@ -707,7 +631,7 @@ namespace SubmarinerMod.Interrogator
                 rect.anchoredPosition = new Vector2(50f, 0f);
                 rect.localPosition = new Vector3(120f, -40f, 0f);
 
-                GameObject chargeBarAmmo = GameObject.Instantiate(InterrogatorAssets.mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar"));
+                GameObject chargeBarAmmo = GameObject.Instantiate(SubmarinerAssets.mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar"));
                 chargeBarAmmo.name = "StealthMeter";
                 chargeBarAmmo.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
 

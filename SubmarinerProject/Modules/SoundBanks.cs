@@ -22,7 +22,7 @@ namespace SubmarinerMod.Modules
             initialized = true;
             AKRESULT akResult = AkSoundEngine.AddBasePath(SoundBankDirectory);
 
-            AkSoundEngine.LoadBank("interrogator_bank.bnk", out _);
+            AkSoundEngine.LoadBank("Submariner_bank.bnk", out _);
         }
     }
 }

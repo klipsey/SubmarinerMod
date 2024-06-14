@@ -1,7 +1,7 @@
 ﻿using BepInEx.Configuration;
 using SubmarinerMod.Modules;
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerConfig
     {
@@ -21,9 +21,9 @@ namespace SubmarinerMod.Interrogator.Content
             //add more here or else you're cringe
             forceUnlock = Config.BindAndOptions(
                 section,
-                "Unlock Interrogator",
+                "Unlock Submariner",
                 false,
-                "Unlock Interrogator.", true);
+                "Unlock Submariner.", true);
         }
     }
 }

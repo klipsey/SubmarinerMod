@@ -4,7 +4,7 @@ using EntityStates;
 using BepInEx.Configuration;
 using SubmarinerMod.Modules;
 
-namespace SubmarinerMod.Interrogator.SkillStates
+namespace SubmarinerMod.Submariner.SkillStates
 {
     public class MainState : GenericCharacterMain
     {
@@ -46,6 +46,17 @@ namespace SubmarinerMod.Interrogator.SkillStates
 
                 if (this.isGrounded) this.animator.SetFloat("airBlend", 0f);
                 else this.animator.SetFloat("airBlend", 1f);
+
+                if(this.animator.GetCurrentStateName(this.animator.GetLayerIndex("Body")) == "RestIdle")
+                {
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimPitch"), 0f);
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimYaw"), 0f);
+                }
+                else
+                {
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimPitch"), 1f);
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("AimYaw"), 1f);
+                }
             }
         }
 

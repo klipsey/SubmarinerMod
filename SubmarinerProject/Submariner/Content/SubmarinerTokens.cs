@@ -1,16 +1,16 @@
 ﻿using System;
 using SubmarinerMod.Modules;
-using SubmarinerMod.Interrogator;
-using SubmarinerMod.Interrogator.Achievements;
+using SubmarinerMod.Submariner;
+using SubmarinerMod.Submariner.Achievements;
 using UnityEngine.UIElements;
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerTokens
     {
         public static void Init()
         {
-            AddInterrogatorTokens();
+            AddSubmarinerTokens();
 
             ////uncomment this to spit out a lanuage file with all the above tokens that people can translate
             ////make sure you set Language.usingLanguageFolder and printingEnabled to true
@@ -19,22 +19,22 @@ namespace SubmarinerMod.Interrogator.Content
             ////refer to guide on how to build and distribute your mod with the proper folders
         }
 
-        public static void AddInterrogatorTokens()
+        public static void AddSubmarinerTokens()
         {
-            #region Interrogator
-            string prefix = SubmarinerSurvivor.INTERROGATOR_PREFIX;
+            #region Submariner
+            string prefix = SubmarinerSurvivor.SUBMARINER_PREFIX;
 
-            string desc = "Interrogator relishes the pain of others. Don't have too much fun hurting your allies, or do...<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            string desc = "Submariner relishes the pain of others. Don't have too much fun hurting your allies, or do...<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Punish the Guilty after they hit you to gain attack speed and move speed. No running from justice." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > If you need a quick and dirty Guilty buff, swing and hit yourself instead. The law applies to everyone!" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Falsify is a great way to spot the Guilty before they commit crimes. Unethical? What do you mean?" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Convict a Guilty target to make sure they are punished for their acts. Guilty until proven innocent after all." + Environment.NewLine + Environment.NewLine;
 
             string lore = "Insert goodguy lore here";
-            string outro = "..and so he left, itching to enact more \"justice\".";
-            string outroFailure = "..and so he vanished, punished for his crimes.";
+            string outro = "..and so she left, Submarinering all over the place.";
+            string outroFailure = "..and so she vanished, not Submarinering all over the place.";
             
-            Language.Add(prefix + "NAME", "Interrogator");
+            Language.Add(prefix + "NAME", "Submariner");
             Language.Add(prefix + "DESCRIPTION", desc);
             Language.Add(prefix + "SUBTITLE", "Unhinged Tormentor");
             Language.Add(prefix + "LORE", lore);
@@ -46,13 +46,12 @@ namespace SubmarinerMod.Interrogator.Content
             #endregion
 
             #region Passive
-            Language.Add(prefix + "PASSIVE_NAME", "Torment");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#FFBF66>Interrogator</color> can hit and be hit by both allies and enemies. " +
-                $"Attackers that have hit <color=#FFBF66>Interrogator</color> are permanently marked as <color=#FFBF66>Guilty</color>. Hitting <color=#FFBF66>Guilty</color> targets grants <style=cIsDamage>attack speed</style> and <style=cIsDamage>damage</style> until they die (Once per target).");
+            Language.Add(prefix + "PASSIVE_NAME", "N'kuhanas Blessing");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Hitting enemies with melee attacks grants N'kuhanas Regeneration.");
             #endregion
 
             #region Primary
-            Language.Add(prefix + "PRIMARY_SWING_NAME", "Brutal Bash");
+            Language.Add(prefix + "PRIMARY_SWING_NAME", "AL811 Anchoring Device");
             Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>. " +
                 $"Missing the attack causes you to take <style=cIsDamage>damage</style> instead.");
             #endregion
@@ -65,7 +64,7 @@ namespace SubmarinerMod.Interrogator.Content
 
             #region Utility 
             Language.Add(prefix + "UTILITY_FALSIFY_NAME", "Falsify");
-            Language.Add(prefix + "UTILITY_FALSIFY_DESCRIPTION", $"Dash forward dealing <style=cIsDamage>{SubmarinerStaticValues.falsifyDamageCoefficient * 100f}% damage</style> applying <color=#FFBF66>Guilty</color> to targets hit.");
+            Language.Add(prefix + "UTILITY_FALSIFY_DESCRIPTION", $"Dash forward dealing <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient * 100f}% damage</style> applying <color=#FFBF66>Guilty</color> to targets hit.");
 
             #endregion
 
@@ -80,8 +79,8 @@ namespace SubmarinerMod.Interrogator.Content
             #endregion
 
             #region Achievements
-            Language.Add(Tokens.GetAchievementNameToken(SubmarinerMasterAchievement.identifier), "Interrogator: Mastery");
-            Language.Add(Tokens.GetAchievementDescriptionToken(SubmarinerMasterAchievement.identifier), "As Interrogator, beat the game or obliterate on Monsoon.");
+            Language.Add(Tokens.GetAchievementNameToken(SubmarinerMasterAchievement.identifier), "Submariner: Mastery");
+            Language.Add(Tokens.GetAchievementDescriptionToken(SubmarinerMasterAchievement.identifier), "As Submariner, beat the game or obliterate on Monsoon.");
             /*
             Language.Add(Tokens.GetAchievementNameToken(SpyUnlockAchievement.identifier), "Dressed to Kill");
             Language.Add(Tokens.GetAchievementDescriptionToken(SpyUnlockAchievement.identifier), "Get a Backstab.");

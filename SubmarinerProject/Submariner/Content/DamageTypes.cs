@@ -4,7 +4,7 @@ using R2API;
 using RoR2;
 using RoR2.Projectile;
 using SubmarinerMod.Modules;
-using SubmarinerMod.Interrogator.Components;
+using SubmarinerMod.Submariner.Components;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -13,23 +13,17 @@ using UnityEngine.Networking;
 using UnityEngine.UIElements;
 using static RoR2.DotController;
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public static class DamageTypes
     {
         public static DamageAPI.ModdedDamageType Default;
-        public static DamageAPI.ModdedDamageType InterrogatorPressure;
-        public static DamageAPI.ModdedDamageType InterrogatorGuilty;
-        public static DamageAPI.ModdedDamageType InterrogatorConvict;
-        public static DamageAPI.ModdedDamageType InterrogatorPressureBleed;
+        public static DamageAPI.ModdedDamageType SubmarinerRegeneration;
 
         internal static void Init()
         {
             Default = DamageAPI.ReserveDamageType();
-            InterrogatorPressure = DamageAPI.ReserveDamageType();
-            InterrogatorGuilty = DamageAPI.ReserveDamageType();
-            InterrogatorConvict = DamageAPI.ReserveDamageType();
-            InterrogatorPressureBleed = DamageAPI.ReserveDamageType();
+            SubmarinerRegeneration = DamageAPI.ReserveDamageType();
             Hook();
         }
         private static void Hook()
@@ -49,65 +43,25 @@ namespace SubmarinerMod.Interrogator.Content
             EntityStateMachine victimMachine = victimBody.GetComponent<EntityStateMachine>();
             CharacterBody attackerBody = damageReport.attackerBody;
             GameObject attackerObject = damageReport.attacker.gameObject;
-            SubmarinerController iController = attackerBody.GetComponent<SubmarinerController>();
             if (NetworkServer.active)
             {
-                if (iController && attackerBody.baseNameToken == "KENKO_INTERROGATOR_NAME")
+                if (attackerBody.baseNameToken == "KENKO_SUBMARINER_NAME")
                 {
-                    if (victimBody.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff) && !victimBody.gameObject.GetComponent<StinkyLoserController>())
+                    if (damageInfo.HasModdedDamageType(SubmarinerRegeneration))
                     {
-                        StinkyLoserController stink = victimBody.gameObject.AddComponent<StinkyLoserController>();
-                        stink.attackerBody = attackerBody;
-                        attackerBody.AddBuff(SubmarinerBuffs.interrogatorGuiltyBuff);
-                    }
-
-                    if (damageInfo.HasModdedDamageType(InterrogatorGuilty))
-                    {
-                        if (victimBody && !victimBody.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff))
+                        if(victimBody && attackerBody)
                         {
-                            if (attackerBody.teamComponent.teamIndex == victimBody.teamComponent.teamIndex)
+                            float regen = Mathf.Clamp(victimBody.healthComponent.health * 0.025f, 0.01f, attackerBody.healthComponent.health * 0.5f);
+                            if(attackerBody.TryGetComponent<SubmarinerController>(out var s))
                             {
-                                victimBody.AddTimedBuff(SubmarinerBuffs.interrogatorGuiltyDebuff, 10f);
+                                s.SetCurrentMaxRegen(regen);
+                                attackerBody.AddTimedBuff(SubmarinerBuffs.SubmarinerRegenBuff, 2.5f);
+                                if (attackerBody.GetBuffCount(SubmarinerBuffs.SubmarinerRegenBuff) > 1)
+                                {
+                                    attackerBody.RemoveOldestTimedBuff(SubmarinerBuffs.SubmarinerRegenBuff);
+                                }
+                                Log.Debug("ok");
                             }
-                            else
-                            {
-                                victimBody.AddBuff(SubmarinerBuffs.interrogatorGuiltyDebuff);
-                            }
-                        }
-                    }
-
-                    if (damageInfo.HasModdedDamageType(InterrogatorConvict))
-                    {
-                        if (victimBody && victimBody.HasBuff(SubmarinerBuffs.interrogatorGuiltyDebuff))
-                        {
-                            attackerBody.AddBuff(SubmarinerBuffs.interrogatorGuiltyBuff);
-                            iController.AddToCounter();
-                        }
-                    }
-
-                    if (damageInfo.HasModdedDamageType(InterrogatorPressureBleed))
-                    {
-                        if (victimBody && victimBody.healthComponent && victimBody.healthComponent.alive)
-                        {
-                            if(victimBody.teamComponent.teamIndex == TeamIndex.Player)
-                            {
-                                DotController.InflictDot(
-                                    victim.gameObject,
-                                    damageInfo.attacker,
-                                    DotController.DotIndex.SuperBleed,
-                                   5f * damageInfo.procCoefficient,
-                                    0.25f);
-                            }
-                            else
-                            {
-                                DotController.InflictDot(
-                                    victim.gameObject,
-                                    damageInfo.attacker,
-                                    DotController.DotIndex.SuperBleed,
-                                    15f * damageInfo.procCoefficient,
-                                    1f);
-                            }
-                            victimBody.AddTimedBuff(SubmarinerBuffs.interrogatorPressuredBuff, 7f);
                         }
                     }
                 }

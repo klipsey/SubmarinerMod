@@ -5,7 +5,7 @@ using System;
 using R2API;
 using System.Collections.Generic;
 using UnityEngine;
-using SubmarinerMod.Interrogator.Components;
+using SubmarinerMod.Submariner.Components;
 
 namespace SubmarinerMod.Modules
 {

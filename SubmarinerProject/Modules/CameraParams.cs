@@ -1,7 +1,7 @@
 ﻿using RoR2;
 using UnityEngine;
 
-internal enum InterrogatorCameraParams
+internal enum SubmarinerCameraParams
 {
     DEFAULT,
     AIM_PISTOL,
@@ -44,7 +44,7 @@ namespace SubmarinerMod.Modules
             return newParams;
         }
 
-        internal static CameraTargetParams.CameraParamsOverrideHandle OverrideCameraParams(CameraTargetParams camParams, InterrogatorCameraParams camera, float transitionDuration = 0.5f)
+        internal static CameraTargetParams.CameraParamsOverrideHandle OverrideCameraParams(CameraTargetParams camParams, SubmarinerCameraParams camera, float transitionDuration = 0.5f)
         {
             CharacterCameraParamsData paramsData = GetNewParams(camera);
 
@@ -57,7 +57,7 @@ namespace SubmarinerMod.Modules
             return camParams.AddParamsOverride(request, transitionDuration);
         }
 
-        internal static CharacterCameraParams CreateCameraParamsWithData(InterrogatorCameraParams camera)
+        internal static CharacterCameraParams CreateCameraParamsWithData(SubmarinerCameraParams camera)
         {
 
             CharacterCameraParams newPaladinCameraParams = ScriptableObject.CreateInstance<CharacterCameraParams>();
@@ -69,7 +69,7 @@ namespace SubmarinerMod.Modules
             return newPaladinCameraParams;
         }
 
-        internal static CharacterCameraParamsData GetNewParams(InterrogatorCameraParams camera)
+        internal static CharacterCameraParamsData GetNewParams(SubmarinerCameraParams camera)
         {
             CharacterCameraParamsData paramsData = defaultCameraParams;
 
@@ -77,16 +77,16 @@ namespace SubmarinerMod.Modules
             {
 
                 default:
-                case InterrogatorCameraParams.DEFAULT:
+                case SubmarinerCameraParams.DEFAULT:
                     paramsData = defaultCameraParams;
                     break;
-                case InterrogatorCameraParams.AIM_PISTOL:
+                case SubmarinerCameraParams.AIM_PISTOL:
                     paramsData = aimCameraParams;
                     break;
-                case InterrogatorCameraParams.AIM_SNIPER:
+                case SubmarinerCameraParams.AIM_SNIPER:
                     paramsData = sniperAimCameraParams;
                     break;
-                case InterrogatorCameraParams.EMOTE:
+                case SubmarinerCameraParams.EMOTE:
                     paramsData = emoteCameraParams;
                     break;
             }

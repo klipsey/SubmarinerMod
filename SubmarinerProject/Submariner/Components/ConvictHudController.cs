@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using RoR2;
 using RoR2.UI;
-using InterrogatorMod.Interrogator.Components;
-using InterrogatorMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Components;
+using SubmarinerMod.Submariner.Content;
 
-namespace InterrogatorMod.Interrogator.Components
+namespace SubmarinerMod.Submariner.Components
 {
     public class ConvictHudController : MonoBehaviour
     {
         public HUD targetHUD;
-        public InterrogatorController interrogatorController;
+        public SubmarinerController SubmarinerController;
 
         public LanguageTextMeshController targetText;
         public GameObject durationDisplay;
@@ -20,8 +20,8 @@ namespace InterrogatorMod.Interrogator.Components
 
         private void Start()
         {
-            this.interrogatorController = this.targetHUD?.targetBodyObject?.GetComponent<InterrogatorController>();
-            this.interrogatorController.onConvictDurationChange += SetDisplay;
+            this.SubmarinerController = this.targetHUD?.targetBodyObject?.GetComponent<SubmarinerController>();
+            this.SubmarinerController.onConvictDurationChange += SetDisplay;
 
             this.durationDisplay.SetActive(false);
             SetDisplay();
@@ -29,7 +29,7 @@ namespace InterrogatorMod.Interrogator.Components
 
         private void OnDestroy()
         {
-            if (this.interrogatorController) this.interrogatorController.onConvictDurationChange -= SetDisplay;
+            if (this.SubmarinerController) this.SubmarinerController.onConvictDurationChange -= SetDisplay;
 
             this.targetText.token = string.Empty;
             this.durationDisplay.SetActive(false);
@@ -40,9 +40,9 @@ namespace InterrogatorMod.Interrogator.Components
         {
             if(targetText.token != string.Empty) { targetText.token = string.Empty; }
 
-            if(this.interrogatorController && this.interrogatorController.convictTimer > 0f)
+            if(this.SubmarinerController && this.SubmarinerController.convictTimer > 0f)
             {
-                float fill = this.interrogatorController.convictTimer;
+                float fill = this.SubmarinerController.convictTimer;
 
                 if (this.durationBarColor)
                 {
@@ -52,7 +52,7 @@ namespace InterrogatorMod.Interrogator.Components
 
                 this.durationBar.fillAmount = fill;
             }
-            else if(this.durationDisplay.activeSelf == true && this.interrogatorController.convictTimer <= 0f)
+            else if(this.durationDisplay.activeSelf == true && this.SubmarinerController.convictTimer <= 0f)
             {
                 this.durationDisplay.SetActive(false);
             }
@@ -60,12 +60,12 @@ namespace InterrogatorMod.Interrogator.Components
 
         private void SetDisplay()
         {
-            if (this.interrogatorController)
+            if (this.SubmarinerController)
             {
                 this.durationDisplay.SetActive(true);
                 this.targetText.token = string.Empty;
 
-                this.durationBar.color = InterrogatorAssets.interrogatorColor;
+                this.durationBar.color = SubmarinerAssets.SubmarinerColor;
             }
             else
             {

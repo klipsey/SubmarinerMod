@@ -11,7 +11,7 @@ using UnityEngine;
                     {localScale})
 */
 
-namespace SubmarinerMod.Interrogator.Content
+namespace SubmarinerMod.Submariner.Content
 {
     public class SubmarinerItemDisplays : ItemDisplaysBase
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EntityStates;
 using RoR2.WwiseUtils;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Content;
 
 namespace SubmarinerMod.Modules.Characters
 {

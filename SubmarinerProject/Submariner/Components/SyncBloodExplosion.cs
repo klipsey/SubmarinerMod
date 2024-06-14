@@ -4,7 +4,7 @@ using R2API.Networking.Interfaces;
 using UnityEngine;
 using RoR2;
 
-namespace SubmarinerMod.Interrogator.Components
+namespace SubmarinerMod.Submariner.Components
 {
     public class SyncBloodExplosion : INetMessage
     {

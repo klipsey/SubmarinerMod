@@ -3,10 +3,10 @@ using EntityStates;
 using SubmarinerMod.Modules.BaseStates;
 using RoR2;
 using UnityEngine.AddressableAssets;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Content;
 using UnityEngine.Networking;
 
-namespace SubmarinerMod.Interrogator.SkillStates
+namespace SubmarinerMod.Submariner.SkillStates
 {
     public class ConvictScepter : Convict
     {

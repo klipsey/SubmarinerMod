@@ -2,11 +2,11 @@
 using RoR2.Skills;
 using UnityEngine;
 
-namespace SubmarinerMod.Interrogator.Components
+namespace SubmarinerMod.Submariner.Components
 {
     public class SubmarinerPassive : MonoBehaviour
     {
-        public SkillDef interrogatorPassive;
+        public SkillDef SubmarinerPassiveSkillDef;
 
         public GenericSkill passiveSkillSlot;
 
@@ -14,9 +14,9 @@ namespace SubmarinerMod.Interrogator.Components
         {
             get
             {
-                if (interrogatorPassive && passiveSkillSlot)
+                if (SubmarinerPassiveSkillDef && passiveSkillSlot)
                 {
-                    return passiveSkillSlot.skillDef == interrogatorPassive;
+                    return passiveSkillSlot.skillDef == SubmarinerPassiveSkillDef;
                 }
 
                 return false;

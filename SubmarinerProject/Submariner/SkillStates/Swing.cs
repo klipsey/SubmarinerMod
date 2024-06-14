@@ -3,10 +3,10 @@ using EntityStates;
 using SubmarinerMod.Modules.BaseStates;
 using RoR2;
 using UnityEngine.AddressableAssets;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Content;
 using static R2API.DamageAPI;
 
-namespace SubmarinerMod.Interrogator.SkillStates
+namespace SubmarinerMod.Submariner.SkillStates
 {
     public class Swing : BaseMeleeAttack
     {
@@ -15,37 +15,34 @@ namespace SubmarinerMod.Interrogator.SkillStates
             RefreshState();
             hitboxGroupName = "MeleeHitbox";
 
-            damageType = DamageType.Generic;
+            damageType = DamageType.Stun1s;
             damageCoefficient = SubmarinerStaticValues.swingDamageCoefficient;
             procCoefficient = 1f;
-            pushForce = 300f;
+            pushForce = 600f;
             bonusForce = Vector3.zero;
             baseDuration = 1.2f;
 
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
-            attackStartPercentTime = 0.5f;
-            attackEndPercentTime = 0.75f;
+            attackStartPercentTime = 0.6f;
+            attackEndPercentTime = 1f;
 
             //this is the point at which the attack can be interrupted by itself, continuing a combo
             earlyExitPercentTime = 1f;
 
-            hitStopDuration = 0.012f;
-            attackRecoil = 0.5f;
-            hitHopVelocity = 4f;
+            hitStopDuration = 0.2f;
+            attackRecoil = 0.75f;
+            hitHopVelocity = 6f;
 
-            swingSoundString = this.isConvicting ? "Play_merc_sword_swing" : "sfx_driver_swing";
+            swingSoundString = "Play_loader_m1_swing";
             hitSoundString = "";
             muzzleString = swingIndex % 2 == 0 ? "SwingMuzzle1" : "SwingMuzzle2";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = this.isConvicting ? SubmarinerAssets.swordSwingEffect : SubmarinerAssets.batSwingEffect;
-            if (this.isConvicting)
-            {
-                moddedDamageTypeHolder.Add(DamageTypes.InterrogatorConvict);
-            }
+            swingEffectPrefab = SubmarinerAssets.batSwingEffect;
+            moddedDamageTypeHolder.Add(DamageTypes.SubmarinerRegeneration);
             hitEffectPrefab = SubmarinerAssets.batHitEffect;
 
-            impactSound = this.isConvicting ? SubmarinerAssets.swordImpactSoundEvent.index : SubmarinerAssets.batImpactSoundEvent.index;
+            impactSound = SubmarinerAssets.batImpactSoundEvent.index;
 
             base.OnEnter();
         }
@@ -82,7 +79,7 @@ namespace SubmarinerMod.Interrogator.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.5f, duration * 0.3f);
+            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
         }
 
         public override void OnExit()

@@ -1,7 +1,7 @@
 ﻿using EntityStates;
 using RoR2;
-using SubmarinerMod.Interrogator.Components;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Components;
+using SubmarinerMod.Submariner.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +9,9 @@ using UnityEngine.Networking;
 
 namespace SubmarinerMod.Modules.BaseStates
 {
-    public abstract class BaseInterrogatorState : BaseState
+    public abstract class BaseSubmarinerState : BaseState
     {
-        protected SubmarinerController interrogatorController;
+        protected SubmarinerController SubmarinerController;
 
         public override void OnEnter()
         {
@@ -24,9 +24,9 @@ namespace SubmarinerMod.Modules.BaseStates
         }
         protected void RefreshState()
         {
-            if (!interrogatorController)
+            if (!SubmarinerController)
             {
-                interrogatorController = base.GetComponent<SubmarinerController>();
+                SubmarinerController = base.GetComponent<SubmarinerController>();
             }
         }
     }

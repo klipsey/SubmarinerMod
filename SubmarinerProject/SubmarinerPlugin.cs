@@ -1,13 +1,14 @@
 ﻿using BepInEx;
 using R2API.Utils;
 using SubmarinerMod.Modules;
-using SubmarinerMod.Interrogator.Content;
+using SubmarinerMod.Submariner.Content;
 using RoR2;
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using R2API.Networking;
 using ShaderSwapper;
+using SubmarinerMod.Submariner.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -41,7 +42,7 @@ namespace SubmarinerMod
         {
             instance = this;
 
-            NetworkingAPI.RegisterMessageType<Interrogator.Components.SyncBloodExplosion>();
+            NetworkingAPI.RegisterMessageType<Submariner.Components.SyncBloodExplosion>();
 
             //easy to use logger
             Log.Init(Logger);
@@ -53,7 +54,15 @@ namespace SubmarinerMod
             SubmarinerAssets.Init(Assets.LoadAssetBundle("submariner"));
             StartCoroutine(SubmarinerAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
-            new SubmarinerMod.Interrogator.SubmarinerSurvivor().Initialize();
+            new SubmarinerMod.Submariner.SubmarinerSurvivor().Initialize();
+
+            On.RoR2.Projectile.ProjectileGrappleController.AssignHookReferenceToBodyStateMachine += (orig, self) => {
+                orig(self);
+                if (self.owner.stateMachine && self.owner.stateMachine.state is HarpoonShot harpoon)
+                {
+                    harpoon.SetHookReference(self.gameObject);
+                }
+            };
 
             // make a content pack and add it. this has to be last
             new Modules.ContentPacks().Initialize();

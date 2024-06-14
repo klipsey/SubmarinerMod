@@ -1,4 +1,4 @@
-﻿using SubmarinerMod.Interrogator.Content;
+﻿using SubmarinerMod.Submariner.Content;
 
 namespace SubmarinerMod.Modules
 {
@@ -6,15 +6,13 @@ namespace SubmarinerMod.Modules
     {
         public const string agilePrefix = "<style=cIsUtility>Agile</style>";
 
-        public const string interrogatorPressuredPrefix = "Pressured";
+        public const string SubmarinerPressuredPrefix = "Pressured";
 
         public static string agileKeyword = KeywordText("Agile", "The skill can be used while sprinting.");
 
         public static string slayerKeyword = KeywordText("Slayer", "The skill deals 2% more damage per 1% of health the target has lost, up to <style=cIsDamage>3x</style> damage.");
 
-        public static string interrogatorPressuredKeyword = KeywordText("Pressured", "Boost attack speed and move speed but lowers armor and damage (decreased ally negative stats).");
-
-        public static string interrogatorGuiltyKeyword = KeywordText("Ally Damage", "Allies take and deal less damage each other and Guilty expires from them after 10 seconds.");
+        public static string submarinerRegenBuff = KeywordText("N'kuhanas Blessing", "Gain health regen based on 2.5% of enemy max hp.");
         public static string DamageText(string text)
         {
             return $"<style=cIsDamage>{text}</style>";
