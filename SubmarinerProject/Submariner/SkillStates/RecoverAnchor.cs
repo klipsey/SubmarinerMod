@@ -13,23 +13,22 @@ namespace SubmarinerMod.Submariner.SkillStates
     {
         public static GameObject muzzleEffectPrefab;
 
-        public static float baseDuration = 0.6f;
+        public static float baseDuration = 1f;
 
         private float duration;
 
         public override void OnEnter()
         {
+            RefreshState();
+            submarinerController.DisableAnchor();
             base.OnEnter();
             duration = baseDuration / attackSpeedStat;
-            PlayAnimation("FullBody, Override", "ThrowAnchor", "Slash.playbackRate", duration);
-            submarinerController.DisableAnchor();
         }
 
         public override void OnExit()
         {
             base.OnExit();
             submarinerController.EnableAnchor();
-            PlayCrossfade("Stance, Override", "Empty", 0.1f);
         }
 
         public override void FixedUpdate()

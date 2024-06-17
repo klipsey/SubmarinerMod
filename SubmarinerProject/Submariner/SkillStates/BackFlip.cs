@@ -28,8 +28,8 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public static float dashDuration = 0.5f;
 
-        public static float pushAwayForce = 10f;
-        public static float pushAwayYFactor = 2.5f;
+        public static float pushAwayForce = 2.5f;
+        public static float pushAwayYFactor = 10f;
 
         public static float speedCoefficient = 5f;
 

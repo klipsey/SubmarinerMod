@@ -23,14 +23,16 @@ namespace SubmarinerMod.Submariner.SkillStates
             damageCoefficient = SubmarinerStaticValues.anchorDamageCoefficient;
             baseMinimumDuration = 0.25f;
             enterSoundString = "sfx_driver_button_foley";
-            enterSoundString = "sfx_scout_cleaver_throw";
+            exitSoundString = "sfx_scout_cleaver_throw";
             base.OnEnter();
+            PlayAnimation("Gesture, Override", "ChargeAnchor");
             Util.PlaySound(enterSoundString, base.gameObject);
             detonationRadius = 7f;
         }
         public override void OnExit()
         {
             base.OnExit();
+            PlayAnimation("Gesture, Override", "ThrowAnchor", "Harpoon.playbackRate", 1f / attackSpeedStat);
             outer.SetNextState(new RecoverAnchor());
             Util.PlaySound(exitSoundString, base.gameObject);
         }

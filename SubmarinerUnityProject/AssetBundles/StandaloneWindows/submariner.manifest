@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3643344839
+CRC: 3460061402
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 516385f9cf8e5531990219b27353ff71
+    Hash: 4e35a77679bf1cfc3cc7728844d4dd14
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -110,6 +110,7 @@ Assets:
 - Assets/Submariner/Projectiles/CoinProjectile.prefab
 - Assets/Submariner/Animations/Armature_IdleIn.anim
 - Assets/Submariner/Materials/matSubmariner.mat
+- Assets/Submariner/Animations/Armature_ThrowAnchor.anim
 - Assets/Submariner/Animations/Armature_HarpoonEndToKick.anim
 - Assets/Submariner/Meshes/meshRope.mesh
 - Assets/Submariner/Animations/animSubmariner.controller
@@ -131,6 +132,7 @@ Assets:
 - Assets/Submariner/Animations/Armature_BeastEnd.anim
 - Assets/Submariner/Materials/matVisor.mat
 - Assets/Submariner/HUD/WeaponChargeBar.prefab
+- Assets/Submariner/Animations/Armature_ThrowAnchorCharge.anim
 - Assets/Submariner/VFX/texSpyStreak.png
 - Assets/Submariner/Textures/texConvictBuff.png
 - Assets/Submariner/VFX/matSpyDefault.mat
@@ -167,7 +169,6 @@ Assets:
 - Assets/Submariner/Projectiles/mdlSapper.prefab
 - Assets/Submariner/Animations/Armature_Descend.anim
 - Assets/Submariner/Animations/Armature_Ascend.anim
-- Assets/Submariner/Animations/Armature_ThrowAnchor.anim
 - Assets/Submariner/Icons/texInterrogatorIcon.png
 - Assets/Submariner/Projectiles/DriverStunGrenadeGhost.prefab
 - Assets/Submariner/Projectiles/texRampCoin2.png

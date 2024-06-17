@@ -29,6 +29,8 @@ namespace SubmarinerMod.Submariner.Components
         public bool pauseTimer = false;
 
         private ParticleSystem swordEffect;
+
+        public float movementSpeedAnchorIncrease = 1f;
         private void Awake()
         {
             this.characterBody = this.GetComponent<CharacterBody>();
@@ -54,6 +56,7 @@ namespace SubmarinerMod.Submariner.Components
         {
             if (this.skinController)
             {
+                childLocator.FindChild("BeastModel").gameObject.SetActive(false);
             }
         }
 
@@ -66,7 +69,7 @@ namespace SubmarinerMod.Submariner.Components
         public void EnableAnchor()
         {
             childLocator.FindChild("AnchorModel").gameObject.SetActive(true);
-            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.ghostMat;
+            //childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.ghostMat;
         }
         public void DisableAnchor() 
         {

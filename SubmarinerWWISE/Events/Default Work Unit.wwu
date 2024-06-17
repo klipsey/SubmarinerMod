@@ -1356,6 +1356,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sfx_chainsnap" ID="{A9947DE8-F7B3-45CB-BCA1-9AF4352F91EF}">
+					<ChildrenList>
+						<Action Name="" ID="{FB302B80-4FF8-4C44-A011-34C520BBBA21}" ShortID="166314008">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_chainsnap" ID="{E028F602-7310-4FB5-88B8-75276FC7A725}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

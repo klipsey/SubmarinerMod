@@ -133,18 +133,15 @@ namespace SubmarinerMod.Submariner.Content
 
             anchorTether = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Treebot/EntangleOrbEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerChains");
             anchorTether.AddComponent<NetworkIdentity>();
-            Material mat = anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0];
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials = new Material[1];
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0] = mat;
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials[0].SetColor("_TintColor", SubmarinerColor);
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().startColor = SubmarinerColor;
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().startColor = SubmarinerColor;
-            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().shadowBias = 0.5f;
+            Material[] hi = new Material[1];
+            hi[0] = Addressables.LoadAssetAsync<Material>("RoR2/Base/Gravekeeper/matGravekeeperHookChain.mat").WaitForCompletion();
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().materials = hi;
+            anchorTether.transform.GetChild(0).GetComponent<LineRenderer>().textureMode = LineTextureMode.Tile;
             anchorTether.transform.localScale *= 0.5f;
-            anchorTether.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().mesh = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ElementalRings/PickupFireRing.prefab").WaitForCompletion().transform.GetChild(0).gameObject.GetComponent<MeshFilter>().mesh;
-            anchorTether.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", SubmarinerColor);
+            UnityEngine.Object.Destroy(anchorTether.transform.GetChild(0).GetChild(0).gameObject);
             anchorTether.gameObject.GetComponent<AkEvent>().enabled = false;
             anchorTether.gameObject.GetComponent<AkGameObj>().enabled = false;
+            anchorTether.gameObject.AddComponent<DestroyOnCondition>();
             Modules.Content.CreateAndAddEffectDef(anchorTether);
 
             dashEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Brother/BrotherDashEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerDashEffect");
@@ -279,7 +276,11 @@ namespace SubmarinerMod.Submariner.Content
             anchorPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Toolbot/CryoCanisterProjectile.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchor");
             if (!anchorPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
 
+            anchorPrefab.gameObject.GetComponent<ProjectileSimple>().lifetime = 16f;
+            anchorPrefab.gameObject.GetComponent<ProjectileSimple>().desiredForwardSpeed = 30f;
+
             GameObject ghost2 = mainAssetBundle.LoadAsset<GameObject>("mdlAnchor");
+            ghost2.transform.localScale *= 2f;
             if (!ghost2.GetComponent<NetworkIdentity>()) ghost2.AddComponent<NetworkIdentity>();
             if (!ghost2.GetComponent<ProjectileGhostController>()) ghost2.AddComponent<ProjectileGhostController>();
 
@@ -288,9 +289,8 @@ namespace SubmarinerMod.Submariner.Content
             GameObject modelTransform = new GameObject();
             modelTransform.name = "AnchorGhostTransform";
             modelTransform.transform.localScale = Vector3.one * 0.75f;
-            modelTransform.transform.rotation = ghost2.transform.rotation;
-            modelTransform.transform.position = ghost2.transform.position;
             modelTransform.transform.SetParent(anchorPrefab.transform, false);
+            modelTransform.transform.localScale *= 2f;
             anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostTransformAnchor = anchorPrefab.transform.Find("AnchorGhostTransform");
 
 
@@ -299,6 +299,8 @@ namespace SubmarinerMod.Submariner.Content
             stick.ignoreCharacters = true;
             stick.ignoreWorld = false;
             stick.alignNormals = true;
+            stick.alignRotationPlease = ghost2.transform.rotation;
+            stick.alignLocationPlease = ghost2.transform.position;
 
             Component.Destroy(anchorPrefab.GetComponent<ProjectileImpactExplosion>());
             Component.Destroy(anchorPrefab.GetComponent<ApplyTorqueOnStart>());
@@ -309,6 +311,9 @@ namespace SubmarinerMod.Submariner.Content
             Prefabs.AddEntityStateMachine(bodyPrefab, "Main", typeof(SkillStates.AnchorBaseState), typeof(SkillStates.AnchorTetherBehaviour));
 
             */
+
+            AnchorConnectionComponent c = anchorPrefab.AddComponent<AnchorConnectionComponent>();
+            c.enabled = false;
             Modules.Content.AddProjectilePrefab(anchorPrefab);
         }
         #endregion

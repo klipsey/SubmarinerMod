@@ -47,28 +47,30 @@ namespace SubmarinerMod.Submariner.Content
 
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "N'kuhanas Blessing");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Hitting enemies with melee attacks grants N'kuhanas Regeneration.");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Hitting enemies with <style=cIsDamage>melee attacks</style> grants <style=cIsHealing>N'kuhanas Regeneration</style>.");
             #endregion
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SWING_NAME", "AL811 Anchoring Device");
-            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Stunning. Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"<style=cIsUtility>Stunning.</style> Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_HARPOON_NAME", "Harpoon");
-            Language.Add(prefix + "SECONDARY_HARPOON_DESCRIPTION", $"Fire out a harpoon dealing <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient / 2f * 100f}%</style>. Pulls small enemies towards you and pulls you towards large enemies. " +
-                $"Colliding with a large enemy deals <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient * 100f}%</style> then starts a backflip.");
+            Language.Add(prefix + "SECONDARY_HARPOON_DESCRIPTION", $"Fire out a harpoon dealing <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient / 2f * 100f}% damage</style>. " +
+                $"<style=cIsUtility>Pulls</style> small enemies towards you and <style=cIsUtility>pulls</style> you towards large enemies. " +
+                $"Colliding with a large enemy deals <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient * 100f}%</style> then starts a <style=cIsUtility>backflip.</style>");
             #endregion
 
             #region Utility 
             Language.Add(prefix + "UTILITY_MINE_NAME", "Urchin Mine");
-            Language.Add(prefix + "UTILITY_MINE_DESCRIPTION", $"Backflip firing out an Urchine Mine that deals <style=cIsDamage>{SubmarinerStaticValues.mineDamageCoefficient * 100f}%</style>.");
+            Language.Add(prefix + "UTILITY_MINE_DESCRIPTION", $"<style=cIsUtility>Backflip</style> firing out an <style=cIsHealing>Urchine Mine</style> that deals <style=cIsDamage>{SubmarinerStaticValues.mineDamageCoefficient * 100f}% damage</style>.");
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_ANCHORTHROW_NAME", "Anchor Drop");
-            Language.Add(prefix + "SPECIAL_ANCHORTHROW_DESCRIPTION", $".");
+            Language.Add(prefix + "SPECIAL_ANCHORTHROW_DESCRIPTION", $"Throw your anchor for <style=cIsDamage>{SubmarinerStaticValues.anchorDamageCoefficient * 100f}% damage</style>. Running towards the anchor grants <style=cIsUtility>movespeed</style> while " +
+                $"running away <style=cIsDamage>slows</style> you down. <style=cIsDamage>Break</style> the chain attached to your anchor to gain a burst of <style=cIsUtility>movespeed</style>.");
 
             Language.Add(prefix + "SPECIAL_SCEPTER_ANCHORTHROW_NAME", "Punish");
             Language.Add(prefix + "SPECIAL_SCEPTER_ANCHORTHROW_DESCRIPTION", $"Target a <color=#FFBF66>Guilty</color> enemy and force them to fight you for 10 seconds. Your primary can no longer hit you but will continuously add <color=#FFBF66>Guilty's</color> buff to you. " +

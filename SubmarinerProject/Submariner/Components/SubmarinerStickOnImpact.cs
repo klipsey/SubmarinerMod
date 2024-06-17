@@ -7,7 +7,6 @@ using RoR2;
 using static UnityEngine.SendMouseEvents;
 using R2API;
 using SubmarinerMod.Submariner.Content;
-using SubmarinerMod.Submariner.Content;
 
 namespace SubmarinerMod.Submariner.Components
 {
@@ -48,6 +47,12 @@ namespace SubmarinerMod.Submariner.Components
 
         [SyncVar]
         private Quaternion localRotation;
+
+        [SyncVar]
+        public Quaternion alignRotationPlease;
+
+        [SyncVar]
+        public Vector3 alignLocationPlease;
 
         private NetworkInstanceId ___syncVictimNetId;
 
@@ -170,6 +175,8 @@ namespace SubmarinerMod.Submariner.Components
         {
             if (base.enabled)
             {
+                base.transform.Find("AnchorGhostTransform").localPosition = alignLocationPlease;
+                base.transform.Find("AnchorGhostTransform").localRotation = alignRotationPlease;
                 TrySticking(impactInfo.collider, impactInfo.estimatedImpactNormal);
                 if (!hasFired)
                 {
@@ -238,6 +245,7 @@ namespace SubmarinerMod.Submariner.Components
             if ((bool)gameObject)
             {
                 stickEvent.Invoke();
+                base.GetComponent<AnchorConnectionComponent>().enabled = true;
                 ParticleSystem[] array = stickParticleSystem;
                 for (int i = 0; i < array.Length; i++)
                 {

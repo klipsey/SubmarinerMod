@@ -18,6 +18,7 @@
 				<Property Name="Event Action List\{8F08C709-9AFA-40B0-89A9-E826A417EF96}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{982EC246-2014-466A-9C51-F2C64FED090E}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{9BFA497E-6BB6-4D88-B449-13E3FE990776}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A9947DE8-F7B3-45CB-BCA1-9AF4352F91EF}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B19B9BDF-B4D5-4962-B000-D56DBC50B235}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{BBFB698C-22EF-4531-9528-9513984FC2FD}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
@@ -50,7 +51,7 @@
 				<Property Name="MonitoringManager\GameObjectFilter\x64_GameObjectFilters" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\FirstVisible_10_1" Type="string" Value="{4C96B38B-3DB4-40C7-91C9-665510E38993}"/>
 				<Property Name="ProjectExplorer\FirstVisible_11_1" Type="string" Value="{23EC2DE3-3ED8-4B82-AC99-92E25F2E4C6B}"/>
-				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{D0DA675F-129D-4047-A125-FC49764FF8EF}"/>
+				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{97E1D23F-1772-4EDA-B98E-DDE86E6CB04A}"/>
 				<Property Name="ProjectExplorer\FirstVisible_3_1" Type="string" Value="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}"/>
 				<Property Name="ProjectExplorer\FirstVisible_4_1" Type="string" Value="{CB6175F1-6080-4A23-92EF-0807E304D0C1}"/>
 				<Property Name="ProjectExplorer\FirstVisible_6_1" Type="string" Value="{C98E673F-A24C-48A8-960F-10565FFE70A0}"/>

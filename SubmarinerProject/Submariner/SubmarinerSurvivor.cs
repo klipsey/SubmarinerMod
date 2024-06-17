@@ -530,6 +530,8 @@ namespace SubmarinerMod.Submariner
                         {
                             self.regen *= 1.1f * self.GetBuffCount(SubmarinerBuffs.SubmarinerRegenBuff);
                         }
+
+                        self.moveSpeed *= sController.movementSpeedAnchorIncrease;
                     }
                 }
             }

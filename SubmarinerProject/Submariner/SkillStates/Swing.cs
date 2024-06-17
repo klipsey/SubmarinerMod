@@ -18,7 +18,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             damageType = DamageType.Stun1s;
             damageCoefficient = SubmarinerStaticValues.swingDamageCoefficient;
             procCoefficient = 1f;
-            pushForce = 600f;
+            pushForce = 1500f;
             bonusForce = Vector3.zero;
             baseDuration = 1.2f;
 
