@@ -14,6 +14,8 @@ namespace SubmarinerMod.Submariner.Content
 
         public static float mineDamageCoefficient = 7.5f;
 
+        public static float anchorDamageCoefficient = 9f;
+
         public static float baseConvictTimerMax = 8f;
     }
 }

@@ -16,11 +16,11 @@ namespace SubmarinerMod.Submariner.SkillStates
         public static string exitSoundString;
         public override void OnEnter()
         {
-            maxDistance = 200f;
+            maxDistance = 50f;
             arcVisualizerPrefab = SubmarinerAssets.throwable;
             projectilePrefab = SubmarinerAssets.anchorPrefab;
             endpointVisualizerPrefab = SubmarinerAssets.throwableEnd;
-            damageCoefficient = 9f;
+            damageCoefficient = SubmarinerStaticValues.anchorDamageCoefficient;
             baseMinimumDuration = 0.25f;
             enterSoundString = "sfx_driver_button_foley";
             enterSoundString = "sfx_scout_cleaver_throw";

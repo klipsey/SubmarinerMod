@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 563869639
+CRC: 3643344839
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9f73dd59fc1222a7f72f59d2237bb137
+    Hash: 516385f9cf8e5531990219b27353ff71
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -80,7 +80,6 @@ Assets:
 - Assets/Submariner/Animations/animSubmarinerCSS.controller
 - Assets/Submariner/VFX/CritLightningMonsoon.prefab
 - Assets/Submariner/Animations/Armature_CSSIdle.anim
-- Assets/Submariner/Meshes/meshAnchorProjectile.mesh
 - Assets/Submariner/Textures/texGuilty.png
 - Assets/Submariner/VFX/BloodSpurtEffect.prefab
 - Assets/Submariner/HUD/ChargeBar.prefab
@@ -90,6 +89,7 @@ Assets:
 - Assets/Submariner/VFX/matShockwave.mat
 - Assets/Submariner/Projectiles/meshSapper.mesh
 - Assets/Submariner/Animations/Armature_RunR.anim
+- Assets/Submariner/Meshes/meshAnchorProjectile.mesh
 - Assets/Submariner/VFX/Badass/BigExplosion.prefab
 - Assets/Submariner/Animations/Armature_Idle.anim
 - Assets/Submariner/VFX/Badass/MetalHitEffect.prefab
@@ -129,7 +129,6 @@ Assets:
 - Assets/Submariner/Icons/Skill/texSwingIcon.png
 - Assets/Submariner/SubmarinerDisplay.prefab
 - Assets/Submariner/Animations/Armature_BeastEnd.anim
-- Assets/Submariner/mdlAnchor.prefab
 - Assets/Submariner/Materials/matVisor.mat
 - Assets/Submariner/HUD/WeaponChargeBar.prefab
 - Assets/Submariner/VFX/texSpyStreak.png
@@ -180,6 +179,7 @@ Assets:
 - Assets/Submariner/Icons/texMonsoonSkin.png
 - Assets/Submariner/Animations/Armature_Swing2.anim
 - Assets/Submariner/Animations/maskSubmarinerImpact.mask
+- Assets/Submariner/mdlAnchor.prefab
 - Assets/Submariner/Meshes/meshVisor.mesh
 - Assets/Submariner/Textures/texGuiltyDebuff.png
 - Assets/Submariner/submariner_emoteskeleton.prefab

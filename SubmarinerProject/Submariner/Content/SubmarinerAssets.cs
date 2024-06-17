@@ -13,6 +13,7 @@ using SubmarinerMod.Submariner.Components;
 using SubmarinerMod.Submariner.SkillStates;
 using System;
 using System.Linq;
+using Rewired.ComponentControls.Effects;
 
 namespace SubmarinerMod.Submariner.Content
 {
@@ -274,54 +275,40 @@ namespace SubmarinerMod.Submariner.Content
 
             Modules.Content.AddProjectilePrefab(minePrefab);
 
-            anchorPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMine.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchor");
-            if (!anchorPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
-            anchorPrefab.GetComponent<ProjectileStickOnImpact>().stickSoundString = "Play_parent_attack1_slam";
-            ProjectileImpactExplosion anchorEx = anchorPrefab.AddComponent<ProjectileImpactExplosion>();
-            anchorEx.blastRadius = 12f;
-            anchorEx.blastDamageCoefficient = 1f;
-            anchorEx.blastProcCoefficient = 1f;
-            anchorEx.canRejectForce  = true;
-            anchorEx.impactEffect = bloodExplosionEffect;
-            anchorEx.destroyOnEnemy = false;
-            anchorEx.destroyOnWorld = false;
-            anchorEx.impactOnWorld = true;
-            anchorEx.lifetime = 99999f;
-            anchorEx.lifetimeAfterImpact = 99999f;
 
+            anchorPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Toolbot/CryoCanisterProjectile.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchor");
+            if (!anchorPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
+
+            GameObject ghost2 = mainAssetBundle.LoadAsset<GameObject>("mdlAnchor");
+            if (!ghost2.GetComponent<NetworkIdentity>()) ghost2.AddComponent<NetworkIdentity>();
+            if (!ghost2.GetComponent<ProjectileGhostController>()) ghost2.AddComponent<ProjectileGhostController>();
+
+            anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = ghost2;
+
+            GameObject modelTransform = new GameObject();
+            modelTransform.name = "AnchorGhostTransform";
+            modelTransform.transform.localScale = Vector3.one * 0.75f;
+            modelTransform.transform.rotation = ghost2.transform.rotation;
+            modelTransform.transform.position = ghost2.transform.position;
+            modelTransform.transform.SetParent(anchorPrefab.transform, false);
+            anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostTransformAnchor = anchorPrefab.transform.Find("AnchorGhostTransform");
+
+
+            SubmarinerStickOnImpact stick = anchorPrefab.AddComponent<SubmarinerStickOnImpact>();
+            stick.stickSoundString = "Play_parent_attack1_slam";
+            stick.ignoreCharacters = true;
+            stick.ignoreWorld = false;
+            stick.alignNormals = true;
+
+            Component.Destroy(anchorPrefab.GetComponent<ProjectileImpactExplosion>());
+            Component.Destroy(anchorPrefab.GetComponent<ApplyTorqueOnStart>());
             anchorPrefab.GetComponent<ProjectileDamage>().damageType = DamageType.Stun1s;
 
-            anchorPrefab.GetComponent<ProjectileSimple>().desiredForwardSpeed = 50f;
+            /*
 
-            anchorPrefab.GetComponent<ProjectileStickOnImpact>().stickParticleSystem = new ParticleSystem[0];
-            Component.DestroyImmediate(anchorPrefab.GetComponent<ProjectileSphereTargetFinder>());
-            Component.DestroyImmediate(anchorPrefab.GetComponent<ProjectileTargetComponent>());
-            EntityStateMachine[] anchorStates = anchorPrefab.GetComponents<EntityStateMachine>();
-            anchorStates[1].initialStateType = new EntityStates.SerializableEntityStateType(typeof(AnchorWaitForStick));
-            anchorStates[1].mainStateType = new EntityStates.SerializableEntityStateType(typeof(AnchorBaseState));
-            anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines = new EntityStateMachine[0];
-            anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines = anchorPrefab.GetComponent<NetworkStateMachine>().stateMachines.Append(anchorStates[1]).ToArray();
-            Component.DestroyImmediate(anchorStates[0]);
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Main", typeof(SkillStates.AnchorBaseState), typeof(SkillStates.AnchorTetherBehaviour));
 
-            anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMineGhost.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchorGhost");
-            if (!anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
-            GameObject ghost2 = anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab;
-            ghost2.GetComponent<EngiMineAnimator>().enabled = false;
-            MeshFilter meshF2 = ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshFilter>();
-            meshF2.mesh = mainAssetBundle.LoadAsset<Mesh>("meshAnchorProjectile");
-            MeshRenderer meshR2 = ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshRenderer>();
-            meshR2.materials = new Material[1];
-            meshR2.materials[0] = anchorMat;
-            meshR2.material = anchorMat;
-
-            Component.DestroyImmediate(ghost2.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.GetComponent<SkinnedMeshRenderer>());
-            ghost.transform.Find("mdlEngiMine").Find("EngiMineArmature").gameObject.SetActive(false);
-
-            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(0).gameObject);
-            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(1).gameObject);
-            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(2).gameObject);
-            UnityEngine.Object.Destroy(anchorPrefab.transform.GetChild(3).gameObject);
-
+            */
             Modules.Content.AddProjectilePrefab(anchorPrefab);
         }
         #endregion
