@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1310734674
+CRC: 4273078140
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 68a7a66e9d5c1aac4bcbb9a9d27bc501
+    Hash: 9c0d82b52e10fdccdd07a1e878307216
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -182,8 +182,8 @@ Assets:
 - Assets/Submariner/Animations/maskSubmarinerImpact.mask
 - Assets/Submariner/mdlAnchor.prefab
 - Assets/Submariner/Textures/texGuiltyDebuff.png
-- Assets/Submariner/submariner_emoteskeleton.prefab
 - Assets/Submariner/VFX/matBlackLightning.mat
+- Assets/Submariner/submariner_emoteskeleton.prefab
 - Assets/Submariner/Animations/maskSubmarinerGesture.mask
 - Assets/Submariner/Icons/Skill/texConvictScepter.png
 - Assets/Submariner/HUD/Textures/texWhite.png

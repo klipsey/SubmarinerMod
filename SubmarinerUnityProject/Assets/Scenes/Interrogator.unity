@@ -566,7 +566,7 @@ PrefabInstance:
     - target: {fileID: 5951815381360621518, guid: 3ad25e1ff64625e4092df15d518a7850,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5951815381360621518, guid: 3ad25e1ff64625e4092df15d518a7850,
         type: 3}
@@ -956,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 688947587884940936, guid: cacc9e04343dbb14c9c08b1ac172a66a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 688947587884940936, guid: cacc9e04343dbb14c9c08b1ac172a66a,
         type: 3}
@@ -3759,75 +3759,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &4154998963949102329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455054855697555375, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7799808253807232277, guid: 90c9f65fed2b336469be774d1510015d,
-        type: 3}
-      propertyPath: m_Name
-      value: submariner_emoteskeleton
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 90c9f65fed2b336469be774d1510015d, type: 3}
 --- !u!1 &4179351715862505794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,6 +3823,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &4473721291385965981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596636954612763942, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937027804113983388, guid: b5c23d9f8eca02246ac6661610a42a72,
+        type: 3}
+      propertyPath: m_Name
+      value: submariner_emoteskeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5c23d9f8eca02246ac6661610a42a72, type: 3}
 --- !u!1 &4475927192188530813
 GameObject:
   m_ObjectHideFlags: 0
