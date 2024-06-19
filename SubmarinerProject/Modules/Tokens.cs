@@ -12,7 +12,7 @@ namespace SubmarinerMod.Modules
 
         public static string slayerKeyword = KeywordText("Slayer", "The skill deals 2% more damage per 1% of health the target has lost, up to <style=cIsDamage>3x</style> damage.");
 
-        public static string submarinerRegenBuff = KeywordText("N'kuhanas Blessing", "Gain health regen based on 2.5% of enemy max hp.");
+        public static string submarinerRegenBuff = KeywordText("N'kuhanna's Restoration", "Gain health regen based on 2.5% of enemy max hp.");
         public static string DamageText(string text)
         {
             return $"<style=cIsDamage>{text}</style>";

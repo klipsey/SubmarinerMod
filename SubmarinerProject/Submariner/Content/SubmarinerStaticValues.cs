@@ -6,9 +6,7 @@ namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerStaticValues
     {
-        public static float swingDamageCoefficient = 6f;
-
-        public static float cleaverDamageCoefficient = 4.5f;
+        public static float swingDamageCoefficient = 4.5f;
 
         public static float harpoonDamageCoefficient = 3f;
 

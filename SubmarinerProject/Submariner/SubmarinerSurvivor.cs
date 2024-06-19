@@ -275,7 +275,7 @@ namespace SubmarinerMod.Submariner
                 interruptPriority = InterruptPriority.Any,
 
                 baseMaxStock = 2,
-                baseRechargeInterval = 5f,
+                baseRechargeInterval = 4f,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 0,

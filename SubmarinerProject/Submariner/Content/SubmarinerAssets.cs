@@ -55,6 +55,7 @@ namespace SubmarinerMod.Submariner.Content
         //Projectiles
         internal static GameObject hookPrefab;
         internal static GameObject minePrefab;
+        internal static GameObject mineExplosionPrefab;
         internal static GameObject anchorPrefab;
         //Sounds
         internal static NetworkSoundEventDef batImpactSoundEvent;
@@ -260,6 +261,25 @@ namespace SubmarinerMod.Submariner.Content
             minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = PrefabAPI.InstantiateClone(minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab, "SubmarinerMineGhost");
             GameObject ghost = minePrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab;
             ghost.GetComponent<EngiMineAnimator>().enabled = false;
+
+            mineExplosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMineExplosion.prefab").WaitForCompletion().InstantiateClone("SubmarinerMineExplosion");
+
+            Modules.Content.CreateAndAddEffectDef(mineExplosionPrefab);
+
+            ProjectileImpactExplosion boom = minePrefab.AddComponent<ProjectileImpactExplosion>();
+            boom.blastDamageCoefficient = SubmarinerStaticValues.mineDamageCoefficient;
+            boom.blastProcCoefficient = 1f;
+            boom.blastRadius = 12f;
+            boom.canRejectForce = true;
+            boom.fireChildren = false;
+            boom.destroyOnEnemy = true;
+            boom.destroyOnWorld = false;
+            boom.impactOnWorld = false;
+            boom.lifetime = 8f;
+            boom.lifetimeAfterImpact = 0.3f;
+            boom.impactEffect = mineExplosionPrefab;
+
+            minePrefab.GetComponent<ProjectileDamage>().damage = SubmarinerStaticValues.mineDamageCoefficient;
             MeshFilter meshF = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshFilter>();
             meshF.mesh = mainAssetBundle.LoadAsset<Mesh>("meshMine");
             MeshRenderer meshR = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshRenderer>();
