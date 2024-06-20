@@ -329,14 +329,46 @@ namespace SubmarinerMod.Submariner
 
             });
 
-            Skills.AddUtilitySkills(bodyPrefab, mine);
+            SkillDef beast = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Beast",
+                skillNameToken = SUBMARINER_PREFIX + "UTILITY_BEAST_NAME",
+                skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_BEAST_DESCRIPTION",
+                keywordTokens = new string[] { Tokens.slayerKeyword },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texBackflipIcon"),
+
+                activationState = new SerializableEntityStateType(typeof(BeastRide)),
+                activationStateMachineName = "Body",
+                interruptPriority = InterruptPriority.Skill,
+
+                baseRechargeInterval = 7f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = false,
+                beginSkillCooldownOnSkillEnd = true,
+
+                isCombatSkill = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = true,
+
+            });
+
+            Skills.AddUtilitySkills(bodyPrefab, mine, beast);
         }
 
         private void AddSpecialSkills()
         {
-            SkillDef convict = Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef anchorThrow = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "Convict",
+                skillName = "AnchorThrow",
                 skillNameToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_DESCRIPTION",
                 keywordTokens = new string[] { },
@@ -365,7 +397,7 @@ namespace SubmarinerMod.Submariner
                 forceSprintDuringState = false,
             });
 
-            Skills.AddSpecialSkills(bodyPrefab, convict);
+            Skills.AddSpecialSkills(bodyPrefab, anchorThrow);
         }
 
         private void InitializeScepter()
@@ -482,9 +514,7 @@ namespace SubmarinerMod.Submariner
 
         private void AddHooks()
         {
-            //HUD.onHudTargetChangedGlobal += HUDSetup;
             On.RoR2.UI.LoadoutPanelController.Rebuild += LoadoutPanelController_Rebuild;
-            On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
 
@@ -533,97 +563,29 @@ namespace SubmarinerMod.Submariner
 
                         self.moveSpeed *= sController.movementSpeedAnchorIncrease;
                     }
-                }
-            }
-        }
-        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
-        {
-            if (NetworkServer.active && self.alive || !self.godMode || self.ospTimer <= 0f)
-            {
-                CharacterBody victimBody = self.body;
-                CharacterBody attackerBody = null;
 
-                if (damageInfo.attacker)
-                {
-                    attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                }
-
-                if (attackerBody && attackerBody.baseNameToken == "KENKO_SUBMARINER_NAME")
-                {
-                    SubmarinerController sController = attackerBody.GetComponent<SubmarinerController>();
-                    if (sController)
+                    if(self.HasBuff(SubmarinerBuffs.SubmarinerBeastBuff))
                     {
+                        self.moveSpeed *= 1f + 0.1f * self.GetBuffCount(SubmarinerBuffs.SubmarinerBeastBuff);
+                        self.damage += 2.5f * self.GetBuffCount(SubmarinerBuffs.SubmarinerBeastBuff);
                     }
                 }
             }
-
-            orig.Invoke(self, damageInfo);
         }
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {
             CharacterBody attackerBody = damageReport.attackerBody;
             if (attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
+                if(attackerBody.baseNameToken == "KENKO_SUBMARINER_NAME")
+                {
+                    if(attackerBody.HasBuff(SubmarinerBuffs.SubmarinerBeastBuff))
+                    {
+                        attackerBody.AddBuff(SubmarinerBuffs.SubmarinerBeastBuff);
+                        attackerBody.RecalculateStats();
+                    }
+                }
             }
-        }
-        internal static void HUDSetup(HUD hud)
-        {
-            /*
-            if (hud.targetBodyObject && hud.targetMaster && hud.targetMaster.bodyPrefab == SubmarinerSurvivor.characterPrefab)
-            {
-                if (!hud.targetMaster.hasAuthority) return;
-                Transform skillsContainer = hud.equipmentIcons[0].gameObject.transform.parent;
-
-                // ammo display for atomic
-                Transform healthbarContainer = hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster").Find("BarRoots").Find("LevelDisplayCluster");
-
-                GameObject stealthTracker = GameObject.Instantiate(healthbarContainer.gameObject, hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster"));
-                stealthTracker.name = "AmmoTracker";
-                stealthTracker.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
-
-                GameObject.DestroyImmediate(stealthTracker.transform.GetChild(0).gameObject);
-                MonoBehaviour.Destroy(stealthTracker.GetComponentInChildren<LevelText>());
-                MonoBehaviour.Destroy(stealthTracker.GetComponentInChildren<ExpBar>());
-
-                stealthTracker.transform.Find("LevelDisplayRoot").Find("ValueText").gameObject.SetActive(false);
-                GameObject.DestroyImmediate(stealthTracker.transform.Find("ExpBarRoot").gameObject);
-
-                stealthTracker.transform.Find("LevelDisplayRoot").GetComponent<RectTransform>().anchoredPosition = new Vector2(-12f, 0f);
-
-                RectTransform rect = stealthTracker.GetComponent<RectTransform>();
-                rect.localScale = new Vector3(0.8f, 0.8f, 1f);
-                rect.anchorMin = new Vector2(0f, 0f);
-                rect.anchorMax = new Vector2(0f, 0f);
-                rect.offsetMin = new Vector2(120f, -40f);
-                rect.offsetMax = new Vector2(120f, -40f);
-                rect.pivot = new Vector2(0.5f, 0f);
-                //positional data doesnt get sent to clients? Manually making offsets works..
-                rect.anchoredPosition = new Vector2(50f, 0f);
-                rect.localPosition = new Vector3(120f, -40f, 0f);
-
-                GameObject chargeBarAmmo = GameObject.Instantiate(SubmarinerAssets.mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar"));
-                chargeBarAmmo.name = "StealthMeter";
-                chargeBarAmmo.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
-
-                rect = chargeBarAmmo.GetComponent<RectTransform>();
-
-                rect.localScale = new Vector3(0.75f, 0.1f, 1f);
-                rect.anchorMin = new Vector2(100f, 2f);
-                rect.anchorMax = new Vector2(100f, 2f);
-                rect.pivot = new Vector2(0.5f, 0f);
-                rect.anchoredPosition = new Vector2(100f, 2f);
-                rect.localPosition = new Vector3(100f, 2f, 0f);
-                rect.rotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
-
-                ConvictHudController stealthComponent = stealthTracker.AddComponent<ConvictHudController>();
-
-                stealthComponent.targetHUD = hud;
-                stealthComponent.targetText = stealthTracker.transform.Find("LevelDisplayRoot").Find("PrefixText").gameObject.GetComponent<LanguageTextMeshController>();
-                stealthComponent.durationDisplay = chargeBarAmmo;
-                stealthComponent.durationBar = chargeBarAmmo.transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>();
-                stealthComponent.durationBarColor = chargeBarAmmo.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>();
-            }
-            */
         }
     }
 }

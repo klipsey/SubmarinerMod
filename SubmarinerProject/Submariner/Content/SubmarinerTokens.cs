@@ -65,13 +65,18 @@ namespace SubmarinerMod.Submariner.Content
             #region Utility 
             Language.Add(prefix + "UTILITY_MINE_NAME", "Explosive Urchin");
             Language.Add(prefix + "UTILITY_MINE_DESCRIPTION", $"<style=cIsUtility>Backflip</style> firing out an <style=cIsHealing>Urchine Mine</style> that deals <style=cIsDamage>{SubmarinerStaticValues.mineDamageCoefficient * 100f}% damage</style>.");
+
+            Language.Add(prefix + "UTILITY_BEAST_NAME", "Cult's Best Friend");
+            Language.Add(prefix + "UTILITY_BEAST_DESCRIPTION", $"<style=cIsDamage>Slayer.</style> Ride a <style=cIsHealing>Beast</style>, which quickly runs forward dealing <style=cIsDamage>{SubmarinerStaticValues.beastDamageCoefficient * 100f}% damage</style>. " +
+                $"Killing a lightweight enemy <style=cIsUtility>speeds up</style> the <style=cIsHealing>Beast</style> and increases <style=cIsDamage>damage</style> dealt. Running into large enemies stops you and <style=cIsUtility>stuns</style> the enemy.");
+
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_ANCHORTHROW_NAME", "Drop the Anchor!");
             Language.Add(prefix + "SPECIAL_ANCHORTHROW_DESCRIPTION", $"Throw your anchor, dealing <style=cIsDamage>{SubmarinerStaticValues.anchorDamageCoefficient * 100f}% damage</style> on impact. " +
                 $"Running towards the anchor increases your <style=cIsUtility>movement speed</style>, while moving away from it <style=cIsDamage>slows</style> you down. " +
-                $"Going too far away breaks its chain, giving a burst of <style=cIsUtility>movement speed</style>.");
+                $"Going too far away <style=cIsHealth>breaks</style> the anchors chain, granting a burst of <style=cIsUtility>movement speed</style>.");
             #endregion
 
             #region Achievements

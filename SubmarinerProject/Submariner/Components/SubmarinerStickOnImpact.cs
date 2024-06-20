@@ -216,17 +216,17 @@ namespace SubmarinerMod.Submariner.Components
 
         private bool TrySticking(Collider hitCollider, Vector3 impactNormal)
         {
-            if ((bool)victim)
+            if (victim)
             {
                 return false;
             }
             GameObject gameObject = null;
             sbyte networkhitHurtboxIndex = -1;
             HurtBox component = hitCollider.GetComponent<HurtBox>();
-            if ((bool)component)
+            if (component)
             {
                 HealthComponent healthComponent = component.healthComponent;
-                if ((bool)healthComponent)
+                if (healthComponent)
                 {
                     gameObject = healthComponent.gameObject;
                 }
@@ -237,12 +237,12 @@ namespace SubmarinerMod.Submariner.Components
                 gameObject = hitCollider.gameObject;
                 networkhitHurtboxIndex = -2;
             }
-            if (gameObject == projectileController.owner || (ignoreCharacters && (bool)component))
+            if (gameObject == projectileController.owner || (ignoreCharacters && component))
             {
                 gameObject = null;
                 networkhitHurtboxIndex = -1;
             }
-            if ((bool)gameObject)
+            if (gameObject)
             {
                 stickEvent.Invoke();
                 base.GetComponent<AnchorConnectionComponent>().enabled = true;
@@ -279,14 +279,14 @@ namespace SubmarinerMod.Submariner.Components
             else
             {
                 GameObject gameObject = (NetworkServer.active ? victim : syncVictim);
-                if ((bool)gameObject)
+                if (gameObject)
                 {
                     stuckTransform = gameObject.transform;
                     flag = true;
                     if (hitHurtboxIndex >= 0)
                     {
                         stuckBody = stuckTransform.GetComponent<CharacterBody>();
-                        if ((bool)stuckBody && (bool)stuckBody.hurtBoxGroup)
+                        if (stuckBody && stuckBody.hurtBoxGroup)
                         {
                             HurtBox hurtBox = stuckBody.hurtBoxGroup.hurtBoxes[hitHurtboxIndex];
                             stuckTransform = (hurtBox ? hurtBox.transform : null);

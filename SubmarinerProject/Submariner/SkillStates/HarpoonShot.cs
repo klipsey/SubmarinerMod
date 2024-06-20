@@ -118,7 +118,7 @@ namespace SubmarinerMod.Submariner.SkillStates
                     if (this.hookStickOnImpact.stuckBody)
                     {
                         Rigidbody component = hookStickOnImpact.stuckBody.GetComponent<Rigidbody>();
-                        if ((bool)component && component.mass >= hookInstance.GetComponent<ProjectileGrappleController>().yankMassLimit)
+                        if (component && component.mass >= hookInstance.GetComponent<ProjectileGrappleController>().yankMassLimit)
                         {
                             if (this.hookStickOnImpact.stuck && !this.isStuck)
                             {

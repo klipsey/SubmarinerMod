@@ -56,7 +56,7 @@ namespace SubmarinerMod.Submariner.Components
         {
             if (this.skinController)
             {
-                childLocator.FindChild("BeastModel").gameObject.SetActive(false);
+                if(!SubmarinerConfig.enableFunnyMode.Value) childLocator.FindChild("BeastModel").gameObject.SetActive(false);
             }
         }
 

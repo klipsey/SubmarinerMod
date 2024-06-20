@@ -251,8 +251,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|BeastEat
-      takeName: Armature|BeastEat
+      name: Armature|aaPose
+      takeName: Armature|aaPose
       internalID: 0
       firstFrame: 0
       lastFrame: 0
@@ -284,7 +284,7 @@ ModelImporter:
       takeName: Armature|BeastEnd
       internalID: 0
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -313,7 +313,7 @@ ModelImporter:
       takeName: Armature|BeastRideLoop
       internalID: 0
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -342,7 +342,7 @@ ModelImporter:
       takeName: Armature|BeastStart
       internalID: 0
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
