@@ -10,7 +10,7 @@
 | :------- |:---- |
 | N'kuhanna's Restoration | Gain health regen based on 2.5% of enemy max hp. |
 
-# COMMISSIONED CHARACTER
+### This is a commissioned character. Redirect gameplay feedback to GoodGuy and bugfixes to me.
  
 # Credits
 
