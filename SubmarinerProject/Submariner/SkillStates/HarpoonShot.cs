@@ -136,10 +136,16 @@ namespace SubmarinerMod.Submariner.SkillStates
                                 PlayAnimation("FullBody, Override", "HarpoonEndToKick", "Dash.playbackRate", dashDuration);
 
                                 hasHit = true;
+                                base.characterMotor.velocity.y = 0f;
+                                base.characterDirection.forward = dashVector;
                                 base.characterBody.isSprinting = true;
 
-                                outer.SetNextState(new BackFlip());
-                                return;
+                                base.characterMotor.Motor.ForceUnground();
+                                Vector3 knockback = -base.characterDirection.forward;
+                                knockback.y = pushAwayYFactor;
+                                base.characterMotor.velocity = knockback * pushAwayForce;
+
+                                outer.SetNextStateToMain();
                             }
                         }
                     }
@@ -183,16 +189,19 @@ namespace SubmarinerMod.Submariner.SkillStates
             {
                 base.PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
             }
-            if(hookInstance)
-            {
-                EntityState.Destroy(hookInstance);
-            }
             if (NetworkServer.active && characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
             {
                 characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 characterBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 0.3f);
             }
             base.OnExit();
+
+            base.characterMotor.airControl = 1f;
+
+            base.characterMotor.disableAirControlUntilCollision = false;
+
+            SmallHop(characterMotor, smallHopVelocity);
+            
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

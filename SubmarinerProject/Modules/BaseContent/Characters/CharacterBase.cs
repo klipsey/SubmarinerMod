@@ -32,7 +32,7 @@ namespace SubmarinerMod.Modules.Characters
         public virtual void Initialize()
         {
             instance = this as T;
-            assetBundle = SubmarinerAssets.mainAssetBundle;
+            assetBundle = Assets.LoadAssetBundle(assetBundleName);
             InitializeCharacter();
         }
 

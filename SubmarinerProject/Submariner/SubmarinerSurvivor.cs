@@ -52,7 +52,7 @@ namespace SubmarinerMod.Submariner
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 100f,
+            maxHealth = 130f,
             healthRegen = 1.5f,
             armor = 20f,
             damage = 12f,
@@ -68,42 +68,34 @@ namespace SubmarinerMod.Submariner
                 new CustomRendererInfo
                 {
                     childName = "Model",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "AnchorModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "GearModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "BeastModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "VisorModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "HarpoonModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "HeadModel",
-                    dontHotpoo = true,
                 },
                 new CustomRendererInfo
                 {
                     childName = "RopeModel",
-                    dontHotpoo = true,
                 },
         };
 
@@ -147,7 +139,7 @@ namespace SubmarinerMod.Submariner
             SubmarinerStates.Init();
             SubmarinerTokens.Init();
 
-            SubmarinerAssets.InitAssets();
+            SubmarinerAssets.Init(assetBundle);
 
             SubmarinerBuffs.Init(assetBundle);
 
@@ -216,7 +208,7 @@ namespace SubmarinerMod.Submariner
                 skillName = SUBMARINER_PREFIX + "PASSIVE_NAME",
                 skillNameToken = SUBMARINER_PREFIX + "PASSIVE_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "PASSIVE_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texSubmarinerPassive"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texPassive"),
                 keywordTokens = new string[] { Tokens.submarinerRegenBuff },
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Idle)),
                 activationStateMachineName = "",
@@ -246,7 +238,7 @@ namespace SubmarinerMod.Submariner
                     "Anchor",
                     SUBMARINER_PREFIX + "PRIMARY_SWING_NAME",
                     SUBMARINER_PREFIX + "PRIMARY_SWING_DESCRIPTION",
-                    assetBundle.LoadAsset<Sprite>("texAnchorIcon"),
+                    assetBundle.LoadAsset<Sprite>("texPrimary"),
                     new SerializableEntityStateType(typeof(SkillStates.Swing)),
                     "Weapon"
                 ));
@@ -265,7 +257,7 @@ namespace SubmarinerMod.Submariner
                 skillNameToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "SECONDARY_HARPOON_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texHarpoonIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondary"),
 
                 activationState = new SerializableEntityStateType(typeof(HarpoonShot)),
 
@@ -301,7 +293,7 @@ namespace SubmarinerMod.Submariner
                 skillNameToken = SUBMARINER_PREFIX + "UTILITY_MINE_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_MINE_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texBackflipIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texUtility"),
 
                 activationState = new SerializableEntityStateType(typeof(BackFlip)),
                 activationStateMachineName = "Dash",
@@ -333,7 +325,7 @@ namespace SubmarinerMod.Submariner
                 skillNameToken = SUBMARINER_PREFIX + "UTILITY_BEAST_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "UTILITY_BEAST_DESCRIPTION",
                 keywordTokens = new string[] { Tokens.slayerKeyword },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texBackflipIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texAltUtility"),
 
                 activationState = new SerializableEntityStateType(typeof(BeastRide)),
                 activationStateMachineName = "Body",
@@ -370,7 +362,7 @@ namespace SubmarinerMod.Submariner
                 skillNameToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_NAME",
                 skillDescriptionToken = SUBMARINER_PREFIX + "SPECIAL_ANCHORTHROW_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texAnchorThrowIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpecial"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(AimAnchor)),
                 activationStateMachineName = "Weapon",

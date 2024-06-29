@@ -3,6 +3,7 @@ using RoR2;
 using EntityStates;
 using BepInEx.Configuration;
 using SubmarinerMod.Modules;
+using SubmarinerMod.Submariner.Content;
 
 namespace SubmarinerMod.Submariner.SkillStates
 {
@@ -15,6 +16,18 @@ namespace SubmarinerMod.Submariner.SkillStates
             base.OnEnter();
             this.animator = this.modelAnimator;
             this.FindLocalUser();
+        }
+        private void CheckEmote<T>(ConfigEntry<KeyboardShortcut> keybind) where T : EntityState, new()
+        {
+            if (Modules.Config.GetKeyPressed(keybind))
+            {
+                FindLocalUser();
+
+                if (localUser != null && !localUser.isUIFocused)
+                {
+                    outer.SetInterruptState(new T(), InterruptPriority.Any);
+                }
+            }
         }
         private void FindLocalUser()
         {
@@ -55,6 +68,11 @@ namespace SubmarinerMod.Submariner.SkillStates
                 {
                     aimAnimator.enabled = true;
                 }
+            }
+
+            if (base.isAuthority && base.characterMotor.isGrounded)
+            {
+                this.CheckEmote<Rest>(SubmarinerConfig.restKey);
             }
         }
 

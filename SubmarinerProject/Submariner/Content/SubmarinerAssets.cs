@@ -69,9 +69,7 @@ namespace SubmarinerMod.Submariner.Content
         public static void Init(AssetBundle assetBundle)
         {
             mainAssetBundle = assetBundle;
-        }
-        public static void InitAssets()
-        {
+
             CreateMaterials();
 
             CreateModels();
@@ -100,7 +98,7 @@ namespace SubmarinerMod.Submariner.Content
         private static void CreateMaterials()
         {
             anchorMat = mainAssetBundle.LoadAsset<Material>("matSubmariner");
-            ghostMat = UnityEngine.Object.Instantiate(LegacyResourcesAPI.Load<Material>("Materials/matGhostEffect"));
+            ghostMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGhostEffect.mat").WaitForCompletion();
         }
 
         private static void CreateModels()

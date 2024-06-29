@@ -14,7 +14,7 @@ AvatarMask:
   - m_Path: Armature
     m_Weight: 0
   - m_Path: Armature/BeastRoot
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/BeastRoot/beastspine.002
     m_Weight: 0
   - m_Path: Armature/BeastRoot/beastspine.002/beastspine.001

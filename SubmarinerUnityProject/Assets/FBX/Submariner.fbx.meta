@@ -284,7 +284,7 @@ ModelImporter:
       takeName: Armature|BeastEnd
       internalID: 0
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -313,7 +313,7 @@ ModelImporter:
       takeName: Armature|BeastRideLoop
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -321,7 +321,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -1050,7 +1050,7 @@ ModelImporter:
       takeName: Armature|BeastEat
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

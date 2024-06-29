@@ -24,15 +24,15 @@ namespace SubmarinerMod.Submariner.Content
             #region Submariner
             string prefix = SubmarinerSurvivor.SUBMARINER_PREFIX;
 
-            string desc = "Submariner<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > ." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > ." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > ." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > ." + Environment.NewLine + Environment.NewLine;
+            string desc = "Submariner is close range combatant that regenerates health quickly as she fights more enemies. Positioning properly is important to managing her regeneration and movement speed bonuses.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Keep up the pressure with melee hits to continuously regenerate health." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Use Reel-In to pull in smaller enemies and use it to avoid attacks by hitting larger enemies." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Urchin Mine is a great way to quickly escape a sticky situation and to setup high damaging mines for later." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Stay within Drop The Anchor!'s range, the movement speed buff can be an incredible tool to fight with." + Environment.NewLine + Environment.NewLine;
 
-            string lore = "Insert goodguy lore here";
-            string outro = "..and so she left, Submarinering all over the place.";
-            string outroFailure = "..and so she vanished, not Submarinering all over the place.";
+            string lore = "";
+            string outro = "..and so she left, never to be left alone again.";
+            string outroFailure = "..and so she vanished, with only silence by her side.";
             
             Language.Add(prefix + "NAME", "Submariner");
             Language.Add(prefix + "DESCRIPTION", desc);
@@ -52,7 +52,7 @@ namespace SubmarinerMod.Submariner.Content
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SWING_NAME", "AL811 Anchoring Device");
-            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"<style=cIsUtility>Stunning.</style> Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
             #endregion
 
             #region Secondary

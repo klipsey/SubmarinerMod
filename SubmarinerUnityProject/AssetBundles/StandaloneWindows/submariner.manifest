@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2139235750
+CRC: 3794602358
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ea30faed9d01fcf63dceadf981ab2dc5
+    Hash: bfe008cdf13f69fb4f3832f6ae8742a1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -78,8 +78,10 @@ Assets:
 - Assets/Submariner/Projectiles/texRampCrocoDiseaseDark.png
 - Assets/Submariner/Animations/Armature_AimPitch.anim
 - Assets/Submariner/Animations/animSubmarinerCSS.controller
+- Assets/Submariner/Icons/Skill/texUtility.png
 - Assets/Submariner/VFX/CritLightningMonsoon.prefab
 - Assets/Submariner/Animations/Armature_CSSIdle.anim
+- Assets/Submariner/Icons/Skill/texSecondary.png
 - Assets/Submariner/Textures/texGuilty.png
 - Assets/Submariner/VFX/BloodSpurtEffect.prefab
 - Assets/Submariner/Meshes/meshAnchor.mesh
@@ -98,8 +100,8 @@ Assets:
 - Assets/Submariner/Projectiles/CoinImpactHit.prefab
 - Assets/Submariner/Animations/Armature_Swing1.anim
 - Assets/Submariner/HUD/Textures/texBulletIndicator.png
-- Assets/Submariner/Icons/Skill/texFalsifyIcon.png
 - Assets/Submariner/Meshes/meshHead.mesh
+- Assets/Submariner/Icons/Skill/texSpecial.png
 - Assets/Submariner/VFX/matShockwave2.mat
 - Assets/Submariner/VFX/Badass/StoneHitEffect.prefab
 - Assets/Submariner/Animations/Armature_BeastStart.anim
@@ -110,22 +112,21 @@ Assets:
 - Assets/Submariner/Projectiles/CoinProjectile.prefab
 - Assets/Submariner/Animations/Armature_IdleIn.anim
 - Assets/Submariner/Materials/matSubmariner.mat
+- Assets/Submariner/Icons/Skill/texPrimary.png
 - Assets/Submariner/Animations/Armature_ThrowAnchor.anim
 - Assets/Submariner/Animations/Armature_HarpoonEndToKick.anim
 - Assets/Submariner/Animations/animSubmariner.controller
-- Assets/Submariner/Icons/Skill/texInterrogatorPassive.png
 - Assets/Submariner/Textures/texInterrogatorEmission.png
 - Assets/Submariner/Textures/texRampConvicted.png
 - Assets/Submariner/Textures/texInterrogator.png
-- Assets/Submariner/Icons/Skill/texConvictIcon.png
 - Assets/Submariner/Textures/texCloudPixel2.png
+- Assets/Submariner/Icons/texSubmarinerIcon.png
 - Assets/Submariner/VFX/texShockwave.png
 - Assets/Submariner/Projectiles/CoinOrbEffect.prefab
 - Assets/Submariner/mdlMine.prefab
 - Assets/Submariner/Projectiles/texAlphaGradient6Mask.png
 - Assets/Submariner/Textures/texInterrogatorNormal.png
 - Assets/Submariner/Animations/Armature_Jump.anim
-- Assets/Submariner/Icons/Skill/texSwingIcon.png
 - Assets/Submariner/SubmarinerDisplay.prefab
 - Assets/Submariner/Animations/Armature_BeastEnd.anim
 - Assets/Submariner/Materials/matVisor.mat
@@ -161,14 +162,14 @@ Assets:
 - Assets/Submariner/Projectiles/DriverStunGrenadeImpact.prefab
 - Assets/Submariner/Animations/Armature_RunL.anim
 - Assets/Submariner/Animations/Armature_HarpoonPullStart.anim
+- Assets/Submariner/Icons/Skill/texPassive.png
 - Assets/Submariner/VFX/matSpyStreak.mat
-- Assets/Submariner/Icons/Skill/texInterrogatorCleaverIcon.png
 - Assets/Submariner/Meshes/meshGear.mesh
 - Assets/Submariner/Projectiles/mdlSapper.prefab
 - Assets/Submariner/Animations/Armature_Descend.anim
+- Assets/Submariner/Icons/Skill/texAltUtility.png
 - Assets/Submariner/Animations/Armature_Ascend.anim
 - Assets/Submariner/Meshes/meshVisor.mesh
-- Assets/Submariner/Icons/texInterrogatorIcon.png
 - Assets/Submariner/Projectiles/DriverStunGrenadeGhost.prefab
 - Assets/Submariner/Meshes/meshSubmariner.mesh
 - Assets/Submariner/Projectiles/texRampCoin2.png
@@ -185,7 +186,6 @@ Assets:
 - Assets/Submariner/VFX/matBlackLightning.mat
 - Assets/Submariner/submariner_emoteskeleton.prefab
 - Assets/Submariner/Animations/maskSubmarinerGesture.mask
-- Assets/Submariner/Icons/Skill/texConvictScepter.png
 - Assets/Submariner/HUD/Textures/texWhite.png
 - Assets/Submariner/Animations/Armature_BeastEat.anim
 Dependencies: []

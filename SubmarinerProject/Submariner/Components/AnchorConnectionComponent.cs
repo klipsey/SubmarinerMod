@@ -93,6 +93,7 @@ namespace SubmarinerMod.Submariner.Components
         {
             Util.PlaySound("sfx_chainsnap", owner);
             ownerBody.GetComponent<SubmarinerController>().movementSpeedAnchorIncrease = 1f;
+            ownerBody.GetComponent<SubmarinerController>().ResetAnchorMaterial();
             ownerBody.RecalculateStats();
             ownerBody.AddTimedBuff(RoR2.RoR2Content.Buffs.CloakSpeed, 3f);
             if (ownerBody != null)

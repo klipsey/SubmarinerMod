@@ -17,6 +17,8 @@ namespace SubmarinerMod.Submariner.Content
             Modules.Content.AddEntityState(typeof(AimAnchor));
             Modules.Content.AddEntityState(typeof(BeastRide));
             Modules.Content.AddEntityState(typeof(BeastImpact));
+            Modules.Content.AddEntityState(typeof(Rest));
+            Modules.Content.AddEntityState(typeof(BaseEmote));
         }
     }
 }

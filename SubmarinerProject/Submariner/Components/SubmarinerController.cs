@@ -69,7 +69,7 @@ namespace SubmarinerMod.Submariner.Components
         public void EnableAnchor()
         {
             childLocator.FindChild("AnchorModel").gameObject.SetActive(true);
-            //childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.ghostMat;
+            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().materials[0] = SubmarinerAssets.ghostMat;
         }
         public void DisableAnchor() 
         {
@@ -78,7 +78,7 @@ namespace SubmarinerMod.Submariner.Components
 
         public void ResetAnchorMaterial()
         {
-            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().material = SubmarinerAssets.anchorMat;
+            childLocator.FindChild("AnchorModel").gameObject.GetComponent<SkinnedMeshRenderer>().materials[0] = SubmarinerAssets.anchorMat;
         }
         private void OnDestroy()
         {

@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using R2API.Networking;
-using ShaderSwapper;
 using SubmarinerMod.Submariner.SkillStates;
 
 [module: UnverifiableCode]
@@ -51,8 +50,6 @@ namespace SubmarinerMod
             Modules.Language.Init();
 
             // character initialization
-            SubmarinerAssets.Init(Assets.LoadAssetBundle("submariner"));
-            StartCoroutine(SubmarinerAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
             new SubmarinerMod.Submariner.SubmarinerSurvivor().Initialize();
 

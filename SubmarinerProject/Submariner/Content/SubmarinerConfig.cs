@@ -1,11 +1,14 @@
 ﻿using BepInEx.Configuration;
 using SubmarinerMod.Modules;
+using UnityEngine;
 
 namespace SubmarinerMod.Submariner.Content
 {
     public static class SubmarinerConfig
     {
         public static ConfigEntry<bool> enableFunnyMode;
+
+        public static ConfigEntry<KeyboardShortcut> restKey;
         public static void Init()
         {
             string section = "01 - General";
@@ -17,6 +20,8 @@ namespace SubmarinerMod.Submariner.Content
                 "Enable Mini Beast",
                 false,
                 "Enable Mini Beast.", true);
+
+            restKey = Config.BindAndOptions("02 - Keybinds", "Rest Emote", new KeyboardShortcut(KeyCode.Alpha1), "Key used to Rest");
         }
     }
 }
