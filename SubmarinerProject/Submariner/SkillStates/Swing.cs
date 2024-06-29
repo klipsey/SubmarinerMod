@@ -15,7 +15,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             RefreshState();
             hitboxGroupName = "MeleeHitbox";
 
-            damageType = DamageType.Stun1s;
+            damageType = DamageType.Generic;
             damageCoefficient = SubmarinerStaticValues.swingDamageCoefficient;
             procCoefficient = 1f;
             pushForce = 1500f;

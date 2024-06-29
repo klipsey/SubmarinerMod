@@ -134,21 +134,12 @@ namespace SubmarinerMod.Submariner.SkillStates
                             if (attack.Fire(victimsStruck))
                             {
                                 PlayAnimation("FullBody, Override", "HarpoonEndToKick", "Dash.playbackRate", dashDuration);
-                                base.characterDirection.forward = dashVector;
-                                base.characterBody.isSprinting = true;
 
                                 hasHit = true;
-                                base.characterMotor.Motor.ForceUnground();
-                                Vector3 knockback = -base.characterDirection.forward;
-                                knockback.y = pushAwayYFactor;
-                                base.characterMotor.velocity = knockback * pushAwayForce;
+                                base.characterBody.isSprinting = true;
 
-                                Bounce nextState = new Bounce()
-                                {
-                                    faceDirection = -knockback
-                                };
-                                EntityState.Destroy(hookInstance);
-                                EntityStateMachine.FindByCustomName(gameObject, "Hook").SetInterruptState(nextState, InterruptPriority.Skill);
+                                outer.SetNextState(new BackFlip());
+                                return;
                             }
                         }
                     }
@@ -191,6 +182,10 @@ namespace SubmarinerMod.Submariner.SkillStates
             if (!hasHit)
             {
                 base.PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
+            }
+            if(hookInstance)
+            {
+                EntityState.Destroy(hookInstance);
             }
             if (NetworkServer.active && characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
             {

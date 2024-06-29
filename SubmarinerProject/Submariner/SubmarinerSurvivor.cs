@@ -52,14 +52,12 @@ namespace SubmarinerMod.Submariner
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 160f,
-            healthRegen = 2.5f,
-            regenGrowth = 2.5f * 0.2f,
+            maxHealth = 100f,
+            healthRegen = 1.5f,
             armor = 20f,
             damage = 12f,
 
             damageGrowth = 2.4f,
-            healthGrowth = 160f * 0.3f,
 
 
             jumpCount = 1,

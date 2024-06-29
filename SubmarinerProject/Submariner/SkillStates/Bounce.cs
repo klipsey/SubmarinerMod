@@ -16,6 +16,8 @@ namespace SubmarinerMod.Submariner.SkillStates
         {
             RefreshState();
             base.OnEnter();
+
+            characterMotor.airControl = 0.5f;
         }
 
         public override void FixedUpdate()
@@ -36,7 +38,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public override void OnExit()
         {
-            base.characterBody.isSprinting = false;
+            SmallHop(characterMotor, 10f);
             base.OnExit();
         }
 

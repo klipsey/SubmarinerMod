@@ -24,14 +24,14 @@ namespace SubmarinerMod.Submariner.SkillStates
         public static GameObject projectilePrefab = SubmarinerAssets.minePrefab;
         public static float smallHopVelocity = 12f;
 
-        public static float baseDuration = 1f;
+        public static float baseDuration = 0.5f;
 
-        public static float dashDuration = 0.5f;
+        public static float dashDuration = 0.25f;
 
         public static float pushAwayForce = 2.5f;
         public static float pushAwayYFactor = 10f;
 
-        public static float speedCoefficient = 5f;
+        public static float speedCoefficient = 7f;
 
         public static string beginSoundString = "sfx_driver_dodge";
 
@@ -45,6 +45,8 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public static float hitPauseDuration = 0.012f;
 
+        public bool mine = true;
+
         private Vector3 dashVector = Vector3.zero;
 
         public override void OnEnter()
@@ -56,7 +58,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
             dashVector = base.GetAimRay().direction;
 
-            FireProjectile();
+            if(mine) FireProjectile();
 
             if (base.isAuthority)
             {
@@ -102,6 +104,8 @@ namespace SubmarinerMod.Submariner.SkillStates
                 characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 characterBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 0.3f);
             }
+
+            SmallHop(characterMotor, smallHopVelocity);
             base.OnExit();
         }
 
