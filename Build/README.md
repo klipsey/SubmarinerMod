@@ -8,7 +8,7 @@
 [![Submariner-Char-Sheet.png](https://i.postimg.cc/kg9VKXLk/Submariner-Char-Sheet.png)](https://postimg.cc/kB1Xd9Jc)
 | Keywords | Description|
 | :------- |:---- |
-| N'kuhanna's Restoration | Gain health regen based on 2.5% of enemy max hp. |
+| N'kuhanna's Restoration | Gain 10% increased health regen per stack. |
 
 ### This is a commissioned character. Redirect gameplay feedback to GoodGuy and bugfixes to me.
  

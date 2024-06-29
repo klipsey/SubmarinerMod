@@ -1,7 +1,7 @@
 {
     "name": "Submariner",
     "author": "tsuyoikenko",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/klipsey/SubmarinerMod",
     "description": "Adds the Submariner survivor. Initial Release.",
     "dependencies": [
