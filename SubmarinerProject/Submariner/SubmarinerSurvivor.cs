@@ -55,10 +55,7 @@ namespace SubmarinerMod.Submariner
             maxHealth = 130f,
             healthRegen = 1.5f,
             armor = 20f,
-            damage = 12f,
-
-            damageGrowth = 2.4f,
-
+            damage = 12f, 
 
             jumpCount = 1,
         };

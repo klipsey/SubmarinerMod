@@ -38,7 +38,7 @@ namespace SubmarinerMod.Modules.BaseStates
         protected string swingSoundString = "";
         protected string hitSoundString = "";
         protected string muzzleString = "SwingCenter";
-        protected string playbackRateParam = "Swing.playbackRate";
+        protected string playbackRateParam = "Slash.playbackRate";
         protected GameObject swingEffectPrefab;
         protected GameObject hitEffectPrefab;
         protected NetworkSoundEventIndex impactSound = NetworkSoundEventIndex.Invalid;
@@ -71,9 +71,9 @@ namespace SubmarinerMod.Modules.BaseStates
             }
             moddedDamageTypeHolder.Clear();
             attack.damageColorIndex = DamageColorIndex.Default;
-            attack.attacker = this.gameObject;
-            attack.inflictor = this.gameObject;
-            attack.teamIndex = TeamIndex.None;
+            attack.attacker = gameObject;
+            attack.inflictor = gameObject;
+            attack.teamIndex = GetTeam();
             attack.damage = damageCoefficient * damageStat;
             attack.procCoefficient = procCoefficient;
             attack.hitEffectPrefab = hitEffectPrefab;

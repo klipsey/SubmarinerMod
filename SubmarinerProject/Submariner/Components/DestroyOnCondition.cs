@@ -15,7 +15,7 @@ namespace SubmarinerMod.Submariner.Components
         {
             if (!anchor.ownerIsInRange)
             {
-                Destroy(this.gameObject);
+                Object.Destroy(this.gameObject);
             }
         }
     }

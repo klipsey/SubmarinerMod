@@ -200,7 +200,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
             base.characterMotor.disableAirControlUntilCollision = false;
 
-            SmallHop(characterMotor, smallHopVelocity);
+            if(!base.characterMotor.isGrounded) SmallHop(characterMotor, smallHopVelocity);
             
         }
 

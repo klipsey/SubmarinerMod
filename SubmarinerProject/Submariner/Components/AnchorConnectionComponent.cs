@@ -41,10 +41,14 @@ namespace SubmarinerMod.Submariner.Components
                 owner = component.owner;
                 teamIndex = component.teamFilter.teamIndex;
             }
-            subController = owner.GetComponent<SubmarinerController>();
-            ownerBody = owner.GetComponent<CharacterBody>();
+            if(owner)
+            {
+                subController = owner.GetComponent<SubmarinerController>();
+                ownerBody = owner.GetComponent<CharacterBody>();
+
+                if(ownerBody && NetworkServer.active) ownerBody.AddTimedBuff(RoR2.RoR2Content.Buffs.CloakSpeed, 3f);
+            }
             chain.GetComponent<DestroyOnCondition>().anchor = this.gameObject.GetComponent<AnchorConnectionComponent>();
-            ownerBody.AddTimedBuff(RoR2.RoR2Content.Buffs.CloakSpeed, 3f);
         }
 
         public void FixedUpdate()
@@ -53,7 +57,7 @@ namespace SubmarinerMod.Submariner.Components
             if (previousPosition <= Vector3.Distance(owner.transform.position, base.transform.position) - 5f || previousPosition >= Vector3.Distance(owner.transform.position, base.transform.position) + 5f && !hasBroken)
             {
                 previousPosition = Vector3.Distance(owner.transform.position, base.transform.position);
-                ownerBody.GetComponent<SubmarinerController>().movementSpeedAnchorIncrease = Mathf.Abs(Util.Remap(Vector3.Distance(owner.transform.position, base.transform.position), 25f, 50f, 1.5f, 0.85f));
+                subController.movementSpeedAnchorIncrease = Mathf.Abs(Util.Remap(Vector3.Distance(owner.transform.position, base.transform.position), 25f, 50f, 1.5f, 0.85f));
                 ownerBody.RecalculateStats();
             }
             if (Vector3.Distance(owner.transform.position, base.transform.position) > 75f)
@@ -72,7 +76,7 @@ namespace SubmarinerMod.Submariner.Components
             }
             if (!ownerIsInRange && timer >= 1f)
             {
-                Object.Destroy(gameObject);
+                Object.Destroy(this.gameObject);
             }
         }
 
@@ -91,13 +95,16 @@ namespace SubmarinerMod.Submariner.Components
 
         public void OnDestroy()
         {
-            Util.PlaySound("sfx_chainsnap", owner);
-            ownerBody.GetComponent<SubmarinerController>().movementSpeedAnchorIncrease = 1f;
-            ownerBody.GetComponent<SubmarinerController>().ResetAnchorMaterial();
-            ownerBody.RecalculateStats();
-            ownerBody.AddTimedBuff(RoR2.RoR2Content.Buffs.CloakSpeed, 3f);
-            if (ownerBody != null)
+            if(ownerBody)
             {
+                Util.PlaySound("sfx_chainsnap", owner);
+                if(subController)
+                {
+                    subController.movementSpeedAnchorIncrease = 1f;
+                    subController.ResetAnchorMaterial();
+                    ownerBody.RecalculateStats();
+                    if (NetworkServer.active) ownerBody.AddTimedBuff(RoR2.RoR2Content.Buffs.CloakSpeed, 3f);
+                }
                 ownerBody = null;
             }
         }

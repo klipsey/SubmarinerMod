@@ -41,17 +41,12 @@ namespace SubmarinerMod.Submariner.Components
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
 
-            Hook();
-
             this.Invoke("ApplySkin", 0.3f);
         }
         private void Start()
         {
         }
         #region tooMuchCrap
-        private void Hook()
-        {
-        }
         public void ApplySkin()
         {
             if (this.skinController)
