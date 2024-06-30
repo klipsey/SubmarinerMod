@@ -265,7 +265,7 @@ namespace SubmarinerMod.Submariner.Content
             Modules.Content.CreateAndAddEffectDef(mineExplosionPrefab);
 
             ProjectileImpactExplosion boom = minePrefab.AddComponent<ProjectileImpactExplosion>();
-            boom.blastDamageCoefficient = SubmarinerStaticValues.mineDamageCoefficient;
+            boom.blastDamageCoefficient = 1f;
             boom.blastProcCoefficient = 1f;
             boom.blastRadius = 12f;
             boom.canRejectForce = true;

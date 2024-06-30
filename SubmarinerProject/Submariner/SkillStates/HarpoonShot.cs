@@ -185,23 +185,27 @@ namespace SubmarinerMod.Submariner.SkillStates
         }
         public override void OnExit()
         {
+            base.OnExit();
+
             if (!hasHit)
             {
                 base.PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
+            }
+            else
+            {
+                if (!base.characterMotor.isGrounded)
+                {
+                    base.characterMotor.ApplyForce(Vector3.up * smallHopVelocity, alwaysApply: true, disableAirControlUntilCollision: false);
+                    base.characterMotor.airControl = 0.75f;
+                }
             }
             if (NetworkServer.active && characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
             {
                 characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 characterBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 0.3f);
             }
-            base.OnExit();
 
-            base.characterMotor.airControl = 1f;
 
-            base.characterMotor.disableAirControlUntilCollision = false;
-
-            if(!base.characterMotor.isGrounded) SmallHop(characterMotor, smallHopVelocity);
-            
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

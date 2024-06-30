@@ -1,9 +1,9 @@
 {
     "name": "Submariner",
     "author": "tsuyoikenko",
-    "version_number": "1.0.3",
+    "version_number": "1.0.4",
     "website_url": "https://github.com/klipsey/SubmarinerMod",
-    "description": "Adds the Submariner survivor. Initial Release. ",
+    "description": "Adds the Submariner survivor. Initial Release.",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",
         "RiskofThunder-R2API_Core-5.0.3",

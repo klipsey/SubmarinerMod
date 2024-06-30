@@ -1,3 +1,7 @@
+# 1.0.4
+
+- Fixed mine and swing
+
 # 1.0.3
 
 - Maybe fixed client lag later in game?
