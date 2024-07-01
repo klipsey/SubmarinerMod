@@ -115,7 +115,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             Util.PlaySound(endSoundString, base.gameObject);
             if (!outer.destroying && base.characterBody)
             {
-                PlayCrossfade("FullBody, Override", "BeastEnd", 0.1f);
+                PlayAnimation("FullBody, Override", "BeastEnd", "Dash.playbackRate", 0.4f);
                 base.characterBody.isSprinting = false;
                 if (NetworkServer.active)
                 {

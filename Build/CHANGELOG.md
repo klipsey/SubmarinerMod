@@ -1,3 +1,7 @@
+# 1.0.5 
+
+- Fixed backflip and actually synced swing
+
 # 1.0.4
 
 - Fixed mine and swing

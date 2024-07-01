@@ -10,14 +10,17 @@ namespace SubmarinerMod.Submariner.SkillStates
     {
         public static float baseDuration = 1f;
 
-        internal Vector3 faceDirection;
+        public Vector3 faceDirection;
 
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
 
-            characterMotor.airControl = 0.5f;
+            if (!base.characterMotor.isGrounded)
+            {
+                base.characterMotor.ApplyForce(Vector3.up * 12f, alwaysApply: true, disableAirControlUntilCollision: false);
+            }
         }
 
         public override void FixedUpdate()
@@ -28,7 +31,7 @@ namespace SubmarinerMod.Submariner.SkillStates
             {
                 base.characterDirection.forward = faceDirection;
                 base.characterBody.isSprinting = true;
-
+                base.characterMotor.disableAirControlUntilCollision = false;
                 if (base.fixedAge >= baseDuration)
                 {
                     this.outer.SetNextStateToMain();
@@ -38,7 +41,6 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         public override void OnExit()
         {
-            SmallHop(characterMotor, 10f);
             base.OnExit();
         }
 

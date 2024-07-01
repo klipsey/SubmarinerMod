@@ -240,7 +240,7 @@ namespace SubmarinerMod.Submariner
                     "Weapon"
                 ));
             anchorSkillDef.stepCount = 2;
-            anchorSkillDef.stepGraceDuration = 1f;
+            anchorSkillDef.stepGraceDuration = 0.25f;
             anchorSkillDef.keywordTokens = new string[]{ };
 
             Skills.AddPrimarySkills(bodyPrefab, anchorSkillDef);

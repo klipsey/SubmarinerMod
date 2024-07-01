@@ -145,7 +145,10 @@ namespace SubmarinerMod.Submariner.SkillStates
                                 knockback.y = pushAwayYFactor;
                                 base.characterMotor.velocity = knockback * pushAwayForce;
 
-                                outer.SetNextStateToMain();
+                                outer.SetNextState(new Bounce
+                                {
+                                    faceDirection = dashVector
+                                });
                             }
                         }
                     }
@@ -190,14 +193,6 @@ namespace SubmarinerMod.Submariner.SkillStates
             if (!hasHit)
             {
                 base.PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
-            }
-            else
-            {
-                if (!base.characterMotor.isGrounded)
-                {
-                    base.characterMotor.ApplyForce(Vector3.up * smallHopVelocity, alwaysApply: true, disableAirControlUntilCollision: false);
-                    base.characterMotor.airControl = 0.75f;
-                }
             }
             if (NetworkServer.active && characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
             {

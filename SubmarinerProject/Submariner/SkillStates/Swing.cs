@@ -21,12 +21,12 @@ namespace SubmarinerMod.Submariner.SkillStates
             procCoefficient = 1f;
             pushForce = 1500f;
             bonusForce = Vector3.zero;
-            baseDuration = 0.9f;
+            baseDuration = 1.2f;
 
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
             attackStartPercentTime = 0.6f;
-            attackEndPercentTime = 0.85f;
+            attackEndPercentTime = 0.9f;
 
             //this is the point at which the attack can be interrupted by itself, continuing a combo
             earlyExitPercentTime = 1f;
@@ -80,7 +80,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
+            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.4f);
         }
 
         public override void OnExit()
