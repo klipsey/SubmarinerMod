@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3794602358
+CRC: 2765374176
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bfe008cdf13f69fb4f3832f6ae8742a1
+    Hash: bfbb3fbf4fbe98f8c30f132de9dfa2a1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -84,7 +84,6 @@ Assets:
 - Assets/Submariner/Icons/Skill/texSecondary.png
 - Assets/Submariner/Textures/texGuilty.png
 - Assets/Submariner/VFX/BloodSpurtEffect.prefab
-- Assets/Submariner/Meshes/meshAnchor.mesh
 - Assets/Submariner/HUD/ChargeBar.prefab
 - Assets/Submariner/Animations/Armature_JumpSprint.anim
 - Assets/Submariner/VFX/CritLightning.prefab
@@ -100,7 +99,7 @@ Assets:
 - Assets/Submariner/Projectiles/CoinImpactHit.prefab
 - Assets/Submariner/Animations/Armature_Swing1.anim
 - Assets/Submariner/HUD/Textures/texBulletIndicator.png
-- Assets/Submariner/Meshes/meshHead.mesh
+- Assets/Submariner/Meshes/meshRope.mesh
 - Assets/Submariner/Icons/Skill/texSpecial.png
 - Assets/Submariner/VFX/matShockwave2.mat
 - Assets/Submariner/VFX/Badass/StoneHitEffect.prefab
@@ -116,12 +115,14 @@ Assets:
 - Assets/Submariner/Animations/Armature_ThrowAnchor.anim
 - Assets/Submariner/Animations/Armature_HarpoonEndToKick.anim
 - Assets/Submariner/Animations/animSubmariner.controller
+- Assets/Submariner/Meshes/meshGear.mesh
 - Assets/Submariner/Textures/texInterrogatorEmission.png
 - Assets/Submariner/Textures/texRampConvicted.png
 - Assets/Submariner/Textures/texInterrogator.png
 - Assets/Submariner/Textures/texCloudPixel2.png
 - Assets/Submariner/Icons/texSubmarinerIcon.png
 - Assets/Submariner/VFX/texShockwave.png
+- Assets/Submariner/Meshes/meshAnchor.mesh
 - Assets/Submariner/Projectiles/CoinOrbEffect.prefab
 - Assets/Submariner/mdlMine.prefab
 - Assets/Submariner/Projectiles/texAlphaGradient6Mask.png
@@ -134,10 +135,8 @@ Assets:
 - Assets/Submariner/Animations/Armature_ThrowAnchorCharge.anim
 - Assets/Submariner/VFX/texSpyStreak.png
 - Assets/Submariner/Textures/texConvictBuff.png
-- Assets/Submariner/Meshes/meshHarpoon.mesh
 - Assets/Submariner/VFX/matSpyDefault.mat
 - Assets/Submariner/Animations/Armature_RunB.anim
-- Assets/Submariner/Meshes/meshRope.mesh
 - Assets/Submariner/Animations/Armature_RunF.anim
 - Assets/Submariner/Icons/texDefaultSkin.png
 - Assets/Submariner/Animations/Armature_BackFlip.anim
@@ -145,16 +144,17 @@ Assets:
 - Assets/Submariner/VFX/Badass/TinyExplosion.prefab
 - Assets/Submariner/VFX/Badass/SandHitEffect.prefab
 - Assets/Submariner/Animations/Armature_CSSIdleIn.anim
+- Assets/Submariner/Meshes/meshHarpoon.mesh
 - Assets/Submariner/HUD/ChargeRing.prefab
 - Assets/Submariner/VFX/texBlackLightning.png
 - Assets/Submariner/Projectiles/texRampCoin.png
 - Assets/Submariner/Projectiles/CoinProjectileGhost.prefab
-- Assets/Submariner/Meshes/meshBeast.mesh
 - Assets/Submariner/Projectiles/coin.asset
 - Assets/Submariner/Animations/maskSubmarinerLeftArm.mask
 - Assets/Submariner/Animations/Armature_HarpoonLoop.anim
 - Assets/Submariner/Textures/subDiffuse.png
 - Assets/Submariner/Animations/Armature_HarpoonFire.anim
+- Assets/Submariner/Meshes/meshVisor.mesh
 - Assets/Submariner/Textures/subEmission.png
 - Assets/Submariner/Meshes/meshMine.mesh
 - Assets/Submariner/HUD/Textures/texChargeRing.png
@@ -164,18 +164,18 @@ Assets:
 - Assets/Submariner/Animations/Armature_HarpoonPullStart.anim
 - Assets/Submariner/Icons/Skill/texPassive.png
 - Assets/Submariner/VFX/matSpyStreak.mat
-- Assets/Submariner/Meshes/meshGear.mesh
 - Assets/Submariner/Projectiles/mdlSapper.prefab
 - Assets/Submariner/Animations/Armature_Descend.anim
 - Assets/Submariner/Icons/Skill/texAltUtility.png
 - Assets/Submariner/Animations/Armature_Ascend.anim
-- Assets/Submariner/Meshes/meshVisor.mesh
 - Assets/Submariner/Projectiles/DriverStunGrenadeGhost.prefab
-- Assets/Submariner/Meshes/meshSubmariner.mesh
 - Assets/Submariner/Projectiles/texRampCoin2.png
 - Assets/Submariner/VFX/Badass/WoodHitEffect.prefab
 - Assets/Submariner/VFX/Badass/SmallExplosion.prefab
+- Assets/Submariner/Meshes/meshHead.mesh
+- Assets/Submariner/Meshes/meshBeast.mesh
 - Assets/Submariner/Animations/Armature_Sprint.anim
+- Assets/Submariner/Meshes/meshSubmariner.mesh
 - Assets/Submariner/Animations/animSubmarinerEmotes.controller
 - Assets/Submariner/HUD/Textures/texSniperBulletIndicator.png
 - Assets/Submariner/Icons/texMonsoonSkin.png

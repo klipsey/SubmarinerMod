@@ -1,3 +1,7 @@
+# 1.0.6
+
+- Properly imported models 
+
 # 1.0.5 
 
 - Fixed backflip and actually synced swing
