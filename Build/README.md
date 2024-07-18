@@ -18,6 +18,4 @@ tsuyoikenko - Code, model, animations.
 
 goodguy - Commission, art and skill icons. Also commission him! discord: youredoingoodlad
 
-TheTimeSweeper - Incredible new Henry template.
-
-rob - Creator of the glorious Henry template. Also, built Scouts animations using Driver as a base.
+Buns - Funded commission with his bread.

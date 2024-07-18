@@ -1,3 +1,7 @@
+# 1.0.7
+
+- Buns Update
+
 # 1.0.6
 
 - Properly imported models 

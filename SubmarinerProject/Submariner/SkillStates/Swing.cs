@@ -80,7 +80,7 @@ namespace SubmarinerMod.Submariner.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.4f);
+            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.5f, duration * 0.4f);
         }
 
         public override void OnExit()
