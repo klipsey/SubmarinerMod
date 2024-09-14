@@ -32,7 +32,7 @@ namespace SubmarinerMod.Modules.Characters
         protected virtual void InitializeDisplayPrefab()
         {
             displayPrefab = Prefabs.CreateDisplayPrefab(assetBundle, displayPrefabName, bodyPrefab);
-            displayPrefab.AddComponent<Submariner.Components.SubmarinerCSS>();
+            displayPrefab.AddComponent<SubmarinerCharacter.Components.SubmarinerCSS>();
         }
 
         protected virtual void InitializeSurvivor()

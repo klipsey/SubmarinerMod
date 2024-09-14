@@ -1,7 +1,7 @@
 ﻿using EntityStates;
 using RoR2;
-using SubmarinerMod.Submariner.Components;
-using SubmarinerMod.Submariner.Content;
+using SubmarinerMod.SubmarinerCharacter.Components;
+using SubmarinerMod.SubmarinerCharacter.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;

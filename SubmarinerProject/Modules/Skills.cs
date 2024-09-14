@@ -5,7 +5,7 @@ using System;
 using R2API;
 using System.Collections.Generic;
 using UnityEngine;
-using SubmarinerMod.Submariner.Components;
+using SubmarinerMod.SubmarinerCharacter.Components;
 
 namespace SubmarinerMod.Modules
 {

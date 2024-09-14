@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 349258196
+CRC: 811741143
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0afbf72bf9b1314b768829a674935053
+    Hash: beca3399b5bd63b1c01bcbf8250e90e3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 335f42b278930f4cb86ae47bf966b8da
+    Hash: 7d840d50a356bbc19211386935ad981c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,15 +42,15 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 67079b849227b734694872d8810229b8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2334069450a65d042a95a873e5229b20, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fef0780b96a0f12448b6dd86f9c8139b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 120
@@ -73,119 +73,125 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 319
   Script: {instanceID: 0}
-SerializeReferenceClassIdentifiers: []
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: ChildLocator/NameTransformPair
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
 Assets:
-- Assets/Submariner/Projectiles/texRampCrocoDiseaseDark.png
-- Assets/Submariner/Animations/Armature_AimPitch.anim
-- Assets/Submariner/Animations/animSubmarinerCSS.controller
-- Assets/Submariner/Icons/Skill/texUtility.png
-- Assets/Submariner/VFX/CritLightningMonsoon.prefab
-- Assets/Submariner/Animations/Armature_CSSIdle.anim
-- Assets/Submariner/Icons/Skill/texSecondary.png
 - Assets/Submariner/Textures/texGuilty.png
-- Assets/Submariner/VFX/BloodSpurtEffect.prefab
-- Assets/Submariner/HUD/ChargeBar.prefab
-- Assets/Submariner/Animations/Armature_JumpSprint.anim
-- Assets/Submariner/VFX/CritLightning.prefab
-- Assets/Submariner/Animations/Armature_AimYaw.anim
-- Assets/Submariner/VFX/matShockwave.mat
-- Assets/Submariner/Projectiles/meshSapper.mesh
-- Assets/Submariner/Animations/Armature_RunR.anim
-- Assets/Submariner/Meshes/meshAnchorProjectile.mesh
-- Assets/Submariner/VFX/Badass/BigExplosion.prefab
-- Assets/Submariner/Animations/Armature_Idle.anim
-- Assets/Submariner/VFX/Badass/MetalHitEffect.prefab
-- Assets/Submariner/Animations/Armature_BeastRideLoop.anim
-- Assets/Submariner/Projectiles/CoinImpactHit.prefab
-- Assets/Submariner/Animations/Armature_Swing1.anim
-- Assets/Submariner/HUD/Textures/texBulletIndicator.png
-- Assets/Submariner/Meshes/meshRope.mesh
-- Assets/Submariner/Icons/Skill/texSpecial.png
-- Assets/Submariner/VFX/matShockwave2.mat
-- Assets/Submariner/VFX/Badass/StoneHitEffect.prefab
-- Assets/Submariner/Animations/Armature_BeastStart.anim
-- Assets/Submariner/Projectiles/CoinTracer.prefab
-- Assets/Submariner/Animations/maskSubmarinerAim.mask
-- Assets/Submariner/Textures/texGuiltyBuff.png
-- Assets/Submariner/mdlSubmariner.prefab
-- Assets/Submariner/Projectiles/CoinProjectile.prefab
-- Assets/Submariner/Animations/Armature_IdleIn.anim
-- Assets/Submariner/Materials/matSubmariner.mat
-- Assets/Submariner/Icons/Skill/texPrimary.png
-- Assets/Submariner/Animations/Armature_ThrowAnchor.anim
-- Assets/Submariner/Animations/Armature_HarpoonEndToKick.anim
-- Assets/Submariner/Animations/animSubmariner.controller
-- Assets/Submariner/Meshes/meshGear.mesh
-- Assets/Submariner/Textures/texInterrogatorEmission.png
-- Assets/Submariner/Textures/texRampConvicted.png
-- Assets/Submariner/Textures/texInterrogator.png
-- Assets/Submariner/Textures/texCloudPixel2.png
-- Assets/Submariner/Icons/texSubmarinerIcon.png
-- Assets/Submariner/VFX/texShockwave.png
-- Assets/Submariner/Meshes/meshAnchor.mesh
-- Assets/Submariner/Projectiles/CoinOrbEffect.prefab
-- Assets/Submariner/mdlMine.prefab
-- Assets/Submariner/Projectiles/texAlphaGradient6Mask.png
-- Assets/Submariner/Textures/texInterrogatorNormal.png
-- Assets/Submariner/Animations/Armature_Jump.anim
-- Assets/Submariner/SubmarinerDisplay.prefab
-- Assets/Submariner/Animations/Armature_BeastEnd.anim
-- Assets/Submariner/Materials/matVisor.mat
-- Assets/Submariner/HUD/WeaponChargeBar.prefab
-- Assets/Submariner/Animations/Armature_ThrowAnchorCharge.anim
-- Assets/Submariner/VFX/texSpyStreak.png
-- Assets/Submariner/Textures/texConvictBuff.png
-- Assets/Submariner/VFX/matSpyDefault.mat
-- Assets/Submariner/Animations/Armature_RunB.anim
-- Assets/Submariner/Animations/Armature_RunF.anim
-- Assets/Submariner/Icons/texDefaultSkin.png
-- Assets/Submariner/Animations/Armature_BackFlip.anim
-- Assets/Submariner/Animations/Armature_LightImpact.anim
-- Assets/Submariner/VFX/Badass/TinyExplosion.prefab
-- Assets/Submariner/VFX/Badass/SandHitEffect.prefab
-- Assets/Submariner/Animations/Armature_CSSIdleIn.anim
 - Assets/Submariner/Meshes/meshHarpoon.mesh
-- Assets/Submariner/HUD/ChargeRing.prefab
-- Assets/Submariner/VFX/texBlackLightning.png
-- Assets/Submariner/Projectiles/texRampCoin.png
-- Assets/Submariner/Projectiles/CoinProjectileGhost.prefab
-- Assets/Submariner/Projectiles/coin.asset
-- Assets/Submariner/Animations/maskSubmarinerLeftArm.mask
-- Assets/Submariner/Animations/Armature_HarpoonLoop.anim
-- Assets/Submariner/Textures/subDiffuse.png
-- Assets/Submariner/Animations/Armature_HarpoonFire.anim
-- Assets/Submariner/Meshes/meshVisor.mesh
 - Assets/Submariner/Textures/subEmission.png
-- Assets/Submariner/Meshes/meshMine.mesh
-- Assets/Submariner/HUD/Textures/texChargeRing.png
-- Assets/Submariner/a mistakeig.prefab
-- Assets/Submariner/Projectiles/DriverStunGrenadeImpact.prefab
-- Assets/Submariner/Animations/Armature_RunL.anim
-- Assets/Submariner/Animations/Armature_HarpoonPullStart.anim
-- Assets/Submariner/Icons/Skill/texPassive.png
-- Assets/Submariner/VFX/matSpyStreak.mat
-- Assets/Submariner/Projectiles/mdlSapper.prefab
-- Assets/Submariner/Animations/Armature_Descend.anim
-- Assets/Submariner/Icons/Skill/texAltUtility.png
-- Assets/Submariner/Animations/Armature_Ascend.anim
-- Assets/Submariner/Projectiles/DriverStunGrenadeGhost.prefab
-- Assets/Submariner/Projectiles/texRampCoin2.png
-- Assets/Submariner/VFX/Badass/WoodHitEffect.prefab
-- Assets/Submariner/VFX/Badass/SmallExplosion.prefab
-- Assets/Submariner/Meshes/meshHead.mesh
-- Assets/Submariner/Meshes/meshBeast.mesh
+- Assets/Submariner/Textures/subDiffuse.png
+- Assets/Submariner/Animations/Armature_BeastStart.anim
+- Assets/Submariner/Materials/matSubmariner.mat
+- Assets/Submariner/Animations/Armature_JumpSprint.anim
 - Assets/Submariner/Animations/Armature_Sprint.anim
-- Assets/Submariner/Meshes/meshSubmariner.mesh
-- Assets/Submariner/Animations/animSubmarinerEmotes.controller
-- Assets/Submariner/HUD/Textures/texSniperBulletIndicator.png
-- Assets/Submariner/Icons/texMonsoonSkin.png
-- Assets/Submariner/Animations/Armature_Swing2.anim
-- Assets/Submariner/Animations/maskSubmarinerImpact.mask
 - Assets/Submariner/mdlAnchor.prefab
+- Assets/Submariner/HUD/Textures/texChargeRing.png
+- Assets/Submariner/Projectiles/DriverStunGrenadeImpact.prefab
+- Assets/Submariner/Animations/Armature_HarpoonFire.anim
+- Assets/Submariner/HUD/ChargeBar.prefab
+- Assets/Submariner/Animations/Armature_RunR.anim
+- Assets/Submariner/Projectiles/texAlphaGradient6Mask.png
+- Assets/Submariner/Projectiles/texRampCoin.png
+- Assets/Submariner/Animations/Armature_ThrowAnchorCharge.anim
+- Assets/Submariner/Animations/Armature_HarpoonPullStart.anim
+- Assets/Submariner/Meshes/meshSubmariner.mesh
+- Assets/Submariner/Animations/animSubmariner.controller
+- Assets/Submariner/Animations/Armature_CSSIdleIn.anim
+- Assets/Submariner/Animations/Armature_ThrowAnchor.anim
+- Assets/Submariner/Icons/texSubmarinerIcon.png
+- Assets/Submariner/Animations/Armature_Jump.anim
+- Assets/Submariner/Meshes/meshAnchor.mesh
+- Assets/Submariner/Animations/Armature_BeastEnd.anim
+- Assets/Submariner/HUD/Textures/texSniperBulletIndicator.png
+- Assets/Submariner/Textures/texInterrogatorNormal.png
+- Assets/Submariner/Icons/Skill/texSecondary.png
+- Assets/Submariner/Meshes/meshAnchorProjectile.mesh
 - Assets/Submariner/Textures/texGuiltyDebuff.png
-- Assets/Submariner/VFX/matBlackLightning.mat
-- Assets/Submariner/submariner_emoteskeleton.prefab
-- Assets/Submariner/Animations/maskSubmarinerGesture.mask
+- Assets/Submariner/VFX/matSpyDefault.mat
+- Assets/Submariner/Animations/Armature_HarpoonEndToKick.anim
+- Assets/Submariner/Projectiles/CoinProjectileGhost.prefab
+- Assets/Submariner/Animations/Armature_RunF.anim
+- Assets/Submariner/Meshes/meshMine.mesh
+- Assets/Submariner/VFX/BloodSpurtEffect.prefab
+- Assets/Submariner/VFX/CritLightning.prefab
+- Assets/Submariner/VFX/Badass/WoodHitEffect.prefab
+- Assets/Submariner/VFX/texShockwave.png
+- Assets/Submariner/Animations/Armature_CSSIdle.anim
+- Assets/Submariner/Materials/matVisor.mat
+- Assets/Submariner/Icons/texDefaultSkin.png
+- Assets/Submariner/Animations/animSubmarinerEmotes.controller
+- Assets/Submariner/Animations/Armature_Idle.anim
+- Assets/Submariner/Animations/Armature_Swing1.anim
+- Assets/Submariner/Icons/Skill/texSpecial.png
+- Assets/Submariner/Animations/maskSubmarinerAim.mask
+- Assets/Submariner/Animations/Armature_IdleIn.anim
+- Assets/Submariner/VFX/Badass/SmallExplosion.prefab
+- Assets/Submariner/Meshes/meshRope.mesh
+- Assets/Submariner/Animations/Armature_LightImpact.anim
+- Assets/Submariner/Projectiles/CoinProjectile.prefab
+- Assets/Submariner/Meshes/meshVisor.mesh
+- Assets/Submariner/Projectiles/CoinImpactHit.prefab
+- Assets/Submariner/VFX/Badass/TinyExplosion.prefab
+- Assets/Submariner/mdlMine.prefab
+- Assets/Submariner/Projectiles/CoinOrbEffect.prefab
+- Assets/Submariner/Meshes/meshBeast.mesh
+- Assets/Submariner/Textures/texRampConvicted.png
+- Assets/Submariner/Icons/Skill/texUtility.png
+- Assets/Submariner/Icons/Skill/texPrimary.png
+- Assets/Submariner/VFX/matShockwave2.mat
+- Assets/Submariner/Projectiles/texRampCoin2.png
+- Assets/Submariner/Meshes/meshGear.mesh
+- Assets/Submariner/Animations/Armature_BeastRideLoop.anim
+- Assets/Submariner/Animations/Armature_AimPitch.anim
+- Assets/Submariner/mdlSubmariner.prefab
+- Assets/Submariner/HUD/ChargeRing.prefab
+- Assets/Submariner/Projectiles/texRampCrocoDiseaseDark.png
+- Assets/Submariner/VFX/Badass/BigExplosion.prefab
+- Assets/Submariner/Animations/maskSubmarinerImpact.mask
+- Assets/Submariner/Textures/texConvictBuff.png
 - Assets/Submariner/HUD/Textures/texWhite.png
 - Assets/Submariner/Animations/Armature_BeastEat.anim
+- Assets/Submariner/VFX/texBlackLightning.png
+- Assets/Submariner/Icons/Skill/texAltUtility.png
+- Assets/Submariner/Icons/texMonsoonSkin.png
+- Assets/Submariner/HUD/Textures/texBulletIndicator.png
+- Assets/Submariner/VFX/texSpyStreak.png
+- Assets/Submariner/Animations/Armature_Ascend.anim
+- Assets/Submariner/a mistakeig.prefab
+- Assets/Submariner/VFX/matSpyStreak.mat
+- Assets/Submariner/Animations/Armature_BackFlip.anim
+- Assets/Submariner/VFX/Badass/MetalHitEffect.prefab
+- Assets/Submariner/Projectiles/meshSapper.mesh
+- Assets/Submariner/VFX/Badass/SandHitEffect.prefab
+- Assets/Submariner/Animations/Armature_RunB.anim
+- Assets/Submariner/Animations/animSubmarinerCSS.controller
+- Assets/Submariner/Icons/Skill/texPassive.png
+- Assets/Submariner/Animations/Armature_AimYaw.anim
+- Assets/Submariner/VFX/Badass/StoneHitEffect.prefab
+- Assets/Submariner/Projectiles/DriverStunGrenadeGhost.prefab
+- Assets/Submariner/Textures/texInterrogatorEmission.png
+- Assets/Submariner/Meshes/meshHead.mesh
+- Assets/Submariner/Animations/Armature_Swing2.anim
+- Assets/Submariner/submariner_emoteskeleton.prefab
+- Assets/Submariner/Animations/Armature_Descend.anim
+- Assets/Submariner/Animations/Armature_RunL.anim
+- Assets/Submariner/Projectiles/CoinTracer.prefab
+- Assets/Submariner/Projectiles/coin.asset
+- Assets/Submariner/Animations/maskSubmarinerLeftArm.mask
+- Assets/Submariner/Textures/texInterrogator.png
+- Assets/Submariner/Textures/texCloudPixel2.png
+- Assets/Submariner/VFX/CritLightningMonsoon.prefab
+- Assets/Submariner/VFX/matShockwave.mat
+- Assets/Submariner/Textures/texGuiltyBuff.png
+- Assets/Submariner/Animations/Armature_HarpoonLoop.anim
+- Assets/Submariner/Animations/maskSubmarinerGesture.mask
+- Assets/Submariner/HUD/WeaponChargeBar.prefab
+- Assets/Submariner/Projectiles/mdlSapper.prefab
+- Assets/Submariner/VFX/matBlackLightning.mat
+- Assets/Submariner/SubmarinerDisplay.prefab
 Dependencies: []

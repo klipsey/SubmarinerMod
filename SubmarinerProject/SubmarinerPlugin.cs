@@ -1,13 +1,13 @@
 ﻿using BepInEx;
 using R2API.Utils;
 using SubmarinerMod.Modules;
-using SubmarinerMod.Submariner.Content;
+using SubmarinerMod.SubmarinerCharacter.Content;
 using RoR2;
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using R2API.Networking;
-using SubmarinerMod.Submariner.SkillStates;
+using SubmarinerMod.SubmarinerCharacter.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -41,7 +41,7 @@ namespace SubmarinerMod
         {
             instance = this;
 
-            NetworkingAPI.RegisterMessageType<Submariner.Components.SyncBloodExplosion>();
+            NetworkingAPI.RegisterMessageType<SubmarinerCharacter.Components.SyncBloodExplosion>();
 
             //easy to use logger
             Log.Init(Logger);
@@ -51,7 +51,7 @@ namespace SubmarinerMod
 
             // character initialization
 
-            new SubmarinerMod.Submariner.SubmarinerSurvivor().Initialize();
+            new SubmarinerMod.SubmarinerCharacter.SubmarinerSurvivor().Initialize();
 
             On.RoR2.Projectile.ProjectileGrappleController.AssignHookReferenceToBodyStateMachine += (orig, self) => {
                 orig(self);
@@ -65,11 +65,6 @@ namespace SubmarinerMod
             new Modules.ContentPacks().Initialize();
 
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
-        }
-
-        private void Start()
-        {
-            SoundBanks.Init();
         }
     }
 }

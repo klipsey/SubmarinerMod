@@ -3,7 +3,7 @@ using R2API;
 using RoR2;
 using RoR2.Audio;
 using RoR2.Skills;
-using SubmarinerMod.Submariner.Content;
+using SubmarinerMod.SubmarinerCharacter.Content;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

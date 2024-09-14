@@ -1,4 +1,4 @@
-﻿using SubmarinerMod.Submariner.Content;
+﻿using SubmarinerMod.SubmarinerCharacter.Content;
 
 namespace SubmarinerMod.Modules
 {

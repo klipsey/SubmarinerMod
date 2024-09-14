@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EntityStates;
 using RoR2.WwiseUtils;
-using SubmarinerMod.Submariner.Content;
+using SubmarinerMod.SubmarinerCharacter.Content;
 
 namespace SubmarinerMod.Modules.Characters
 {
@@ -32,7 +32,7 @@ namespace SubmarinerMod.Modules.Characters
         public virtual void Initialize()
         {
             instance = this as T;
-            assetBundle = Assets.LoadAssetBundle(assetBundleName);
+            assetBundle = CharacterAssets.LoadAssetBundle(assetBundleName);
             InitializeCharacter();
         }
 

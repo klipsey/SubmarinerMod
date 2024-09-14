@@ -1,3 +1,12 @@
+# 1.0.9
+
+- No more console spam
+
+# 1.0.8
+
+- Sots
+- Chain is currently broken until gearbox fixes
+
 # 1.0.7
 
 - Buns Update
