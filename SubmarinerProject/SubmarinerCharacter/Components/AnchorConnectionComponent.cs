@@ -22,8 +22,6 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
 
         private GameObject owner;
 
-        private TeamIndex teamIndex = TeamIndex.None;
-
         private bool hasFired;
 
         private bool hasBroken;
@@ -39,7 +37,6 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
             if (component)
             {
                 owner = component.owner;
-                teamIndex = component.teamFilter.teamIndex;
             }
             if(owner)
             {

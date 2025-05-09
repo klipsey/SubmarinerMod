@@ -52,30 +52,38 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SWING_NAME", "AL811 Anchoring Device");
-            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Swing in front dealing <style=cIsDamage>{SubmarinerStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Swing in front dealing " +
+                $"<style=cIsDamage>{SubmarinerConfig.swingDamageCoefficient.Value * 100f}% damage</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_HARPOON_NAME", "Reel-In");
-            Language.Add(prefix + "SECONDARY_HARPOON_DESCRIPTION", $"Fire out a harpoon dealing <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient / 2f * 100f}% damage</style>. " +
+            Language.Add(prefix + "SECONDARY_HARPOON_DESCRIPTION", $"Fire out a harpoon dealing " +
+                $"<style=cIsDamage>{SubmarinerConfig.harpoonDamageCoefficient.Value / 2f * 100f}% damage</style>. " +
                 $"<style=cIsUtility>Pulls</style> small enemies towards you and <style=cIsUtility>pulls</style> you towards large enemies. " +
-                $"Colliding with a large enemy deals <style=cIsDamage>{SubmarinerStaticValues.harpoonDamageCoefficient * 100f}%</style> then starts a <style=cIsUtility>backflip.</style>");
+                $"Colliding with a large enemy deals " +
+                $"<style=cIsDamage>{SubmarinerConfig.harpoonDamageCoefficient.Value * 100f}%</style> then starts a <style=cIsUtility>backflip.</style>");
             #endregion
 
             #region Utility 
             Language.Add(prefix + "UTILITY_MINE_NAME", "Explosive Urchin");
-            Language.Add(prefix + "UTILITY_MINE_DESCRIPTION", $"<style=cIsUtility>Backflip</style> firing out an <style=cIsHealing>Urchine Mine</style> that deals <style=cIsDamage>{SubmarinerStaticValues.mineDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "UTILITY_MINE_DESCRIPTION", $"<style=cIsUtility>Backflip</style> firing out an " +
+                $"<style=cIsHealing>Urchine Mine</style> that deals <style=cIsDamage>{SubmarinerConfig.mineDamageCoefficient.Value * 100f}% damage</style>.");
 
             Language.Add(prefix + "UTILITY_BEAST_NAME", "Cult's Best Friend");
-            Language.Add(prefix + "UTILITY_BEAST_DESCRIPTION", $"<style=cIsDamage>Slayer.</style> Ride a <style=cIsHealing>Beast</style>, which quickly runs forward dealing <style=cIsDamage>{SubmarinerStaticValues.beastDamageCoefficient * 100f}% damage</style>. " +
-                $"Killing a lightweight enemy <style=cIsUtility>speeds up</style> the <style=cIsHealing>Beast</style> and increases <style=cIsDamage>damage</style> dealt. Running into large enemies stops you and <style=cIsUtility>stuns</style> the enemy.");
+            Language.Add(prefix + "UTILITY_BEAST_DESCRIPTION", $"<style=cIsDamage>Slayer.</style> Ride a <style=cIsHealing>Beast</style>, " +
+                $"which quickly runs forward dealing <style=cIsDamage>{SubmarinerConfig.beastDamageCoefficient.Value * 100f}% damage</style>. " +
+                $"Killing a lightweight enemy <style=cIsUtility>speeds up</style> the <style=cIsHealing>Beast</style> and increases " +
+                $"<style=cIsDamage>damage</style> dealt. Running into large enemies stops you and <style=cIsUtility>stuns</style> the enemy.");
 
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_ANCHORTHROW_NAME", "Drop the Anchor!");
-            Language.Add(prefix + "SPECIAL_ANCHORTHROW_DESCRIPTION", $"Throw your anchor, dealing <style=cIsDamage>{SubmarinerStaticValues.anchorDamageCoefficient * 100f}% damage</style> on impact. " +
-                $"Running towards the anchor increases your <style=cIsUtility>movement speed</style>, while moving away from it <style=cIsDamage>slows</style> you down. " +
+            Language.Add(prefix + "SPECIAL_ANCHORTHROW_DESCRIPTION", $"Throw your anchor, dealing " +
+                $"<style=cIsDamage>{SubmarinerConfig.anchorDamageCoefficient.Value * 100f}% damage</style> on impact. " +
+                $"Running towards the anchor increases your <style=cIsUtility>movement speed</style>, " +
+                $"while moving away from it <style=cIsDamage>slows</style> you down. " +
                 $"Going too far away <style=cIsHealth>breaks</style> the anchors chain, granting a burst of <style=cIsUtility>movement speed</style>.");
             #endregion
 

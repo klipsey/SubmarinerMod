@@ -20,7 +20,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
         public float speedMultiplier = 2.2f;
 
-        public static float chargeDamageCoefficient = SubmarinerStaticValues.beastDamageCoefficient;
+        public static float chargeDamageCoefficient = SubmarinerConfig.beastDamageCoefficient.Value;
 
         public static float awayForceMagnitude = 0f;
 
@@ -107,6 +107,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             attack.hitBoxGroup = hitBoxGroup;
             attack.isCrit = RollCrit();
             attack.damageType = DamageType.BonusToLowHealth;
+            attack.damageType.damageSource = DamageSource.Utility;
         }
 
         public override void OnExit()

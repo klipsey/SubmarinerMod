@@ -17,7 +17,8 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             hitboxGroupName = "MeleeHitbox";
 
             damageType = DamageType.Generic;
-            damageCoefficient = SubmarinerStaticValues.swingDamageCoefficient;
+            damageSource = DamageSource.Primary;
+            damageCoefficient = SubmarinerConfig.swingDamageCoefficient.Value;
             procCoefficient = 1f;
             pushForce = 1500f;
             bonusForce = Vector3.zero;

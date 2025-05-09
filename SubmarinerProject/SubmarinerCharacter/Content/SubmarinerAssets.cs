@@ -254,6 +254,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             UnityEngine.Object.Destroy(hookPrefab.transform.Find("RopeEnd").Find("Point Light").gameObject);
 
             hookPrefab.GetComponent<ProjectileStickOnImpact>().ignoreWorld = true;
+            hookPrefab.GetComponent<ProjectileDamage>().damageType.damageSource = DamageSource.Secondary;
 
             Modules.Content.AddProjectilePrefab(hookPrefab);
 
@@ -279,7 +280,8 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             boom.lifetimeAfterImpact = 0.3f;
             boom.impactEffect = mineExplosionPrefab;
 
-            minePrefab.GetComponent<ProjectileDamage>().damage = SubmarinerStaticValues.mineDamageCoefficient;
+            var pd = minePrefab.GetComponent<ProjectileDamage>();
+            pd.damageType.damageSource = DamageSource.Utility;
             MeshFilter meshF = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshFilter>();
             meshF.mesh = mainAssetBundle.LoadAsset<Mesh>("meshMine");
             MeshRenderer meshR = ghost.transform.Find("mdlEngiMine").Find("EngiMineMesh").gameObject.AddComponent<MeshRenderer>();
@@ -291,7 +293,6 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             ghost.transform.Find("mdlEngiMine").Find("EngiMineArmature").gameObject.SetActive(false);
 
             Modules.Content.AddProjectilePrefab(minePrefab);
-
 
             anchorPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Toolbot/CryoCanisterProjectile.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchor");
             if (!anchorPrefab.GetComponent<NetworkIdentity>()) anchorPrefab.AddComponent<NetworkIdentity>();
@@ -313,7 +314,6 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             modelTransform.transform.localScale *= 2f;
             anchorPrefab.gameObject.GetComponent<ProjectileController>().ghostTransformAnchor = anchorPrefab.transform.Find("AnchorGhostTransform");
 
-
             SubmarinerStickOnImpact stick = anchorPrefab.AddComponent<SubmarinerStickOnImpact>();
             stick.stickSoundString = "Play_parent_attack1_slam";
             stick.ignoreCharacters = true;
@@ -324,7 +324,9 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
 
             Component.Destroy(anchorPrefab.GetComponent<ProjectileImpactExplosion>());
             Component.Destroy(anchorPrefab.GetComponent<ApplyTorqueOnStart>());
-            anchorPrefab.GetComponent<ProjectileDamage>().damageType = DamageType.Stun1s;
+            pd = anchorPrefab.GetComponent<ProjectileDamage>();
+            pd.damageType.damageSource = DamageSource.Special;
+            pd.damageType = DamageType.Stun1s;
 
             /*
 

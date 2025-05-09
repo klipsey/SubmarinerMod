@@ -52,12 +52,27 @@ namespace SubmarinerMod.SubmarinerCharacter
             crosshair = Modules.CharacterAssets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 130f,
-            healthRegen = 1.5f,
-            armor = 20f,
-            damage = 12f, 
-
-            jumpCount = 1,
+            damage = SubmarinerConfig.damage.Value,
+            damageGrowth = SubmarinerConfig.damageGrowth.Value * SubmarinerConfig.damage.Value,
+            attackSpeed = SubmarinerConfig.attackSpeed.Value,
+            attackSpeedGrowth = SubmarinerConfig.attackSpeedGrowth.Value,
+            crit = SubmarinerConfig.crit.Value,
+            critGrowth = SubmarinerConfig.critGrowth.Value,
+            maxHealth = SubmarinerConfig.maxHealth.Value,
+            healthGrowth = SubmarinerConfig.healthGrowth.Value * SubmarinerConfig.maxHealth.Value,
+            healthRegen = SubmarinerConfig.healthRegen.Value,
+            regenGrowth = SubmarinerConfig.regenGrowth.Value * SubmarinerConfig.healthRegen.Value,
+            shield = SubmarinerConfig.shield.Value,
+            shieldGrowth = SubmarinerConfig.shieldGrowth.Value * SubmarinerConfig.shield.Value,
+            armor = SubmarinerConfig.armor.Value,
+            armorGrowth = SubmarinerConfig.armorGrowth.Value * SubmarinerConfig.armor.Value,
+            moveSpeed = SubmarinerConfig.moveSpeed.Value,
+            moveSpeedGrowth = SubmarinerConfig.moveSpeedGrowth.Value * SubmarinerConfig.moveSpeed.Value,
+            jumpPower = SubmarinerConfig.jumpPower.Value,
+            jumpPowerGrowth = SubmarinerConfig.jumpPowerGrowth.Value * SubmarinerConfig.jumpPower.Value,
+            acceleration = SubmarinerConfig.acceleration.Value,
+            jumpCount = SubmarinerConfig.jumpCount.Value,
+            autoCalculateLevelStats = SubmarinerConfig.autoCalculateLevelStats.Value,
         };
 
         public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]

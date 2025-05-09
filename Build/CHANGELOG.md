@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Playable for Sots v3
+
 # 1.0.9
 
 - No more console spam

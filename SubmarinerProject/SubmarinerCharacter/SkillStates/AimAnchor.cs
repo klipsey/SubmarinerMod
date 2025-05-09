@@ -20,7 +20,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             arcVisualizerPrefab = SubmarinerAssets.throwable;
             projectilePrefab = SubmarinerAssets.anchorPrefab;
             endpointVisualizerPrefab = SubmarinerAssets.throwableEnd;
-            damageCoefficient = SubmarinerStaticValues.anchorDamageCoefficient;
+            damageCoefficient = SubmarinerConfig.anchorDamageCoefficient.Value;
             baseMinimumDuration = 0.25f;
             enterSoundString = "sfx_driver_button_foley";
             exitSoundString = "sfx_scout_cleaver_throw";

@@ -200,7 +200,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
                     impactAttack.attacker = owner;
                     impactAttack.inflictor = owner;
                     impactAttack.teamIndex = TeamComponent.GetObjectTeam(owner);
-                    impactAttack.baseDamage = SubmarinerStaticValues.anchorDamageCoefficient * owner.GetComponent<CharacterBody>().damage;
+                    impactAttack.baseDamage = SubmarinerConfig.anchorDamageCoefficient.Value * owner.GetComponent<CharacterBody>().damage;
                     impactAttack.baseForce = 600f;
                     impactAttack.position = transform.position;
                     impactAttack.procCoefficient = 1f;

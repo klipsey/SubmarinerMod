@@ -37,7 +37,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
         public static string endSoundString = "sfx_submariner_dash";
 
-        public static float damageCoefficient = SubmarinerStaticValues.harpoonDamageCoefficient;
+        public static float damageCoefficient = SubmarinerConfig.harpoonDamageCoefficient.Value;
 
         public static float procCoefficient = 1f;
 
@@ -85,6 +85,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             attack.hitBoxGroup = FindHitBoxGroup("HarpoonKickHitbox");
             attack.hitEffectPrefab = SubmarinerAssets.batHitEffect;
             attack.AddModdedDamageType(DamageTypes.SubmarinerRegeneration);
+            attack.damageType.damageSource = DamageSource.Secondary;
 
             FireProjectile();
             Util.PlaySound("Play_loader_m2_launch", base.gameObject);

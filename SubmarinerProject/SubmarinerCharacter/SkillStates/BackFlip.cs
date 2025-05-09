@@ -37,7 +37,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
         public static string endSoundString = "sfx_submariner_dash";
 
-        public static float damageCoefficient = SubmarinerStaticValues.mineDamageCoefficient;
+        public static float damageCoefficient = SubmarinerConfig.mineDamageCoefficient.Value;
 
         public static float procCoefficient = 1f;
 
@@ -94,7 +94,8 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             Ray aimRay = GetAimRay();
             if (base.isAuthority)
             {
-                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), base.gameObject, damageStat * damageCoefficient, 200f, Util.CheckRoll(critStat, base.characterBody.master));
+                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), 
+                    base.gameObject, damageStat * damageCoefficient, 200f, Util.CheckRoll(critStat, base.characterBody.master));
             }
         }
         public override void OnExit()
