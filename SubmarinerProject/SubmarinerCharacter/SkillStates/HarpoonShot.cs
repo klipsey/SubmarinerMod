@@ -86,6 +86,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             attack.hitEffectPrefab = SubmarinerAssets.batHitEffect;
             attack.AddModdedDamageType(DamageTypes.SubmarinerRegeneration);
             attack.damageType.damageSource = DamageSource.Secondary;
+            attack.impactSound = SubmarinerAssets.batImpactSoundEvent.index;
 
             FireProjectile();
             Util.PlaySound("Play_loader_m2_launch", base.gameObject);

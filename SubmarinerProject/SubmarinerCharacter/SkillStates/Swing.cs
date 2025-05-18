@@ -34,7 +34,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
             hitStopDuration = 0.15f;
             attackRecoil = 0.75f;
-            hitHopVelocity = 6f;
+            hitHopVelocity = 8f;
 
             swingSoundString = "Play_loader_m1_swing";
             hitSoundString = "";

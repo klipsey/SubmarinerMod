@@ -1,3 +1,8 @@
+# 1.1.1 
+
+- Increased hitbox range to match mercenary
+- Increased hithop velocity to match mercenary
+
 # 1.1.0
 
 - Playable for Sots v3

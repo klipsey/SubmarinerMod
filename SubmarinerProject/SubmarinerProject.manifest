@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2551578948
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: submariner
+      Dependencies: {}
