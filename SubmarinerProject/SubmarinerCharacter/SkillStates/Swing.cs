@@ -34,17 +34,17 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
             hitStopDuration = 0.15f;
             attackRecoil = 0.75f;
-            hitHopVelocity = 8f;
+            hitHopVelocity = 10f;
 
-            swingSoundString = "Play_loader_m1_swing";
+            swingSoundString = "Play_acrid_m1_bigSlash";
             hitSoundString = "";
             muzzleString = swingIndex % 2 == 0 ? "SwingMuzzle1" : "SwingMuzzle2";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = SubmarinerAssets.batSwingEffect;
+            swingEffectPrefab = SubmarinerAssets.submarinerSwingEffect;
             moddedDamageTypeHolder.Add(DamageTypes.SubmarinerRegeneration);
-            hitEffectPrefab = SubmarinerAssets.batHitEffect;
+            hitEffectPrefab = SubmarinerAssets.submarinerHitEffect;
 
-            impactSound = SubmarinerAssets.batImpactSoundEvent.index;
+            impactSound = SubmarinerAssets.impactSound.index;
 
             base.OnEnter();
         }

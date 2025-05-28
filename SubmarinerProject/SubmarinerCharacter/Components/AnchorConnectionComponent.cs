@@ -57,7 +57,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
                 subController.movementSpeedAnchorIncrease = Mathf.Abs(Util.Remap(Vector3.Distance(owner.transform.position, base.transform.position), 25f, 50f, 1.5f, 0.85f));
                 ownerBody.RecalculateStats();
             }
-            if (Vector3.Distance(owner.transform.position, base.transform.position) > 75f)
+            if (Vector3.Distance(owner.transform.position, base.transform.position) > 50f)
             {
                 ownerIsInRange = false;
                 hasBroken = true;

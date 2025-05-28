@@ -22,7 +22,6 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
         public static GameObject dashPrefab = SubmarinerAssets.dashEffect;
 
         public static GameObject projectilePrefab = SubmarinerAssets.minePrefab;
-        public static float smallHopVelocity = 12f;
 
         public static float baseDuration = 0.5f;
 
@@ -33,15 +32,13 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
         public static float speedCoefficient = 7f;
 
-        public static string beginSoundString = "sfx_driver_dodge";
+        public static string beginSoundString = "Play_acrid_shift_jump";
 
         public static string endSoundString = "sfx_submariner_dash";
 
         public static float damageCoefficient = SubmarinerConfig.mineDamageCoefficient.Value;
 
         public static float procCoefficient = 1f;
-
-        public static GameObject hitEffectPrefab = SubmarinerAssets.batHitEffectRed;
 
         public static float hitPauseDuration = 0.012f;
 
@@ -54,7 +51,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             RefreshState();
             base.OnEnter();
 
-            StartAimMode(0.5f + baseDuration, false);
+            StartAimMode();
 
             dashVector = base.GetAimRay().direction;
 
@@ -76,13 +73,13 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
                 base.characterMotor.velocity = knockback * pushAwayForce;
             }
             PlayAnimation("FullBody, Override", "BackFlip", "Dash.playbackRate", baseDuration + dashDuration);
+
+            Util.PlaySound(beginSoundString, this.gameObject);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            StartAimMode(2f, false);
 
             if (base.isAuthority && fixedAge >= baseDuration + dashDuration)
             {
@@ -106,7 +103,6 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
                 characterBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 0.3f);
             }
 
-            SmallHop(characterMotor, smallHopVelocity);
             base.OnExit();
         }
 

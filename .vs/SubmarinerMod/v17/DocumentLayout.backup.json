@@ -3,36 +3,92 @@
   "WorkspaceRootPath": "D:\\RoR2Mods\\SubmarinerMod\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinerstickonimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinerstickonimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\submarinersurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\submarinersurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\harpoonshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\harpoonshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\submarinerassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\content\\submarinerassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\bounce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\bounce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\backflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\backflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\anchorconnectioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\anchorconnectioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\harpoonshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\harpoonshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\swing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\swing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\backflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\backflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\recoveranchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\recoveranchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\aimanchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\aimanchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinercss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinercss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\submarinersurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\submarinersurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\beastimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\beastimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\itemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\itemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\itemdisplaycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\itemdisplaycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\basecontent\\basestates\\basesubmarinerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\basecontent\\basestates\\basesubmarinerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinerplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinerplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\submarinertokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,16 +103,8 @@
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\content\\submarinerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\submarinerassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\content\\submarinerassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\recoveranchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\recoveranchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\beastride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,22 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\baseemote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\baseemote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\aimanchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\aimanchor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\anchorconnectioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\anchorconnectioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinerstickonimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinerstickonimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinermod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -95,24 +127,12 @@
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\achievements\\submarinerunlockachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\beastimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\beastimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\skillstates\\rest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\skillstates\\rest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinerplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinerplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\achievements\\submarinermasterachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\achievements\\submarinermasterachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\submarinerbuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -121,10 +141,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\destroyoncondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\destroyoncondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\submarinerstates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -145,18 +161,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\submarinercss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\submarinercss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\convicthudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\convicthudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\submarinercharacter\\components\\bloodexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|solutionrelative:submarinerproject\\submarinercharacter\\components\\bloodexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3144D5-A212-41EF-9704-95B7E85A75D5}|SubmarinerProject\\SubmarinerMod.csproj|d:\\ror2mods\\submarinermod\\submarinerproject\\modules\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -262,55 +266,293 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CameraParams.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CameraParams.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\CameraParams.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CameraParams.cs",
-              "RelativeToolTip": "SubmarinerProject\\Modules\\CameraParams.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABDAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "BackFlip.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAIAwwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T06:04:48.627Z"
+              "WhenOpened": "2025-05-09T22:26:32.866Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HarpoonShot.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\HarpoonShot.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\HarpoonShot.cs",
               "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\HarpoonShot.cs",
               "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\HarpoonShot.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAAEAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAJMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.868Z"
+              "WhenOpened": "2025-05-09T22:26:32.868Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
+              "Title": "AimAnchor.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wBQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "SubmarinerAssets.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerAssets.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerAssets.cs",
               "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerAssets.cs",
               "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerAssets.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAArwAABAABpAAAAAAAAAA==",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAgwPoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.775Z"
+              "WhenOpened": "2025-05-09T22:26:32.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "Swing.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvyQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bounce.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwBUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RecoverAnchor.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SubmarinerController.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AnchorConnectionComponent.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwFkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubmarinerStickOnImpact.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAgwMsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SubmarinerCSS.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "SubmarinerSurvivor.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SubmarinerSurvivor.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SubmarinerSurvivor.cs",
               "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SubmarinerSurvivor.cs",
               "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SubmarinerSurvivor.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAI4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAJgAAAAAAAAAAAApwKsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:37:21.382Z"
+              "WhenOpened": "2025-05-09T22:37:21.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
+              "Title": "Prefabs.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Prefabs.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\Prefabs.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Prefabs.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\Prefabs.cs",
+              "ViewState": "AgIAACoBAAAAAAAAAAAQwDoBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BeastImpact.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwCQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ItemDisplays.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\ItemDisplays.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\ItemDisplays.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\ItemDisplays.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\ItemDisplays.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:40:20.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CameraParams.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CameraParams.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\CameraParams.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CameraParams.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\CameraParams.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwCoAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T06:04:48.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ItemDisplayCheck.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\ItemDisplayCheck.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\ItemDisplayCheck.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\ItemDisplayCheck.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\ItemDisplayCheck.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:40:04.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BaseSubmarinerState.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseSubmarinerState.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseSubmarinerState.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseSubmarinerState.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseSubmarinerState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:39:24.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SubmarinerPlugin.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerPlugin.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerPlugin.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerPlugin.cs",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerPlugin.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIAwwCkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CharacterAssets.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CharacterAssets.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\CharacterAssets.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CharacterAssets.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\CharacterAssets.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCMAAACCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BaseMeleeAttack.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CharacterBase.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "RelativeToolTip": "SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:26:32.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "SubmarinerConfig.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerConfig.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerConfig.cs",
@@ -322,67 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SubmarinerMod",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerMod.csproj",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerMod.csproj",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerMod.csproj",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerMod.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-09T22:26:32.779Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BackFlip.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BackFlip.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAWwCcAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.866Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Bounce.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Bounce.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Prefabs.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Prefabs.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\Prefabs.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Prefabs.cs",
-              "RelativeToolTip": "SubmarinerProject\\Modules\\Prefabs.cs",
-              "ViewState": "AgIAANsAAAAAAAAAAAAAAOMAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CharacterBase.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
-              "RelativeToolTip": "SubmarinerProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 25,
               "Title": "MainState.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\MainState.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\MainState.cs",
@@ -394,19 +576,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Swing.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Swing.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAywC4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.773Z"
+              "DocumentIndex": 23,
+              "Title": "SubmarinerMod",
+              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerMod.csproj",
+              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerMod.csproj",
+              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerMod.csproj",
+              "RelativeToolTip": "SubmarinerProject\\SubmarinerMod.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-09T22:26:32.779Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "BeastRide.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastRide.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastRide.cs",
@@ -418,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 22,
               "Title": "SubmarinerTokens.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerTokens.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerTokens.cs",
@@ -430,19 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RecoverAnchor.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\RecoverAnchor.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwAsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
               "Title": "BaseEmote.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BaseEmote.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BaseEmote.cs",
@@ -454,55 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AimAnchor.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\AimAnchor.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAiwCMAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AnchorConnectionComponent.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\AnchorConnectionComponent.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwFYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "BaseMeleeAttack.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "RelativeToolTip": "SubmarinerProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAwFUAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SubmarinerStickOnImpact.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerStickOnImpact.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAAAiwMoAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.888Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 28,
               "Title": "SubmarinerMod.csproj",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerMod.csproj",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerMod.csproj",
@@ -514,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 29,
               "Title": "Config.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Config.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\Config.cs",
@@ -526,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 31,
               "Title": "Rest.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Rest.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\Rest.cs",
@@ -538,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 30,
               "Title": "SubmarinerUnlockAchievement.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Achievements\\SubmarinerUnlockAchievement.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Achievements\\SubmarinerUnlockAchievement.cs",
@@ -550,31 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "BeastImpact.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\SkillStates\\BeastImpact.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAUwCQAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.791Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CharacterAssets.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CharacterAssets.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\CharacterAssets.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\CharacterAssets.cs",
-              "RelativeToolTip": "SubmarinerProject\\Modules\\CharacterAssets.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCMAAACCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.846Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "SubmarinerMasterAchievement.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Achievements\\SubmarinerMasterAchievement.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Achievements\\SubmarinerMasterAchievement.cs",
@@ -586,19 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "SubmarinerPlugin.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerPlugin.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerPlugin.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerPlugin.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerPlugin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "SubmarinerBuffs.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerBuffs.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerBuffs.cs",
@@ -610,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "DestroyOnCondition.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\DestroyOnCondition.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\DestroyOnCondition.cs",
@@ -622,19 +707,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "SubmarinerController.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAxwCEAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.873Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "SubmarinerStates.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerStates.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerStates.cs",
@@ -646,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "Tokens.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Tokens.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\Tokens.cs",
@@ -658,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "SubmarinerItemDisplays.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerItemDisplays.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerItemDisplays.cs",
@@ -670,7 +743,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "SubmarinerUnlockables.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerUnlockables.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\SubmarinerUnlockables.cs",
@@ -682,7 +755,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "DamageTypes.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Content\\DamageTypes.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Content\\DamageTypes.cs",
@@ -694,43 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "SubmarinerCSS.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\SubmarinerCSS.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "ConvictHudController.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\ConvictHudController.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\ConvictHudController.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\ConvictHudController.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\ConvictHudController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.891Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "BloodExplosion.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\BloodExplosion.cs",
-              "RelativeDocumentMoniker": "SubmarinerProject\\SubmarinerCharacter\\Components\\BloodExplosion.cs",
-              "ToolTip": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\SubmarinerCharacter\\Components\\BloodExplosion.cs",
-              "RelativeToolTip": "SubmarinerProject\\SubmarinerCharacter\\Components\\BloodExplosion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T22:26:32.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "Skills.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\SubmarinerMod\\SubmarinerProject\\Modules\\Skills.cs",
               "RelativeDocumentMoniker": "SubmarinerProject\\Modules\\Skills.cs",

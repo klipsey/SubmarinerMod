@@ -17,10 +17,12 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             RefreshState();
             base.OnEnter();
 
-            if (!base.characterMotor.isGrounded)
+            if(characterMotor.isGrounded)
             {
-                base.characterMotor.ApplyForce(Vector3.up * 12f, alwaysApply: true, disableAirControlUntilCollision: false);
+                base.characterMotor.Motor.ForceUnground();
             }
+
+            base.characterMotor.ApplyForce(Vector3.up * 12f, alwaysApply: true, disableAirControlUntilCollision: false);
         }
 
         public override void FixedUpdate()
@@ -32,7 +34,7 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
                 base.characterDirection.forward = faceDirection;
                 base.characterBody.isSprinting = true;
                 base.characterMotor.disableAirControlUntilCollision = false;
-                if (base.fixedAge >= baseDuration)
+                if (base.fixedAge >= baseDuration || base.characterMotor.isGrounded)
                 {
                     this.outer.SetNextStateToMain();
                 }
@@ -42,6 +44,11 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            if(base.characterMotor.isGrounded)
+            {
+                PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
+            }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

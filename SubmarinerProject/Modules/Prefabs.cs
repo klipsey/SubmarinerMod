@@ -9,7 +9,6 @@ using RoR2.Skills;
 using System;
 using System.Linq;
 using SubmarinerMod.Modules;
-using SubmarinerMod.Modules;
 
 namespace SubmarinerMod.Modules
 {

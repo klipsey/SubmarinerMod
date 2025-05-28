@@ -180,21 +180,6 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
                 TrySticking(impactInfo.collider, impactInfo.estimatedImpactNormal);
                 if (!hasFired)
                 {
-                    Vector3 effectPos = this.transform.localPosition;
-                    RaycastHit raycastHit;
-                    if (Physics.Raycast(effectPos, Vector3.one, out raycastHit, 10f, LayerIndex.world.mask))
-                    {
-                        effectPos = raycastHit.point;
-                    }
-                    if (impactEffect)
-                    {
-                        EffectManager.SpawnEffect(impactEffect, new EffectData
-                        {
-                            origin = effectPos,
-                            rotation = Quaternion.identity,
-                            scale = 1.5f,
-                        }, true);
-                    }
                     BlastAttack impactAttack = new BlastAttack();
                     GameObject owner = gameObject.GetComponent<ProjectileController>().owner;
                     impactAttack.attacker = owner;
@@ -210,6 +195,13 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
                     impactAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
                     impactAttack.Fire();
                     hasFired = true;
+
+                    EffectManager.SpawnEffect(impactEffect, new EffectData
+                    {
+                        origin = transform.position,
+                        rotation = Quaternion.identity,
+                        scale = 3f
+                    }, true);
                 }
             }
         }

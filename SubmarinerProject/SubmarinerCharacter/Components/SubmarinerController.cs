@@ -21,14 +21,10 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
         private CharacterModel characterModel;
         private Animator animator;
         private SkillLocator skillLocator;
-        private Material[] swordMat;
-        private Material[] batMat;
 
         public CharacterBody convictedVictimBody;
 
         public bool pauseTimer = false;
-
-        private ParticleSystem swordEffect;
 
         public float movementSpeedAnchorIncrease = 1f;
         private void Awake()

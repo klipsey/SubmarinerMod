@@ -167,6 +167,8 @@ namespace SubmarinerMod.SubmarinerCharacter
 
         private void AdditionalBodySetup()
         {
+            bool tempAdd(CharacterBody body) => body.HasBuff(SubmarinerBuffs.SubmarinerRegenBuff);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(SubmarinerAssets.regenerativeEffect, tempAdd);
             AddHitboxes();
             bodyPrefab.AddComponent<SubmarinerController>();
         }

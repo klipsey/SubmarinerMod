@@ -33,21 +33,14 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
 
         //Effects
-        internal static GameObject bloodSplatterEffect;
-        internal static GameObject bloodExplosionEffect;
-        internal static GameObject bloodSpurtEffect;
+        internal static GameObject regenerativeEffect;
 
-        internal static GameObject batSwingEffect;
-        internal static GameObject swordSwingEffect;
-        internal static GameObject batHitEffect;
+        internal static GameObject anchorLandingEffect;
 
-        internal static GameObject batHitEffectRed;
+        internal static GameObject submarinerSwingEffect;
+        internal static GameObject submarinerHitEffect;
 
         internal static GameObject dashEffect;
-
-        internal static GameObject SubmarinerGuilty;
-        internal static GameObject SubmarinerConvicted;
-        internal static GameObject SubmarinerConvictedConsume;
 
         internal static GameObject throwable;
         internal static GameObject throwableEnd;
@@ -60,7 +53,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
         internal static GameObject mineExplosionPrefab;
         internal static GameObject anchorPrefab;
         //Sounds
-        internal static NetworkSoundEventDef batImpactSoundEvent;
+        internal static NetworkSoundEventDef impactSound;
         internal static NetworkSoundEventDef swordImpactSoundEvent;
 
         //Colors
@@ -109,28 +102,19 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
         #region effects
         private static void CreateEffects()
         {
+            anchorLandingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/VoidMegaCrab/VoidMegacrabAntimatterExplosionSimple.prefab").WaitForCompletion().InstantiateClone("SubmarinerAnchorLandingEffect", false);
+            if (!anchorLandingEffect.GetComponent<EffectComponent>()) anchorLandingEffect.AddComponent<EffectComponent>();
+            var ec = anchorLandingEffect.GetComponent<EffectComponent>();
+
+            ec.applyScale = true;
+            ec.soundName = "Play_voidDevastator_m2_secondary_explo";
+
+            Modules.Content.CreateAndAddEffectDef(anchorLandingEffect);
+
+            regenerativeEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Croco/CrocoRegenEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerRegenerativeEffect", false);
+
             throwable = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/BasicThrowableVisualizer.prefab").WaitForCompletion();
             throwableEnd = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Huntress/HuntressArrowRainIndicator.prefab").WaitForCompletion();
-            bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
-
-            Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
-            Material bloodMat2 = Addressables.LoadAssetAsync<Material>("RoR2/Base/moon2/matBloodSiphon.mat").WaitForCompletion();
-
-            bloodExplosionEffect.transform.Find("Particles/LongLifeNoiseTrails").GetComponent<ParticleSystemRenderer>().material = bloodMat;
-            bloodExplosionEffect.transform.Find("Particles/LongLifeNoiseTrails, Bright").GetComponent<ParticleSystemRenderer>().material = bloodMat;
-            bloodExplosionEffect.transform.Find("Particles/Dash").GetComponent<ParticleSystemRenderer>().material = bloodMat;
-            bloodExplosionEffect.transform.Find("Particles/Dash, Bright").GetComponent<ParticleSystemRenderer>().material = bloodMat;
-            bloodExplosionEffect.transform.Find("Particles/DashRings").GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/moon2/matBloodSiphon.mat").WaitForCompletion();
-            bloodExplosionEffect.GetComponentInChildren<Light>().gameObject.SetActive(false);
-
-            bloodExplosionEffect.GetComponentInChildren<PostProcessVolume>().sharedProfile = Addressables.LoadAssetAsync <PostProcessProfile>("RoR2/Base/title/ppLocalGold.asset").WaitForCompletion();
-
-            Modules.Content.CreateAndAddEffectDef(bloodExplosionEffect);
-
-            bloodSpurtEffect = mainAssetBundle.LoadAsset<GameObject>("BloodSpurtEffect");
-
-            bloodSpurtEffect.transform.Find("Blood").GetComponent<ParticleSystemRenderer>().material = bloodMat2;
-            bloodSpurtEffect.transform.Find("Trails").GetComponent<ParticleSystemRenderer>().trailMaterial = bloodMat2;
 
             anchorTether = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Treebot/EntangleOrbEffect.prefab").WaitForCompletion().InstantiateClone("SubmarinerChains");
             anchorTether.AddComponent<NetworkIdentity>();
@@ -156,72 +140,14 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             dashEffect.transform.Find("Dash").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", SubmarinerColor);
             Modules.Content.CreateAndAddEffectDef(dashEffect);
 
-            batHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("InterreogatorBatHitEffect");
-            batHitEffect.AddComponent<NetworkIdentity>();
-            Modules.Content.CreateAndAddEffectDef(batHitEffect);
+            submarinerHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("SubmarinerHitEffect");
+            submarinerHitEffect.AddComponent<NetworkIdentity>();
+            Modules.Content.CreateAndAddEffectDef(submarinerHitEffect);
 
-            batHitEffectRed = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("InterreogatorBatRedHitEffect");
-            batHitEffectRed.AddComponent<NetworkIdentity>();
-            batHitEffectRed.transform.Find("Particles").Find("TriangleSparksLarge").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
-            batHitEffectRed.transform.Find("Particles").Find("TriangleSparks").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
-            Modules.Content.CreateAndAddEffectDef(batHitEffectRed);
-
-            batSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SubmarinerBatSwing", false);
-            batSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Huntress/matHuntressSwingTrail.mat").WaitForCompletion();
-            var swing = batSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+            submarinerSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SubmarinerSwing", false);
+            submarinerSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Huntress/matHuntressSwingTrail.mat").WaitForCompletion();
+            var swing = submarinerSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
             swing.startLifetimeMultiplier *= 2f;
-
-            swordSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SubmarinerswordSwing", false);
-            swordSwingEffect.transform.GetChild(0).localScale *= 1.5f;
-            swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGenericSwingTrail.mat").WaitForCompletion();
-            swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", SubmarinerColor);
-            swing = swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
-            swing.startLifetimeMultiplier *= 2f;
-
-            bloodSplatterEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Brother/BrotherSlamImpact.prefab").WaitForCompletion().InstantiateClone("SubmarinerSplat", true);
-            bloodSplatterEffect.AddComponent<NetworkIdentity>();
-            bloodSplatterEffect.transform.GetChild(0).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(1).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(2).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(3).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(4).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(5).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(6).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(7).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(8).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(9).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(10).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.Find("Decal").GetComponent<Decal>().Material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpDecal.mat").WaitForCompletion();
-            bloodSplatterEffect.transform.Find("Decal").GetComponent<AnimateShaderAlpha>().timeMax = 10f;
-            bloodSplatterEffect.transform.GetChild(12).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(13).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(14).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.GetChild(15).gameObject.SetActive(false);
-            bloodSplatterEffect.transform.localScale = Vector3.one;
-            SubmarinerMod.Modules.Content.CreateAndAddEffectDef(bloodSplatterEffect);
-
-            SubmarinerConvicted = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/SlowOnHit/SlowDownTime.prefab").WaitForCompletion().InstantiateClone("Convicted", true);
-            SubmarinerConvicted.AddComponent<NetworkIdentity>();
-            SubmarinerConvicted.transform.Find("Visual").GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", new Color(166f / 255f, 159f / 255f, 20f / 255f));
-            SubmarinerConvicted.transform.Find("Visual").GetChild(1).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", new Color(166f / 255f, 159f / 255f, 20f / 255f));
-
-            Material fakeMerc = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
-            fakeMerc.SetTexture("_MainTex", mainAssetBundle.LoadAsset<Texture>("texGuilty"));
-            fakeMerc.SetColor("_TintColor", SubmarinerColor);
-            SubmarinerGuilty = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercExposeEffect.prefab").WaitForCompletion().InstantiateClone("Guilty", true);
-            SubmarinerGuilty.AddComponent<NetworkIdentity>();
-            SubmarinerGuilty.transform.Find("Visual, On").Find("PulseEffect, Ring").gameObject.GetComponent<ParticleSystemRenderer>().material = fakeMerc;
-
-            fakeMerc = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matMercExposed.mat").WaitForCompletion());
-            fakeMerc.SetTexture("_MainTex", mainAssetBundle.LoadAsset<Texture>("texGuilty"));
-            fakeMerc.SetColor("_TintColor", Color.red);
-            SubmarinerConvictedConsume = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercExposeConsumeEffect.prefab").WaitForCompletion().InstantiateClone("ConvictMarked", true);
-            SubmarinerConvictedConsume.AddComponent<NetworkIdentity>();
-            SubmarinerConvictedConsume.transform.Find("Visual, Consumed").Find("PulseEffect, Ring (1)").gameObject.GetComponent<ParticleSystemRenderer>().material = fakeMerc;
-            SubmarinerConvictedConsume.gameObject.GetComponent<EffectComponent>().soundName = "sfx_SUBMARINER_point";
-            UnityEngine.Object.Destroy(SubmarinerConvictedConsume.transform.Find("Visual, Consumed").Find("PulseEffect, Slash").gameObject);
-
-            Modules.Content.CreateAndAddEffectDef(SubmarinerConvictedConsume);
         }
 
         #endregion
@@ -264,6 +190,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             ghost.GetComponent<EngiMineAnimator>().enabled = false;
 
             mineExplosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Engi/EngiMineExplosion.prefab").WaitForCompletion().InstantiateClone("SubmarinerMineExplosion");
+            mineExplosionPrefab.GetComponent<EffectComponent>().soundName = "Play_acrid_shift_land";
 
             Modules.Content.CreateAndAddEffectDef(mineExplosionPrefab);
 
@@ -321,6 +248,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             stick.alignNormals = true;
             stick.alignRotationPlease = ghost2.transform.rotation;
             stick.alignLocationPlease = ghost2.transform.position;
+            stick.impactEffect = anchorLandingEffect;
 
             Component.Destroy(anchorPrefab.GetComponent<ProjectileImpactExplosion>());
             Component.Destroy(anchorPrefab.GetComponent<ApplyTorqueOnStart>());
@@ -345,7 +273,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
         {
             LoadSoundbank();
 
-            batImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("sfx_interrogator_self_damage");
+            impactSound = Modules.Content.CreateAndAddNetworkSoundEventDef("Play_bellBody_attackLand");
             swordImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("Play_merc_sword_impact");
         }
         #endregion

@@ -6,24 +6,25 @@ namespace SubmarinerMod.SubmarinerCharacter.Components
     public class SubmarinerCSS : MonoBehaviour
     {
         private bool hasPlayed = false;
-        private bool hasPlayed2 = false;
         private float timer = 0f;
         private void Awake()
         {
         }
+
+        private void Start()
+        {
+            Util.PlaySound("Play_affix_void_bug_spawn", this.gameObject);
+        }
+
         private void FixedUpdate()
         {
             timer += Time.fixedDeltaTime;
-            if (!hasPlayed && timer >= 0.8f)
+
+            if (!hasPlayed && timer >= 0.9f)
             {
                 hasPlayed = true;
-                Util.PlaySound("sfx_driver_gun_throw", this.gameObject);
-            }
 
-            if (!hasPlayed2 && timer >= 1.25f)
-            {
-                hasPlayed2 = true;
-                Util.PlaySound("sfx_driver_button_foley", this.gameObject);
+                Util.PlaySound("Play_acrid_shift_puddle_loop", this.gameObject);
             }
         }
     }

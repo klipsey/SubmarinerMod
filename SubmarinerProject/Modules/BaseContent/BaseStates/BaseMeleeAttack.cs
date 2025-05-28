@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using static EntityStates.BaseState;
 using static R2API.DamageAPI;
 
 namespace SubmarinerMod.Modules.BaseStates
@@ -45,15 +46,15 @@ namespace SubmarinerMod.Modules.BaseStates
         protected NetworkSoundEventIndex impactSound = NetworkSoundEventIndex.Invalid;
 
         public float duration;
-        private bool hasFired;
-        private float hitPauseTimer;
-        private OverlapAttack attack;
+        protected bool hasFired;
+        protected float hitPauseTimer;
+        protected OverlapAttack attack;
         protected bool inHitPause;
-        private bool hasHopped;
+        protected bool hasHopped;
         protected float stopwatch;
         protected Animator animator;
-        private HitStopCachedState hitStopCachedState;
-        private Vector3 storedVelocity;
+        protected HitStopCachedState hitStopCachedState;
+        protected Vector3 storedVelocity;
 
         public override void OnEnter()
         {
@@ -88,7 +89,7 @@ namespace SubmarinerMod.Modules.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration, 0.05f / attackSpeedStat);
+            PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration, 0.05f);
         }
 
         public override void OnExit()
@@ -111,11 +112,6 @@ namespace SubmarinerMod.Modules.BaseStates
 
             if (!hasHopped)
             {
-                if (characterMotor && !characterMotor.isGrounded && hitHopVelocity > 0f)
-                {
-                    SmallHop(characterMotor, hitHopVelocity);
-                }
-
                 hasHopped = true;
             }
 
@@ -144,7 +140,7 @@ namespace SubmarinerMod.Modules.BaseStates
             }
         }
 
-        private void EnterAttack()
+        protected void EnterAttack()
         {
             hasFired = true;
             Util.PlayAttackSpeedSound(swingSoundString, gameObject, attackSpeedStat);
@@ -198,10 +194,11 @@ namespace SubmarinerMod.Modules.BaseStates
             }
         }
 
-        private void RemoveHitstop()
+        protected void RemoveHitstop()
         {
             ConsumeHitStopCachedState(hitStopCachedState, characterMotor, animator);
             inHitPause = false;
+            storedVelocity.y = Mathf.Max(storedVelocity.y, hitHopVelocity / Mathf.Sqrt(attackSpeedStat));
             characterMotor.velocity = storedVelocity;
         }
 

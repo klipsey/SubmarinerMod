@@ -41,8 +41,6 @@ namespace SubmarinerMod
         {
             instance = this;
 
-            NetworkingAPI.RegisterMessageType<SubmarinerCharacter.Components.SyncBloodExplosion>();
-
             //easy to use logger
             Log.Init(Logger);
 

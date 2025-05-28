@@ -16,18 +16,18 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
         public static string exitSoundString;
         public override void OnEnter()
         {
-            maxDistance = 50f;
+            maxDistance = 35f;
             arcVisualizerPrefab = SubmarinerAssets.throwable;
             projectilePrefab = SubmarinerAssets.anchorPrefab;
             endpointVisualizerPrefab = SubmarinerAssets.throwableEnd;
             damageCoefficient = SubmarinerConfig.anchorDamageCoefficient.Value;
             baseMinimumDuration = 0.25f;
-            enterSoundString = "sfx_driver_button_foley";
-            exitSoundString = "sfx_scout_cleaver_throw";
+            enterSoundString = "Play_gravekeeper_attack2_charge";
+            exitSoundString = "Play_gravekeeper_attack2_shoot";
             base.OnEnter();
             PlayAnimation("Gesture, Override", "ChargeAnchor");
             Util.PlaySound(enterSoundString, base.gameObject);
-            detonationRadius = 7f;
+            detonationRadius = 15f;
         }
         public override void OnExit()
         {

@@ -1,3 +1,7 @@
+# 1.1.3
+
+- Adjusted dynamic bones, added ragdoll, updated some vfx, updated some sfx
+
 # 1.1.2
 
 - Adjusted camera params to be more in line with commandos

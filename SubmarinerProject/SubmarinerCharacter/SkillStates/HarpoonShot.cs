@@ -33,15 +33,13 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
 
         public static float speedCoefficient = 5f;
 
-        public static string beginSoundString = "sfx_driver_dodge";
+        public static string beginSoundString = "Play_loader_m2_launch";
 
         public static string endSoundString = "sfx_submariner_dash";
 
         public static float damageCoefficient = SubmarinerConfig.harpoonDamageCoefficient.Value;
 
         public static float procCoefficient = 1f;
-
-        public static GameObject hitEffectPrefab = SubmarinerAssets.batHitEffectRed;
 
         public static float hitPauseDuration = 0.012f;
 
@@ -83,10 +81,10 @@ namespace SubmarinerMod.SubmarinerCharacter.SkillStates
             attack.pushAwayForce = 1f;
             attack.damage = damageCoefficient * damageStat;
             attack.hitBoxGroup = FindHitBoxGroup("HarpoonKickHitbox");
-            attack.hitEffectPrefab = SubmarinerAssets.batHitEffect;
+            attack.hitEffectPrefab = SubmarinerAssets.submarinerHitEffect;
             attack.AddModdedDamageType(DamageTypes.SubmarinerRegeneration);
             attack.damageType.damageSource = DamageSource.Secondary;
-            attack.impactSound = SubmarinerAssets.batImpactSoundEvent.index;
+            attack.impactSound = SubmarinerAssets.impactSound.index;
 
             FireProjectile();
             Util.PlaySound("Play_loader_m2_launch", base.gameObject);
