@@ -142,8 +142,6 @@ namespace SubmarinerMod.SubmarinerCharacter
 
             base.InitializeCharacter();
 
-            CameraParams.InitializeParams();
-
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
 
             DamageTypes.Init();

@@ -1,3 +1,7 @@
+# 1.1.2
+
+- Adjusted camera params to be more in line with commandos
+
 # 1.1.1 
 
 - Increased hitbox range to match mercenary

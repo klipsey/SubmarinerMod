@@ -143,17 +143,17 @@ namespace SubmarinerMod.Modules.Characters
         #endregion Stats
 
         #region Camera
-        public Vector3 aimOriginPosition = new Vector3(0f, 1.6f, 0f);
-        public Vector3 modelBasePosition = new Vector3(0f, -0.92f, 0f);
+        public Vector3 aimOriginPosition = new Vector3(0f, 0.5f, 0f);
+        public Vector3 modelBasePosition = new Vector3(0f, -0.9f, 0f);
 
         /// <summary> basically the "height" of your camera </summary>
-        public Vector3 cameraPivotPosition = new Vector3(0f, 0.8f, 0f);
+        public Vector3 cameraPivotPosition = new Vector3(0f, 0.5f, 0f);
 
         /// <summary> how far relative to the pivot is your camera's center </summary>
         public float cameraParamsVerticalOffset = 1.37f;
 
         /// <summary> large characters like loader are -12. for smaller characters like commando go for -10 maybe -9 </summary>
-        public float cameraParamsDepth = -10;
+        public float cameraParamsDepth = -8;
 
         private CharacterCameraParams _cameraParams;
         public CharacterCameraParams cameraParams
