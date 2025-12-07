@@ -1,3 +1,7 @@
+# 1.1.4
+
+- Works on my machine
+
 # 1.1.3
 
 - Adjusted dynamic bones, added ragdoll, updated some vfx, updated some sfx

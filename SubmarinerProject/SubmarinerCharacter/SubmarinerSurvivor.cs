@@ -171,6 +171,31 @@ namespace SubmarinerMod.SubmarinerCharacter
             TempVisualEffectAPI.AddTemporaryVisualEffect(SubmarinerAssets.regenerativeEffect, tempAdd);
             AddHitboxes();
             bodyPrefab.AddComponent<SubmarinerController>();
+
+            //stupid ass soundbank bs
+            var ok = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Croco/CrocoBody.prefab").WaitForCompletion().GetComponent<AkBank>();
+
+            var bodyBank = bodyPrefab.AddComponent<AkBank>();
+            bodyBank.triggerList = ok.triggerList;
+            bodyBank.data = ok.data;
+            bodyBank.useOtherObject = false;
+            bodyBank.decodeBank = false;
+            bodyBank.overrideLoadSetting = false;
+            bodyBank.loadAsynchronous = false;
+            bodyBank.saveDecodedBank = false;
+            bodyBank.unloadTriggerList = ok.unloadTriggerList;
+
+            ok = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Loader/LoaderBody.prefab").WaitForCompletion().GetComponent<AkBank>();
+
+            bodyBank = bodyPrefab.AddComponent<AkBank>();
+            bodyBank.triggerList = ok.triggerList;
+            bodyBank.data = ok.data;
+            bodyBank.useOtherObject = false;
+            bodyBank.decodeBank = false;
+            bodyBank.overrideLoadSetting = false;
+            bodyBank.loadAsynchronous = false;
+            bodyBank.saveDecodedBank = false;
+            bodyBank.unloadTriggerList = ok.unloadTriggerList;
         }
         public void AddHitboxes()
         {

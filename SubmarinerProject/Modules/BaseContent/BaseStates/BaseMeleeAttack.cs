@@ -198,7 +198,7 @@ namespace SubmarinerMod.Modules.BaseStates
         {
             ConsumeHitStopCachedState(hitStopCachedState, characterMotor, animator);
             inHitPause = false;
-            storedVelocity.y = Mathf.Max(storedVelocity.y, hitHopVelocity / Mathf.Sqrt(attackSpeedStat));
+            if(!characterMotor.isGrounded) storedVelocity.y = Mathf.Max(storedVelocity.y, hitHopVelocity / Mathf.Sqrt(attackSpeedStat));
             characterMotor.velocity = storedVelocity;
         }
 

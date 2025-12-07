@@ -24,7 +24,7 @@ namespace SubmarinerMod.SubmarinerCharacter.Content
             #region Submariner
             string prefix = SubmarinerSurvivor.SUBMARINER_PREFIX;
 
-            string desc = "Submariner is close range combatant that regenerates health quickly as she fights more enemies. Positioning properly is important to managing her regeneration and movement speed bonuses.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            string desc = "Submariner is a close range combatant that regenerates quickly in the heat of battle. Weaving in and out of combat with her movespeed bonuses is key to survival.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Keep up the pressure with melee hits to continuously regenerate health." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Use Reel-In to pull in smaller enemies and use it to avoid attacks by hitting larger enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Urchin Mine is a great way to quickly escape a sticky situation and to setup high damaging mines for later." + Environment.NewLine + Environment.NewLine;
